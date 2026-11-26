@@ -50,7 +50,7 @@ mkdir -p ~/supreme-octo-succotash/gonogo/logs
 cp ~/attnbasin_gonogo/logs/queue11.log ~/supreme-octo-succotash/gonogo/logs/
 ```
 
-E3 v2 reuses the complete E3 v1 generations. Once the data is in place, start queue 12 from the Git working copy. Start each queue only once.
+E3 v2 reuses the complete E3 v1 generations. Once the data is in place, start queue 12 from the Git working copy. Start each queue only once. Queue 12 checks before using the GPU that both `out/e3_readout/e3_think_*.jsonl` files contain every request in their manifests, and stops with a message if one is incomplete. Set `E3V2_ALLOW_PARTIAL_REUSE=1` only to regenerate the missing rows on purpose.
 
 ```bash
 cd ~/supreme-octo-succotash/gonogo

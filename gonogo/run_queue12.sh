@@ -24,6 +24,39 @@ for model in qwen3-4b qwen3-8b; do
     test -s "$v1/manifest_$model.jsonl"
 done
 
+# Think mode reuses the complete E3 v1 generations. With a partial copy (e.g. queue started before the
+# RUNBOOK.md copy step) the missing rows would be regenerated for hours, so stop before using the GPU.
+# Set E3V2_ALLOW_PARTIAL_REUSE=1 only to regenerate the missing rows on purpose.
+if [[ "${E3V2_ALLOW_PARTIAL_REUSE:-0}" != 1 ]]; then
+    for model in qwen3-4b qwen3-8b; do
+        "$PY" - "$v1/manifest_$model.jsonl" "$v1/e3_think_$model.jsonl" <<'PY'
+import json
+import sys
+
+manifest, data = sys.argv[1:]
+with open(manifest, encoding="utf-8") as f:
+    expected = {json.loads(line)["request_id"] for line in f if line.strip()}
+seen = set()
+try:
+    with open(data, encoding="utf-8") as f:
+        for line in f:
+            if line.strip():
+                row = json.loads(line)
+                if row.get("mode") == "think":
+                    seen.add(row["request_id"])
+except FileNotFoundError:
+    pass
+except ValueError:
+    sys.exit(f"{data}: unreadable line; was it copied while E3 v1 was still writing it?")
+missing = expected - seen
+if missing:
+    sys.exit(f"{data} has {len(expected) - len(missing)}/{len(expected)} v1 think generations. Copy the finished "
+             "E3 v1 output first (RUNBOOK.md), or set E3V2_ALLOW_PARTIAL_REUSE=1 to regenerate the rest.")
+print(f"{data}: all {len(expected)} v1 think generations present for reuse")
+PY
+    done
+fi
+
 for mode in direct think; do
     for model in qwen3-4b qwen3-8b; do
         stem="e3_${mode}_${model}"
