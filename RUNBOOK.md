@@ -1,10 +1,10 @@
-# 实验协作与运行记录
+# Experiment collaboration and runbook
 
-本仓库的代码与结果通过 GitHub `main` 共享。服务器有两个目录。`~/attnbasin_gonogo` 是此前建立的运行目录，正在执行 E3 第一版。`~/supreme-octo-succotash/gonogo` 是 Git 工作副本，后续实验从这里启动。两个目录的输出互不自动同步。
+GitHub `main` is the shared source for code and results. The GPU server has two project directories. `~/attnbasin_gonogo` is the original run directory where E3 v1 is currently running. `~/supreme-octo-succotash/gonogo` is the Git working copy for later experiments. Outputs do not sync automatically between them.
 
-## 每次开始工作
+## Start of each work session
 
-在本地仓库执行 `git pull --ff-only origin main`。在 GPU 的 Git 工作副本执行下面的命令。
+Run `git pull --ff-only origin main` in the local repository. On the GPU server, update the Git working copy with:
 
 ```bash
 cd ~/supreme-octo-succotash
@@ -12,11 +12,11 @@ git status --short --branch
 git pull --ff-only origin main
 ```
 
-修改代码或报告后，在修改所在的工作副本提交并推送。推送前再次拉取远端更新，遇到冲突时先处理冲突。共同使用一张 GPU，启动前检查 `tmux ls`、`nvidia-smi` 和队列日志，避免两人启动同一队列。
+Commit and push changes from the working copy where they were made. Pull remote updates before pushing, and resolve any conflicts. The collaborators share one GPU. Check `tmux ls`, `nvidia-smi`, and the queue logs before starting a job.
 
-## 当前运行与结果位置
+## Current job and result locations
 
-截至 2026-11-26 17:09（北京时间），旧目录中的 `attention_e3` 正在运行 `run_queue11.sh` 的最后一步 `e3_think_qwen3-8b`。已保存约 2,832/3,514 条。运行进度以服务器日志为准。
+At 17:09 China Standard Time on November 26, 2026, `attention_e3` was running the final E3 v1 step, `e3_think_qwen3-8b`, in the original directory. About 2,832 of 3,514 requests had been saved. Use the server logs for the current status.
 
 ```bash
 ssh gpu
@@ -27,21 +27,21 @@ tail -5 logs/e3_think_qwen3-8b.log
 nvidia-smi
 ```
 
-队列 11 的原始输出和报告在 `~/attnbasin_gonogo/out/e3_readout/`，每一步的日志在 `~/attnbasin_gonogo/logs/e3_*.log`。成功标记为 `logs/queue11.log` 中的 `QUEUE11_DONE`。运行中的 JSONL 会继续增长，复制前先核对写入已结束。
+Queue 11 writes raw results and reports to `~/attnbasin_gonogo/out/e3_readout/`. Step logs are in `~/attnbasin_gonogo/logs/e3_*.log`. Its completion marker is `QUEUE11_DONE` in `logs/queue11.log`. Wait for the writer to finish before copying the active JSONL file.
 
-| 实验 | 执行脚本 | 原始结果及报告 | 队列日志 |
+| Experiment | Entry point | Raw results and reports | Queue log |
 |---|---|---|---|
-| E1 候选集选择、校准 | `e1_run.py`、`e1_analyze.py` | `gonogo/out/e1_*`、`gonogo/results/report_e1_*.md` | `gonogo/logs/queue.log`、`queue9.log` |
-| E2 顺序与打印编号 | `run_queue10.sh` | `gonogo/out/e2_position_label/` | `gonogo/logs/queue10.log` |
-| E3 第一版，正在收尾 | `run_queue11.sh` | 旧目录 `out/e3_readout/` | 旧目录 `logs/queue11.log` |
-| E3 第二版 | `run_queue12.sh` | Git 工作副本 `gonogo/out/e3v2_readout/` | Git 工作副本 `gonogo/logs/queue12.log` |
-| E4 注意力与位置干预 | `run_queue13.sh` | Git 工作副本 `gonogo/out/e4_mask_position/` | Git 工作副本 `gonogo/logs/queue13.log` |
+| E1 candidate selection and calibration | `e1_run.py`, `e1_analyze.py` | `gonogo/out/e1_*`, `gonogo/results/report_e1_*.md` | `gonogo/logs/queue.log`, `queue9.log` |
+| E2 physical order and printed labels | `run_queue10.sh` | `gonogo/out/e2_position_label/` | `gonogo/logs/queue10.log` |
+| E3 v1, currently finishing | `run_queue11.sh` | Original directory `out/e3_readout/` | Original directory `logs/queue11.log` |
+| E3 v2 | `run_queue12.sh` | Git working copy `gonogo/out/e3v2_readout/` | Git working copy `gonogo/logs/queue12.log` |
+| E4 attention and position intervention | `run_queue13.sh` | Git working copy `gonogo/out/e4_mask_position/` | Git working copy `gonogo/logs/queue13.log` |
 
-图和汇总报告放在 `gonogo/results/`。各队列步骤的具体输入、输出和参数以相应 `run_queue*.sh` 为准。
+Figures and summary reports are in `gonogo/results/`. The `run_queue*.sh` scripts specify inputs, outputs, and parameters for each queue.
 
-## 旧目录的 E3 完成后
+## After E3 v1 finishes in the original directory
 
-先确认 `QUEUE11_DONE`，再把最终结果复制到 Git 工作副本。这个复制只针对 E3 第一版的数据和日志，保留工作副本中的新版代码。
+Confirm `QUEUE11_DONE`, then copy its final data to the Git working copy. These commands copy E3 v1 data and its queue log. They leave the newer code in the Git working copy intact.
 
 ```bash
 grep QUEUE11_DONE ~/attnbasin_gonogo/logs/queue11.log
@@ -50,7 +50,7 @@ mkdir -p ~/supreme-octo-succotash/gonogo/logs
 cp ~/attnbasin_gonogo/logs/queue11.log ~/supreme-octo-succotash/gonogo/logs/
 ```
 
-E3 第二版复用第一版的完整生成文本。准备好数据后，从 Git 工作副本启动队列 12。确认队列 12 成功后再启动队列 13，队列 13 会先运行两个模型的自检。每个队列只启动一次。
+E3 v2 reuses the complete E3 v1 generations. Once the data is in place, start queue 12 from the Git working copy. Start each queue only once.
 
 ```bash
 cd ~/supreme-octo-succotash/gonogo
@@ -58,7 +58,7 @@ tmux new-session -d -s attention_e3v2 'bash run_queue12.sh >>logs/queue12.log 2>
 tail -f logs/queue12.log
 ```
 
-队列 12 出现成功标记 `QUEUE12_DONE` 后，运行以下命令。
+After queue 12 reports `QUEUE12_DONE`, start queue 13. Queue 13 runs a self-test for each model before the main experiment.
 
 ```bash
 cd ~/supreme-octo-succotash/gonogo
@@ -67,11 +67,11 @@ tmux new-session -d -s attention_e4 'bash run_queue13.sh >>logs/queue13.log 2>&1
 tail -f logs/queue13.log
 ```
 
-队列 13 的成功标记为 `QUEUE13_DONE`。步骤失败时查看同目录的 `logs/e3v2_*.log` 或 `logs/e4_*.log`，修复后再按脚本的续跑逻辑重启。
+Queue 13 reports `QUEUE13_DONE` on success. For failed steps, inspect `logs/e3v2_*.log` or `logs/e4_*.log`, fix the problem, and follow the relevant script's resume behavior.
 
-## 同步新增结果
+## Sync new results
 
-在 GPU 的 Git 工作副本中查看变化、提交并推送。原始结果较大，推送可能需要数分钟。
+In the GPU Git working copy, review, commit, and push the completed outputs. Raw results can take several minutes to push.
 
 ```bash
 cd ~/supreme-octo-succotash
@@ -82,4 +82,4 @@ git pull --rebase origin main
 git push origin main
 ```
 
-本地随后运行 `git pull --ff-only origin main`。同事在推送前检查 `git status`，只提交自己确认过的结果和代码；数据写入期间不要提交尚未完成的 JSONL。
+Then run `git pull --ff-only origin main` locally. Check `git status` before committing and add only code and results you have reviewed. Do not commit a JSONL file while a job is still writing it.
