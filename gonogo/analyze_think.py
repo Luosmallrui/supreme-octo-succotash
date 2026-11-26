@@ -14,7 +14,8 @@ from scipy import stats
 from scipy.optimize import minimize
 
 ap = argparse.ArgumentParser()
-ap.add_argument("--dir", default="results")
+ap.add_argument("--dir", default="results", help="where reports and summaries are written")
+ap.add_argument("--data", default="out", help="raw run outputs that are read (sel*, keys, attn*, e1_*)")
 ap.add_argument("--model", default="qwen3-8b")
 ap.add_argument("--sel", default="selT2")
 ap.add_argument("--attn", default="attnT")
@@ -53,8 +54,8 @@ acc = lambda r: float(bool(r["correct"]))          # noqa: E731
 trunc = lambda r: float(r["chosen"] is None)        # noqa: E731
 done = lambda r: r["chosen"] is not None            # noqa: E731
 
-rows = load_jsonl(os.path.join(args.dir, f"{args.sel}_{args.model}.jsonl"))
-KEYS = json.load(open(os.path.join(args.dir, f"keys_{args.model}.json")))
+rows = load_jsonl(os.path.join(args.data, f"{args.sel}_{args.model}.jsonl"))
+KEYS = json.load(open(os.path.join(args.data, f"keys_{args.model}.json")))
 rep = [f"# {args.model}: thinking-mode position sweep ({args.sel})\n"]
 summ = {}
 
@@ -112,7 +113,7 @@ for N in summ:
     rep.append(f"  lift by slot {np.round(summ[N]['lift'], 2).tolist()} | P(pick k | k wrong) {np.round(summ[N]['fa'], 3).tolist()}")
 
 # ------------------------------------------------------------------ attention from reasoning tokens
-ap_ = os.path.join(args.dir, f"{args.attn}_{args.model}.pkl")
+ap_ = os.path.join(args.data, f"{args.attn}_{args.model}.pkl")
 attn_summ = {}
 if os.path.exists(ap_):
     recs = pickle.load(open(ap_, "rb"))
