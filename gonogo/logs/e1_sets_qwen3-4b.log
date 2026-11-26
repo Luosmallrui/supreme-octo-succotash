@@ -1,0 +1,27 @@
+{
+ "math500:N4": {
+  "eligible_problems_used": 100,
+  "sets": 100
+ },
+ "math500:N8": {
+  "eligible_problems_used": 100,
+  "sets": 100
+ },
+ "math500:N16": {
+  "eligible_problems_used": 100,
+  "sets": 100
+ },
+ "math500:N32": {
+  "eligible_problems_used": 40,
+  "sets": 80
+ },
+ "comp:N4": {
+  "eligible_problems_used": 33,
+  "sets": 33
+ },
+ "comp:N8": {
+  "eligible_problems_used": 29,
+  "sets": 29
+ }
+}
+442 sets

@@ -1,0 +1,23 @@
+{
+ "4": {
+  "elig_math": 118,
+  "elig_comp": 32,
+  "used": 150
+ },
+ "8": {
+  "elig_math": 97,
+  "elig_comp": 27,
+  "used": 124
+ },
+ "16": {
+  "elig_math": 62,
+  "elig_comp": 3,
+  "used": 63
+ },
+ "32": {
+  "elig_math": 13,
+  "elig_comp": 0,
+  "used": 13
+ }
+}
+3016 specs

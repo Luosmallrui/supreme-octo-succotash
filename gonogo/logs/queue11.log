@@ -1,0 +1,14 @@
+qwen3-4b: 129 problems, 3521 requests. Candidate excerpts unavailable for 0/1032: []
+{('answer', 'none'): 258, ('answer', 'numbered'): 948, ('answer', 'plain'): 258, ('label', 'numbered'): 948, ('lookup_quote', 'numbered'): 32, ('quote', 'numbered'): 948, ('solo_answer', 'none'): 129}
+qwen3-8b: 130 problems, 3514 requests. Candidate excerpts unavailable for 0/1040: []
+{('answer', 'none'): 260, ('answer', 'numbered'): 944, ('answer', 'plain'): 260, ('label', 'numbered'): 944, ('lookup_quote', 'numbered'): 32, ('quote', 'numbered'): 944, ('solo_answer', 'none'): 130}
+[2026-11-26T00:34:08+08:00] START e3_direct_qwen3-4b
+Verified 3521 requests
+[2026-11-26T01:07:41+08:00] OK e3_direct_qwen3-4b
+[2026-11-26T01:07:41+08:00] START e3_direct_qwen3-8b
+Verified 3514 requests
+[2026-11-26T01:46:16+08:00] OK e3_direct_qwen3-8b
+[2026-11-26T01:46:16+08:00] START e3_think_qwen3-4b
+Verified 3521 requests
+[2026-11-26T09:11:14+08:00] OK e3_think_qwen3-4b
+[2026-11-26T09:11:14+08:00] START e3_think_qwen3-8b

@@ -1,0 +1,21 @@
+[00:30:49] START smoke_gen_qwen3-4b
+[00:32:48] OK smoke_gen_qwen3-4b
+[00:32:48] START gen_qwen3-4b
+[02:22:19] OK gen_qwen3-4b
+[02:22:19] START grade_qwen3-4b
+[02:22:27] OK grade_qwen3-4b
+[02:22:27] START build_qwen3-4b
+[02:22:34] OK build_qwen3-4b
+[02:22:34] START e1_sets_qwen3-4b
+[02:22:39] OK e1_sets_qwen3-4b
+[02:22:39] START select_qwen3-4b
+[03:27:42] OK select_qwen3-4b
+[03:27:42] START attnA_qwen3-4b
+[04:46:06] OK attnA_qwen3-4b
+[04:46:06] START attnC_qwen3-4b
+[06:04:06] OK attnC_qwen3-4b
+[06:04:06] START e1_direct_qwen3-4b
+[07:32:40] OK e1_direct_qwen3-4b
+[07:32:40] START e1_think_qwen3-4b
+[11:34:59] OK e1_think_qwen3-4b
+[11:34:59] QUEUE9_DONE

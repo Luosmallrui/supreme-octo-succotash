@@ -1,0 +1,1048 @@
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "aime25-7", "pos": 1, "source": "aime25", "ks": [6, 12, 8, 22], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "aime25-7", "pos": 2, "source": "aime25", "ks": [12, 6, 8, 22], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "aime25-7", "pos": 3, "source": "aime25", "ks": [12, 8, 6, 22], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "aime25-7", "pos": 4, "source": "aime25", "ks": [12, 8, 22, 6], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "aime25-3", "pos": 1, "source": "aime25", "ks": [1, 0, 16, 29], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "aime25-3", "pos": 2, "source": "aime25", "ks": [0, 1, 16, 29], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "aime25-3", "pos": 3, "source": "aime25", "ks": [0, 16, 1, 29], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "aime25-3", "pos": 4, "source": "aime25", "ks": [0, 16, 29, 1], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "aime24-1", "pos": 1, "source": "aime24", "ks": [4, 16, 17, 3], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "aime24-1", "pos": 2, "source": "aime24", "ks": [16, 4, 17, 3], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "aime24-1", "pos": 3, "source": "aime24", "ks": [16, 17, 4, 3], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "aime24-1", "pos": 4, "source": "aime24", "ks": [16, 17, 3, 4], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "hmmt25-1", "pos": 1, "source": "hmmt25", "ks": [4, 31, 28, 15], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "hmmt25-1", "pos": 2, "source": "hmmt25", "ks": [31, 4, 28, 15], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "hmmt25-1", "pos": 3, "source": "hmmt25", "ks": [31, 28, 4, 15], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "hmmt25-1", "pos": 4, "source": "hmmt25", "ks": [31, 28, 15, 4], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "hmmt25-21", "pos": 1, "source": "hmmt25", "ks": [31, 29, 13, 8], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "hmmt25-21", "pos": 2, "source": "hmmt25", "ks": [29, 31, 13, 8], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "hmmt25-21", "pos": 3, "source": "hmmt25", "ks": [29, 13, 31, 8], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "hmmt25-21", "pos": 4, "source": "hmmt25", "ks": [29, 13, 8, 31], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "aime25-11", "pos": 1, "source": "aime25", "ks": [13, 25, 29, 18], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "aime25-11", "pos": 2, "source": "aime25", "ks": [25, 13, 29, 18], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "aime25-11", "pos": 3, "source": "aime25", "ks": [25, 29, 13, 18], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "aime25-11", "pos": 4, "source": "aime25", "ks": [25, 29, 18, 13], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "aime24-25", "pos": 1, "source": "aime24", "ks": [27, 25, 31, 3], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "aime24-25", "pos": 2, "source": "aime24", "ks": [25, 27, 31, 3], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "aime24-25", "pos": 3, "source": "aime24", "ks": [25, 31, 27, 3], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "aime24-25", "pos": 4, "source": "aime24", "ks": [25, 31, 3, 27], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "aime24-24", "pos": 1, "source": "aime24", "ks": [17, 30, 0, 18], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "aime24-24", "pos": 2, "source": "aime24", "ks": [30, 17, 0, 18], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "aime24-24", "pos": 3, "source": "aime24", "ks": [30, 0, 17, 18], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "aime24-24", "pos": 4, "source": "aime24", "ks": [30, 0, 18, 17], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "hmmt25-22", "pos": 1, "source": "hmmt25", "ks": [4, 12, 27, 9], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "hmmt25-22", "pos": 2, "source": "hmmt25", "ks": [12, 4, 27, 9], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "hmmt25-22", "pos": 3, "source": "hmmt25", "ks": [12, 27, 4, 9], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "hmmt25-22", "pos": 4, "source": "hmmt25", "ks": [12, 27, 9, 4], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "aime24-27", "pos": 1, "source": "aime24", "ks": [4, 17, 0, 21], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "aime24-27", "pos": 2, "source": "aime24", "ks": [17, 4, 0, 21], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "aime24-27", "pos": 3, "source": "aime24", "ks": [17, 0, 4, 21], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "aime24-27", "pos": 4, "source": "aime24", "ks": [17, 0, 21, 4], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "aime25-15", "pos": 1, "source": "aime25", "ks": [0, 8, 29, 2], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "aime25-15", "pos": 2, "source": "aime25", "ks": [8, 0, 29, 2], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "aime25-15", "pos": 3, "source": "aime25", "ks": [8, 29, 0, 2], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "aime25-15", "pos": 4, "source": "aime25", "ks": [8, 29, 2, 0], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "aime25-13", "pos": 1, "source": "aime25", "ks": [21, 1, 5, 26], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "aime25-13", "pos": 2, "source": "aime25", "ks": [1, 21, 5, 26], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "aime25-13", "pos": 3, "source": "aime25", "ks": [1, 5, 21, 26], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "aime25-13", "pos": 4, "source": "aime25", "ks": [1, 5, 26, 21], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "hmmt25-4", "pos": 1, "source": "hmmt25", "ks": [4, 20, 13, 5], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "hmmt25-4", "pos": 2, "source": "hmmt25", "ks": [20, 4, 13, 5], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "hmmt25-4", "pos": 3, "source": "hmmt25", "ks": [20, 13, 4, 5], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "hmmt25-4", "pos": 4, "source": "hmmt25", "ks": [20, 13, 5, 4], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "aime24-22", "pos": 1, "source": "aime24", "ks": [22, 24, 28, 15], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "aime24-22", "pos": 2, "source": "aime24", "ks": [24, 22, 28, 15], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "aime24-22", "pos": 3, "source": "aime24", "ks": [24, 28, 22, 15], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "aime24-22", "pos": 4, "source": "aime24", "ks": [24, 28, 15, 22], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "hmmt25-0", "pos": 1, "source": "hmmt25", "ks": [3, 7, 30, 10], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "hmmt25-0", "pos": 2, "source": "hmmt25", "ks": [7, 3, 30, 10], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "hmmt25-0", "pos": 3, "source": "hmmt25", "ks": [7, 30, 3, 10], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "hmmt25-0", "pos": 4, "source": "hmmt25", "ks": [7, 30, 10, 3], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "math500-333", "pos": 1, "source": "math500", "ks": [46, 44, 25, 4], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "math500-333", "pos": 2, "source": "math500", "ks": [44, 46, 25, 4], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "math500-333", "pos": 3, "source": "math500", "ks": [44, 25, 46, 4], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "math500-333", "pos": 4, "source": "math500", "ks": [44, 25, 4, 46], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "math500-338", "pos": 1, "source": "math500", "ks": [11, 5, 40, 29], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "math500-338", "pos": 2, "source": "math500", "ks": [5, 11, 40, 29], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "math500-338", "pos": 3, "source": "math500", "ks": [5, 40, 11, 29], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "math500-338", "pos": 4, "source": "math500", "ks": [5, 40, 29, 11], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "math500-240", "pos": 1, "source": "math500", "ks": [37, 60, 13, 45], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "math500-240", "pos": 2, "source": "math500", "ks": [60, 37, 13, 45], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "math500-240", "pos": 3, "source": "math500", "ks": [60, 13, 37, 45], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "math500-240", "pos": 4, "source": "math500", "ks": [60, 13, 45, 37], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "math500-88", "pos": 1, "source": "math500", "ks": [1, 20, 34, 9], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "math500-88", "pos": 2, "source": "math500", "ks": [20, 1, 34, 9], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "math500-88", "pos": 3, "source": "math500", "ks": [20, 34, 1, 9], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "math500-88", "pos": 4, "source": "math500", "ks": [20, 34, 9, 1], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "math500-103", "pos": 1, "source": "math500", "ks": [63, 56, 1, 43], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "math500-103", "pos": 2, "source": "math500", "ks": [56, 63, 1, 43], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "math500-103", "pos": 3, "source": "math500", "ks": [56, 1, 63, 43], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "math500-103", "pos": 4, "source": "math500", "ks": [56, 1, 43, 63], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "math500-62", "pos": 1, "source": "math500", "ks": [38, 6, 7, 3], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "math500-62", "pos": 2, "source": "math500", "ks": [6, 38, 7, 3], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "math500-62", "pos": 3, "source": "math500", "ks": [6, 7, 38, 3], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "math500-62", "pos": 4, "source": "math500", "ks": [6, 7, 3, 38], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "math500-168", "pos": 1, "source": "math500", "ks": [54, 55, 59, 33], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "math500-168", "pos": 2, "source": "math500", "ks": [55, 54, 59, 33], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "math500-168", "pos": 3, "source": "math500", "ks": [55, 59, 54, 33], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "math500-168", "pos": 4, "source": "math500", "ks": [55, 59, 33, 54], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "math500-236", "pos": 1, "source": "math500", "ks": [12, 21, 15, 39], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "math500-236", "pos": 2, "source": "math500", "ks": [21, 12, 15, 39], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "math500-236", "pos": 3, "source": "math500", "ks": [21, 15, 12, 39], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "math500-236", "pos": 4, "source": "math500", "ks": [21, 15, 39, 12], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "math500-382", "pos": 1, "source": "math500", "ks": [39, 47, 36, 23], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "math500-382", "pos": 2, "source": "math500", "ks": [47, 39, 36, 23], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "math500-382", "pos": 3, "source": "math500", "ks": [47, 36, 39, 23], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "math500-382", "pos": 4, "source": "math500", "ks": [47, 36, 23, 39], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "math500-10", "pos": 1, "source": "math500", "ks": [42, 1, 61, 4], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "math500-10", "pos": 2, "source": "math500", "ks": [1, 42, 61, 4], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "math500-10", "pos": 3, "source": "math500", "ks": [1, 61, 42, 4], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "math500-10", "pos": 4, "source": "math500", "ks": [1, 61, 4, 42], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "math500-323", "pos": 1, "source": "math500", "ks": [56, 33, 51, 53], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "math500-323", "pos": 2, "source": "math500", "ks": [33, 56, 51, 53], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "math500-323", "pos": 3, "source": "math500", "ks": [33, 51, 56, 53], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "math500-323", "pos": 4, "source": "math500", "ks": [33, 51, 53, 56], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "math500-309", "pos": 1, "source": "math500", "ks": [20, 31, 52, 14], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "math500-309", "pos": 2, "source": "math500", "ks": [31, 20, 52, 14], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "math500-309", "pos": 3, "source": "math500", "ks": [31, 52, 20, 14], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "math500-309", "pos": 4, "source": "math500", "ks": [31, 52, 14, 20], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "math500-274", "pos": 1, "source": "math500", "ks": [1, 2, 17, 44], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "math500-274", "pos": 2, "source": "math500", "ks": [2, 1, 17, 44], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "math500-274", "pos": 3, "source": "math500", "ks": [2, 17, 1, 44], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "math500-274", "pos": 4, "source": "math500", "ks": [2, 17, 44, 1], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "math500-26", "pos": 1, "source": "math500", "ks": [23, 29, 42, 48], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "math500-26", "pos": 2, "source": "math500", "ks": [29, 23, 42, 48], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "math500-26", "pos": 3, "source": "math500", "ks": [29, 42, 23, 48], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "math500-26", "pos": 4, "source": "math500", "ks": [29, 42, 48, 23], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "math500-483", "pos": 1, "source": "math500", "ks": [42, 17, 5, 14], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "math500-483", "pos": 2, "source": "math500", "ks": [17, 42, 5, 14], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "math500-483", "pos": 3, "source": "math500", "ks": [17, 5, 42, 14], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "math500-483", "pos": 4, "source": "math500", "ks": [17, 5, 14, 42], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "math500-151", "pos": 1, "source": "math500", "ks": [11, 19, 49, 17], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "math500-151", "pos": 2, "source": "math500", "ks": [19, 11, 49, 17], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "math500-151", "pos": 3, "source": "math500", "ks": [19, 49, 11, 17], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "math500-151", "pos": 4, "source": "math500", "ks": [19, 49, 17, 11], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "math500-18", "pos": 1, "source": "math500", "ks": [22, 8, 20, 28], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "math500-18", "pos": 2, "source": "math500", "ks": [8, 22, 20, 28], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "math500-18", "pos": 3, "source": "math500", "ks": [8, 20, 22, 28], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "math500-18", "pos": 4, "source": "math500", "ks": [8, 20, 28, 22], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "math500-15", "pos": 1, "source": "math500", "ks": [46, 44, 4, 28], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "math500-15", "pos": 2, "source": "math500", "ks": [44, 46, 4, 28], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "math500-15", "pos": 3, "source": "math500", "ks": [44, 4, 46, 28], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "math500-15", "pos": 4, "source": "math500", "ks": [44, 4, 28, 46], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "math500-473", "pos": 1, "source": "math500", "ks": [58, 19, 1, 49], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "math500-473", "pos": 2, "source": "math500", "ks": [19, 58, 1, 49], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "math500-473", "pos": 3, "source": "math500", "ks": [19, 1, 58, 49], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "math500-473", "pos": 4, "source": "math500", "ks": [19, 1, 49, 58], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "math500-317", "pos": 1, "source": "math500", "ks": [63, 26, 61, 55], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "math500-317", "pos": 2, "source": "math500", "ks": [26, 63, 61, 55], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "math500-317", "pos": 3, "source": "math500", "ks": [26, 61, 63, 55], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "math500-317", "pos": 4, "source": "math500", "ks": [26, 61, 55, 63], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "math500-324", "pos": 1, "source": "math500", "ks": [16, 60, 26, 51], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "math500-324", "pos": 2, "source": "math500", "ks": [60, 16, 26, 51], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "math500-324", "pos": 3, "source": "math500", "ks": [60, 26, 16, 51], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "math500-324", "pos": 4, "source": "math500", "ks": [60, 26, 51, 16], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "math500-326", "pos": 1, "source": "math500", "ks": [37, 6, 63, 33], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "math500-326", "pos": 2, "source": "math500", "ks": [6, 37, 63, 33], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "math500-326", "pos": 3, "source": "math500", "ks": [6, 63, 37, 33], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "math500-326", "pos": 4, "source": "math500", "ks": [6, 63, 33, 37], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "math500-444", "pos": 1, "source": "math500", "ks": [44, 42, 7, 14], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "math500-444", "pos": 2, "source": "math500", "ks": [42, 44, 7, 14], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "math500-444", "pos": 3, "source": "math500", "ks": [42, 7, 44, 14], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "math500-444", "pos": 4, "source": "math500", "ks": [42, 7, 14, 44], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "math500-394", "pos": 1, "source": "math500", "ks": [20, 13, 0, 60], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "math500-394", "pos": 2, "source": "math500", "ks": [13, 20, 0, 60], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "math500-394", "pos": 3, "source": "math500", "ks": [13, 0, 20, 60], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "math500-394", "pos": 4, "source": "math500", "ks": [13, 0, 60, 20], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "math500-64", "pos": 1, "source": "math500", "ks": [57, 15, 50, 34], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "math500-64", "pos": 2, "source": "math500", "ks": [15, 57, 50, 34], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "math500-64", "pos": 3, "source": "math500", "ks": [15, 50, 57, 34], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "math500-64", "pos": 4, "source": "math500", "ks": [15, 50, 34, 57], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "math500-101", "pos": 1, "source": "math500", "ks": [13, 63, 24, 36], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "math500-101", "pos": 2, "source": "math500", "ks": [63, 13, 24, 36], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "math500-101", "pos": 3, "source": "math500", "ks": [63, 24, 13, 36], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "math500-101", "pos": 4, "source": "math500", "ks": [63, 24, 36, 13], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "math500-223", "pos": 1, "source": "math500", "ks": [0, 52, 51, 46], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "math500-223", "pos": 2, "source": "math500", "ks": [52, 0, 51, 46], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "math500-223", "pos": 3, "source": "math500", "ks": [52, 51, 0, 46], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "math500-223", "pos": 4, "source": "math500", "ks": [52, 51, 46, 0], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "math500-100", "pos": 1, "source": "math500", "ks": [13, 39, 50, 6], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "math500-100", "pos": 2, "source": "math500", "ks": [39, 13, 50, 6], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "math500-100", "pos": 3, "source": "math500", "ks": [39, 50, 13, 6], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "math500-100", "pos": 4, "source": "math500", "ks": [39, 50, 6, 13], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "math500-380", "pos": 1, "source": "math500", "ks": [35, 14, 61, 1], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "math500-380", "pos": 2, "source": "math500", "ks": [14, 35, 61, 1], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "math500-380", "pos": 3, "source": "math500", "ks": [14, 61, 35, 1], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "math500-380", "pos": 4, "source": "math500", "ks": [14, 61, 1, 35], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "math500-349", "pos": 1, "source": "math500", "ks": [19, 15, 23, 42], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "math500-349", "pos": 2, "source": "math500", "ks": [15, 19, 23, 42], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "math500-349", "pos": 3, "source": "math500", "ks": [15, 23, 19, 42], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "math500-349", "pos": 4, "source": "math500", "ks": [15, 23, 42, 19], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "math500-460", "pos": 1, "source": "math500", "ks": [1, 50, 38, 21], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "math500-460", "pos": 2, "source": "math500", "ks": [50, 1, 38, 21], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "math500-460", "pos": 3, "source": "math500", "ks": [50, 38, 1, 21], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "math500-460", "pos": 4, "source": "math500", "ks": [50, 38, 21, 1], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "math500-71", "pos": 1, "source": "math500", "ks": [19, 57, 42, 15], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "math500-71", "pos": 2, "source": "math500", "ks": [57, 19, 42, 15], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "math500-71", "pos": 3, "source": "math500", "ks": [57, 42, 19, 15], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "math500-71", "pos": 4, "source": "math500", "ks": [57, 42, 15, 19], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "math500-92", "pos": 1, "source": "math500", "ks": [3, 53, 30, 34], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "math500-92", "pos": 2, "source": "math500", "ks": [53, 3, 30, 34], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "math500-92", "pos": 3, "source": "math500", "ks": [53, 30, 3, 34], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "math500-92", "pos": 4, "source": "math500", "ks": [53, 30, 34, 3], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "math500-130", "pos": 1, "source": "math500", "ks": [59, 37, 26, 8], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "math500-130", "pos": 2, "source": "math500", "ks": [37, 59, 26, 8], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "math500-130", "pos": 3, "source": "math500", "ks": [37, 26, 59, 8], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "math500-130", "pos": 4, "source": "math500", "ks": [37, 26, 8, 59], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "math500-33", "pos": 1, "source": "math500", "ks": [44, 18, 34, 36], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "math500-33", "pos": 2, "source": "math500", "ks": [18, 44, 34, 36], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "math500-33", "pos": 3, "source": "math500", "ks": [18, 34, 44, 36], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 4, "draw": 10, "pid": "math500-33", "pos": 4, "source": "math500", "ks": [18, 34, 36, 44], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "hmmt25-21", "pos": 1, "source": "hmmt25", "ks": [22, 4, 8, 17, 5, 11, 13, 14], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "hmmt25-21", "pos": 2, "source": "hmmt25", "ks": [4, 22, 8, 17, 5, 11, 13, 14], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "hmmt25-21", "pos": 3, "source": "hmmt25", "ks": [4, 8, 22, 17, 5, 11, 13, 14], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "hmmt25-21", "pos": 4, "source": "hmmt25", "ks": [4, 8, 17, 22, 5, 11, 13, 14], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "hmmt25-21", "pos": 5, "source": "hmmt25", "ks": [4, 8, 17, 5, 22, 11, 13, 14], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "hmmt25-21", "pos": 6, "source": "hmmt25", "ks": [4, 8, 17, 5, 11, 22, 13, 14], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "hmmt25-21", "pos": 7, "source": "hmmt25", "ks": [4, 8, 17, 5, 11, 13, 22, 14], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "hmmt25-21", "pos": 8, "source": "hmmt25", "ks": [4, 8, 17, 5, 11, 13, 14, 22], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "aime25-13", "pos": 1, "source": "aime25", "ks": [21, 30, 2, 9, 29, 23, 22, 1], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "aime25-13", "pos": 2, "source": "aime25", "ks": [30, 21, 2, 9, 29, 23, 22, 1], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "aime25-13", "pos": 3, "source": "aime25", "ks": [30, 2, 21, 9, 29, 23, 22, 1], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "aime25-13", "pos": 4, "source": "aime25", "ks": [30, 2, 9, 21, 29, 23, 22, 1], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "aime25-13", "pos": 5, "source": "aime25", "ks": [30, 2, 9, 29, 21, 23, 22, 1], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "aime25-13", "pos": 6, "source": "aime25", "ks": [30, 2, 9, 29, 23, 21, 22, 1], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "aime25-13", "pos": 7, "source": "aime25", "ks": [30, 2, 9, 29, 23, 22, 21, 1], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "aime25-13", "pos": 8, "source": "aime25", "ks": [30, 2, 9, 29, 23, 22, 1, 21], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "aime24-26", "pos": 1, "source": "aime24", "ks": [23, 2, 22, 1, 8, 11, 9, 27], "n_distinct_wrong": 7}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "aime24-26", "pos": 2, "source": "aime24", "ks": [2, 23, 22, 1, 8, 11, 9, 27], "n_distinct_wrong": 7}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "aime24-26", "pos": 3, "source": "aime24", "ks": [2, 22, 23, 1, 8, 11, 9, 27], "n_distinct_wrong": 7}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "aime24-26", "pos": 4, "source": "aime24", "ks": [2, 22, 1, 23, 8, 11, 9, 27], "n_distinct_wrong": 7}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "aime24-26", "pos": 5, "source": "aime24", "ks": [2, 22, 1, 8, 23, 11, 9, 27], "n_distinct_wrong": 7}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "aime24-26", "pos": 6, "source": "aime24", "ks": [2, 22, 1, 8, 11, 23, 9, 27], "n_distinct_wrong": 7}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "aime24-26", "pos": 7, "source": "aime24", "ks": [2, 22, 1, 8, 11, 9, 23, 27], "n_distinct_wrong": 7}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "aime24-26", "pos": 8, "source": "aime24", "ks": [2, 22, 1, 8, 11, 9, 27, 23], "n_distinct_wrong": 7}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "aime25-18", "pos": 1, "source": "aime25", "ks": [21, 4, 1, 20, 7, 3, 5, 9], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "aime25-18", "pos": 2, "source": "aime25", "ks": [4, 21, 1, 20, 7, 3, 5, 9], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "aime25-18", "pos": 3, "source": "aime25", "ks": [4, 1, 21, 20, 7, 3, 5, 9], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "aime25-18", "pos": 4, "source": "aime25", "ks": [4, 1, 20, 21, 7, 3, 5, 9], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "aime25-18", "pos": 5, "source": "aime25", "ks": [4, 1, 20, 7, 21, 3, 5, 9], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "aime25-18", "pos": 6, "source": "aime25", "ks": [4, 1, 20, 7, 3, 21, 5, 9], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "aime25-18", "pos": 7, "source": "aime25", "ks": [4, 1, 20, 7, 3, 5, 21, 9], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "aime25-18", "pos": 8, "source": "aime25", "ks": [4, 1, 20, 7, 3, 5, 9, 21], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "aime24-22", "pos": 1, "source": "aime24", "ks": [11, 7, 15, 28, 24, 26, 2, 27], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "aime24-22", "pos": 2, "source": "aime24", "ks": [7, 11, 15, 28, 24, 26, 2, 27], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "aime24-22", "pos": 3, "source": "aime24", "ks": [7, 15, 11, 28, 24, 26, 2, 27], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "aime24-22", "pos": 4, "source": "aime24", "ks": [7, 15, 28, 11, 24, 26, 2, 27], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "aime24-22", "pos": 5, "source": "aime24", "ks": [7, 15, 28, 24, 11, 26, 2, 27], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "aime24-22", "pos": 6, "source": "aime24", "ks": [7, 15, 28, 24, 26, 11, 2, 27], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "aime24-22", "pos": 7, "source": "aime24", "ks": [7, 15, 28, 24, 26, 2, 11, 27], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "aime24-22", "pos": 8, "source": "aime24", "ks": [7, 15, 28, 24, 26, 2, 27, 11], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "aime24-15", "pos": 1, "source": "aime24", "ks": [24, 23, 28, 6, 15, 30, 2, 20], "n_distinct_wrong": 4}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "aime24-15", "pos": 2, "source": "aime24", "ks": [23, 24, 28, 6, 15, 30, 2, 20], "n_distinct_wrong": 4}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "aime24-15", "pos": 3, "source": "aime24", "ks": [23, 28, 24, 6, 15, 30, 2, 20], "n_distinct_wrong": 4}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "aime24-15", "pos": 4, "source": "aime24", "ks": [23, 28, 6, 24, 15, 30, 2, 20], "n_distinct_wrong": 4}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "aime24-15", "pos": 5, "source": "aime24", "ks": [23, 28, 6, 15, 24, 30, 2, 20], "n_distinct_wrong": 4}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "aime24-15", "pos": 6, "source": "aime24", "ks": [23, 28, 6, 15, 30, 24, 2, 20], "n_distinct_wrong": 4}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "aime24-15", "pos": 7, "source": "aime24", "ks": [23, 28, 6, 15, 30, 2, 24, 20], "n_distinct_wrong": 4}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "aime24-15", "pos": 8, "source": "aime24", "ks": [23, 28, 6, 15, 30, 2, 20, 24], "n_distinct_wrong": 4}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "hmmt25-22", "pos": 1, "source": "hmmt25", "ks": [3, 0, 30, 24, 16, 25, 5, 27], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "hmmt25-22", "pos": 2, "source": "hmmt25", "ks": [0, 3, 30, 24, 16, 25, 5, 27], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "hmmt25-22", "pos": 3, "source": "hmmt25", "ks": [0, 30, 3, 24, 16, 25, 5, 27], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "hmmt25-22", "pos": 4, "source": "hmmt25", "ks": [0, 30, 24, 3, 16, 25, 5, 27], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "hmmt25-22", "pos": 5, "source": "hmmt25", "ks": [0, 30, 24, 16, 3, 25, 5, 27], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "hmmt25-22", "pos": 6, "source": "hmmt25", "ks": [0, 30, 24, 16, 25, 3, 5, 27], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "hmmt25-22", "pos": 7, "source": "hmmt25", "ks": [0, 30, 24, 16, 25, 5, 3, 27], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "hmmt25-22", "pos": 8, "source": "hmmt25", "ks": [0, 30, 24, 16, 25, 5, 27, 3], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "aime24-16", "pos": 1, "source": "aime24", "ks": [22, 11, 23, 3, 16, 21, 29, 14], "n_distinct_wrong": 7}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "aime24-16", "pos": 2, "source": "aime24", "ks": [11, 22, 23, 3, 16, 21, 29, 14], "n_distinct_wrong": 7}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "aime24-16", "pos": 3, "source": "aime24", "ks": [11, 23, 22, 3, 16, 21, 29, 14], "n_distinct_wrong": 7}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "aime24-16", "pos": 4, "source": "aime24", "ks": [11, 23, 3, 22, 16, 21, 29, 14], "n_distinct_wrong": 7}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "aime24-16", "pos": 5, "source": "aime24", "ks": [11, 23, 3, 16, 22, 21, 29, 14], "n_distinct_wrong": 7}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "aime24-16", "pos": 6, "source": "aime24", "ks": [11, 23, 3, 16, 21, 22, 29, 14], "n_distinct_wrong": 7}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "aime24-16", "pos": 7, "source": "aime24", "ks": [11, 23, 3, 16, 21, 29, 22, 14], "n_distinct_wrong": 7}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "aime24-16", "pos": 8, "source": "aime24", "ks": [11, 23, 3, 16, 21, 29, 14, 22], "n_distinct_wrong": 7}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "aime24-25", "pos": 1, "source": "aime24", "ks": [27, 31, 13, 15, 6, 25, 11, 3], "n_distinct_wrong": 4}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "aime24-25", "pos": 2, "source": "aime24", "ks": [31, 27, 13, 15, 6, 25, 11, 3], "n_distinct_wrong": 4}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "aime24-25", "pos": 3, "source": "aime24", "ks": [31, 13, 27, 15, 6, 25, 11, 3], "n_distinct_wrong": 4}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "aime24-25", "pos": 4, "source": "aime24", "ks": [31, 13, 15, 27, 6, 25, 11, 3], "n_distinct_wrong": 4}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "aime24-25", "pos": 5, "source": "aime24", "ks": [31, 13, 15, 6, 27, 25, 11, 3], "n_distinct_wrong": 4}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "aime24-25", "pos": 6, "source": "aime24", "ks": [31, 13, 15, 6, 25, 27, 11, 3], "n_distinct_wrong": 4}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "aime24-25", "pos": 7, "source": "aime24", "ks": [31, 13, 15, 6, 25, 11, 27, 3], "n_distinct_wrong": 4}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "aime24-25", "pos": 8, "source": "aime24", "ks": [31, 13, 15, 6, 25, 11, 3, 27], "n_distinct_wrong": 4}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "aime24-8", "pos": 1, "source": "aime24", "ks": [2, 25, 13, 3, 6, 26, 4, 12], "n_distinct_wrong": 4}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "aime24-8", "pos": 2, "source": "aime24", "ks": [25, 2, 13, 3, 6, 26, 4, 12], "n_distinct_wrong": 4}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "aime24-8", "pos": 3, "source": "aime24", "ks": [25, 13, 2, 3, 6, 26, 4, 12], "n_distinct_wrong": 4}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "aime24-8", "pos": 4, "source": "aime24", "ks": [25, 13, 3, 2, 6, 26, 4, 12], "n_distinct_wrong": 4}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "aime24-8", "pos": 5, "source": "aime24", "ks": [25, 13, 3, 6, 2, 26, 4, 12], "n_distinct_wrong": 4}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "aime24-8", "pos": 6, "source": "aime24", "ks": [25, 13, 3, 6, 26, 2, 4, 12], "n_distinct_wrong": 4}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "aime24-8", "pos": 7, "source": "aime24", "ks": [25, 13, 3, 6, 26, 4, 2, 12], "n_distinct_wrong": 4}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "aime24-8", "pos": 8, "source": "aime24", "ks": [25, 13, 3, 6, 26, 4, 12, 2], "n_distinct_wrong": 4}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "aime25-7", "pos": 1, "source": "aime25", "ks": [26, 20, 0, 29, 22, 30, 24, 25], "n_distinct_wrong": 6}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "aime25-7", "pos": 2, "source": "aime25", "ks": [20, 26, 0, 29, 22, 30, 24, 25], "n_distinct_wrong": 6}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "aime25-7", "pos": 3, "source": "aime25", "ks": [20, 0, 26, 29, 22, 30, 24, 25], "n_distinct_wrong": 6}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "aime25-7", "pos": 4, "source": "aime25", "ks": [20, 0, 29, 26, 22, 30, 24, 25], "n_distinct_wrong": 6}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "aime25-7", "pos": 5, "source": "aime25", "ks": [20, 0, 29, 22, 26, 30, 24, 25], "n_distinct_wrong": 6}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "aime25-7", "pos": 6, "source": "aime25", "ks": [20, 0, 29, 22, 30, 26, 24, 25], "n_distinct_wrong": 6}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "aime25-7", "pos": 7, "source": "aime25", "ks": [20, 0, 29, 22, 30, 24, 26, 25], "n_distinct_wrong": 6}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "aime25-7", "pos": 8, "source": "aime25", "ks": [20, 0, 29, 22, 30, 24, 25, 26], "n_distinct_wrong": 6}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "aime24-1", "pos": 1, "source": "aime24", "ks": [4, 5, 20, 14, 27, 16, 28, 30], "n_distinct_wrong": 4}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "aime24-1", "pos": 2, "source": "aime24", "ks": [5, 4, 20, 14, 27, 16, 28, 30], "n_distinct_wrong": 4}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "aime24-1", "pos": 3, "source": "aime24", "ks": [5, 20, 4, 14, 27, 16, 28, 30], "n_distinct_wrong": 4}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "aime24-1", "pos": 4, "source": "aime24", "ks": [5, 20, 14, 4, 27, 16, 28, 30], "n_distinct_wrong": 4}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "aime24-1", "pos": 5, "source": "aime24", "ks": [5, 20, 14, 27, 4, 16, 28, 30], "n_distinct_wrong": 4}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "aime24-1", "pos": 6, "source": "aime24", "ks": [5, 20, 14, 27, 16, 4, 28, 30], "n_distinct_wrong": 4}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "aime24-1", "pos": 7, "source": "aime24", "ks": [5, 20, 14, 27, 16, 28, 4, 30], "n_distinct_wrong": 4}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "aime24-1", "pos": 8, "source": "aime24", "ks": [5, 20, 14, 27, 16, 28, 30, 4], "n_distinct_wrong": 4}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-483", "pos": 1, "source": "math500", "ks": [32, 17, 62, 53, 56, 14, 1, 7], "n_distinct_wrong": 7}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-483", "pos": 2, "source": "math500", "ks": [17, 32, 62, 53, 56, 14, 1, 7], "n_distinct_wrong": 7}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-483", "pos": 3, "source": "math500", "ks": [17, 62, 32, 53, 56, 14, 1, 7], "n_distinct_wrong": 7}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-483", "pos": 4, "source": "math500", "ks": [17, 62, 53, 32, 56, 14, 1, 7], "n_distinct_wrong": 7}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-483", "pos": 5, "source": "math500", "ks": [17, 62, 53, 56, 32, 14, 1, 7], "n_distinct_wrong": 7}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-483", "pos": 6, "source": "math500", "ks": [17, 62, 53, 56, 14, 32, 1, 7], "n_distinct_wrong": 7}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-483", "pos": 7, "source": "math500", "ks": [17, 62, 53, 56, 14, 1, 32, 7], "n_distinct_wrong": 7}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-483", "pos": 8, "source": "math500", "ks": [17, 62, 53, 56, 14, 1, 7, 32], "n_distinct_wrong": 7}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-92", "pos": 1, "source": "math500", "ks": [15, 30, 19, 4, 61, 32, 8, 21], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-92", "pos": 2, "source": "math500", "ks": [30, 15, 19, 4, 61, 32, 8, 21], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-92", "pos": 3, "source": "math500", "ks": [30, 19, 15, 4, 61, 32, 8, 21], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-92", "pos": 4, "source": "math500", "ks": [30, 19, 4, 15, 61, 32, 8, 21], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-92", "pos": 5, "source": "math500", "ks": [30, 19, 4, 61, 15, 32, 8, 21], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-92", "pos": 6, "source": "math500", "ks": [30, 19, 4, 61, 32, 15, 8, 21], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-92", "pos": 7, "source": "math500", "ks": [30, 19, 4, 61, 32, 8, 15, 21], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-92", "pos": 8, "source": "math500", "ks": [30, 19, 4, 61, 32, 8, 21, 15], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-317", "pos": 1, "source": "math500", "ks": [18, 40, 53, 16, 17, 61, 0, 5], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-317", "pos": 2, "source": "math500", "ks": [40, 18, 53, 16, 17, 61, 0, 5], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-317", "pos": 3, "source": "math500", "ks": [40, 53, 18, 16, 17, 61, 0, 5], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-317", "pos": 4, "source": "math500", "ks": [40, 53, 16, 18, 17, 61, 0, 5], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-317", "pos": 5, "source": "math500", "ks": [40, 53, 16, 17, 18, 61, 0, 5], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-317", "pos": 6, "source": "math500", "ks": [40, 53, 16, 17, 61, 18, 0, 5], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-317", "pos": 7, "source": "math500", "ks": [40, 53, 16, 17, 61, 0, 18, 5], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-317", "pos": 8, "source": "math500", "ks": [40, 53, 16, 17, 61, 0, 5, 18], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-323", "pos": 1, "source": "math500", "ks": [15, 57, 7, 11, 33, 43, 6, 53], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-323", "pos": 2, "source": "math500", "ks": [57, 15, 7, 11, 33, 43, 6, 53], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-323", "pos": 3, "source": "math500", "ks": [57, 7, 15, 11, 33, 43, 6, 53], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-323", "pos": 4, "source": "math500", "ks": [57, 7, 11, 15, 33, 43, 6, 53], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-323", "pos": 5, "source": "math500", "ks": [57, 7, 11, 33, 15, 43, 6, 53], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-323", "pos": 6, "source": "math500", "ks": [57, 7, 11, 33, 43, 15, 6, 53], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-323", "pos": 7, "source": "math500", "ks": [57, 7, 11, 33, 43, 6, 15, 53], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-323", "pos": 8, "source": "math500", "ks": [57, 7, 11, 33, 43, 6, 53, 15], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-296", "pos": 1, "source": "math500", "ks": [17, 20, 62, 47, 14, 5, 44, 38], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-296", "pos": 2, "source": "math500", "ks": [20, 17, 62, 47, 14, 5, 44, 38], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-296", "pos": 3, "source": "math500", "ks": [20, 62, 17, 47, 14, 5, 44, 38], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-296", "pos": 4, "source": "math500", "ks": [20, 62, 47, 17, 14, 5, 44, 38], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-296", "pos": 5, "source": "math500", "ks": [20, 62, 47, 14, 17, 5, 44, 38], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-296", "pos": 6, "source": "math500", "ks": [20, 62, 47, 14, 5, 17, 44, 38], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-296", "pos": 7, "source": "math500", "ks": [20, 62, 47, 14, 5, 44, 17, 38], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-296", "pos": 8, "source": "math500", "ks": [20, 62, 47, 14, 5, 44, 38, 17], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-63", "pos": 1, "source": "math500", "ks": [62, 18, 25, 28, 24, 20, 12, 32], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-63", "pos": 2, "source": "math500", "ks": [18, 62, 25, 28, 24, 20, 12, 32], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-63", "pos": 3, "source": "math500", "ks": [18, 25, 62, 28, 24, 20, 12, 32], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-63", "pos": 4, "source": "math500", "ks": [18, 25, 28, 62, 24, 20, 12, 32], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-63", "pos": 5, "source": "math500", "ks": [18, 25, 28, 24, 62, 20, 12, 32], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-63", "pos": 6, "source": "math500", "ks": [18, 25, 28, 24, 20, 62, 12, 32], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-63", "pos": 7, "source": "math500", "ks": [18, 25, 28, 24, 20, 12, 62, 32], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-63", "pos": 8, "source": "math500", "ks": [18, 25, 28, 24, 20, 12, 32, 62], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-236", "pos": 1, "source": "math500", "ks": [10, 19, 51, 14, 7, 25, 21, 26], "n_distinct_wrong": 4}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-236", "pos": 2, "source": "math500", "ks": [19, 10, 51, 14, 7, 25, 21, 26], "n_distinct_wrong": 4}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-236", "pos": 3, "source": "math500", "ks": [19, 51, 10, 14, 7, 25, 21, 26], "n_distinct_wrong": 4}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-236", "pos": 4, "source": "math500", "ks": [19, 51, 14, 10, 7, 25, 21, 26], "n_distinct_wrong": 4}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-236", "pos": 5, "source": "math500", "ks": [19, 51, 14, 7, 10, 25, 21, 26], "n_distinct_wrong": 4}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-236", "pos": 6, "source": "math500", "ks": [19, 51, 14, 7, 25, 10, 21, 26], "n_distinct_wrong": 4}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-236", "pos": 7, "source": "math500", "ks": [19, 51, 14, 7, 25, 21, 10, 26], "n_distinct_wrong": 4}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-236", "pos": 8, "source": "math500", "ks": [19, 51, 14, 7, 25, 21, 26, 10], "n_distinct_wrong": 4}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-349", "pos": 1, "source": "math500", "ks": [54, 42, 10, 43, 63, 48, 1, 56], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-349", "pos": 2, "source": "math500", "ks": [42, 54, 10, 43, 63, 48, 1, 56], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-349", "pos": 3, "source": "math500", "ks": [42, 10, 54, 43, 63, 48, 1, 56], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-349", "pos": 4, "source": "math500", "ks": [42, 10, 43, 54, 63, 48, 1, 56], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-349", "pos": 5, "source": "math500", "ks": [42, 10, 43, 63, 54, 48, 1, 56], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-349", "pos": 6, "source": "math500", "ks": [42, 10, 43, 63, 48, 54, 1, 56], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-349", "pos": 7, "source": "math500", "ks": [42, 10, 43, 63, 48, 1, 54, 56], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-349", "pos": 8, "source": "math500", "ks": [42, 10, 43, 63, 48, 1, 56, 54], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-82", "pos": 1, "source": "math500", "ks": [53, 61, 45, 16, 11, 3, 29, 40], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-82", "pos": 2, "source": "math500", "ks": [61, 53, 45, 16, 11, 3, 29, 40], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-82", "pos": 3, "source": "math500", "ks": [61, 45, 53, 16, 11, 3, 29, 40], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-82", "pos": 4, "source": "math500", "ks": [61, 45, 16, 53, 11, 3, 29, 40], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-82", "pos": 5, "source": "math500", "ks": [61, 45, 16, 11, 53, 3, 29, 40], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-82", "pos": 6, "source": "math500", "ks": [61, 45, 16, 11, 3, 53, 29, 40], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-82", "pos": 7, "source": "math500", "ks": [61, 45, 16, 11, 3, 29, 53, 40], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-82", "pos": 8, "source": "math500", "ks": [61, 45, 16, 11, 3, 29, 40, 53], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-15", "pos": 1, "source": "math500", "ks": [47, 26, 4, 28, 37, 44, 42, 16], "n_distinct_wrong": 6}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-15", "pos": 2, "source": "math500", "ks": [26, 47, 4, 28, 37, 44, 42, 16], "n_distinct_wrong": 6}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-15", "pos": 3, "source": "math500", "ks": [26, 4, 47, 28, 37, 44, 42, 16], "n_distinct_wrong": 6}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-15", "pos": 4, "source": "math500", "ks": [26, 4, 28, 47, 37, 44, 42, 16], "n_distinct_wrong": 6}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-15", "pos": 5, "source": "math500", "ks": [26, 4, 28, 37, 47, 44, 42, 16], "n_distinct_wrong": 6}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-15", "pos": 6, "source": "math500", "ks": [26, 4, 28, 37, 44, 47, 42, 16], "n_distinct_wrong": 6}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-15", "pos": 7, "source": "math500", "ks": [26, 4, 28, 37, 44, 42, 47, 16], "n_distinct_wrong": 6}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-15", "pos": 8, "source": "math500", "ks": [26, 4, 28, 37, 44, 42, 16, 47], "n_distinct_wrong": 6}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-103", "pos": 1, "source": "math500", "ks": [63, 56, 24, 49, 7, 1, 43, 25], "n_distinct_wrong": 6}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-103", "pos": 2, "source": "math500", "ks": [56, 63, 24, 49, 7, 1, 43, 25], "n_distinct_wrong": 6}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-103", "pos": 3, "source": "math500", "ks": [56, 24, 63, 49, 7, 1, 43, 25], "n_distinct_wrong": 6}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-103", "pos": 4, "source": "math500", "ks": [56, 24, 49, 63, 7, 1, 43, 25], "n_distinct_wrong": 6}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-103", "pos": 5, "source": "math500", "ks": [56, 24, 49, 7, 63, 1, 43, 25], "n_distinct_wrong": 6}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-103", "pos": 6, "source": "math500", "ks": [56, 24, 49, 7, 1, 63, 43, 25], "n_distinct_wrong": 6}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-103", "pos": 7, "source": "math500", "ks": [56, 24, 49, 7, 1, 43, 63, 25], "n_distinct_wrong": 6}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-103", "pos": 8, "source": "math500", "ks": [56, 24, 49, 7, 1, 43, 25, 63], "n_distinct_wrong": 6}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-50", "pos": 1, "source": "math500", "ks": [52, 59, 5, 58, 34, 48, 25, 19], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-50", "pos": 2, "source": "math500", "ks": [59, 52, 5, 58, 34, 48, 25, 19], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-50", "pos": 3, "source": "math500", "ks": [59, 5, 52, 58, 34, 48, 25, 19], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-50", "pos": 4, "source": "math500", "ks": [59, 5, 58, 52, 34, 48, 25, 19], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-50", "pos": 5, "source": "math500", "ks": [59, 5, 58, 34, 52, 48, 25, 19], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-50", "pos": 6, "source": "math500", "ks": [59, 5, 58, 34, 48, 52, 25, 19], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-50", "pos": 7, "source": "math500", "ks": [59, 5, 58, 34, 48, 25, 52, 19], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-50", "pos": 8, "source": "math500", "ks": [59, 5, 58, 34, 48, 25, 19, 52], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-274", "pos": 1, "source": "math500", "ks": [6, 17, 15, 14, 59, 40, 44, 33], "n_distinct_wrong": 7}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-274", "pos": 2, "source": "math500", "ks": [17, 6, 15, 14, 59, 40, 44, 33], "n_distinct_wrong": 7}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-274", "pos": 3, "source": "math500", "ks": [17, 15, 6, 14, 59, 40, 44, 33], "n_distinct_wrong": 7}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-274", "pos": 4, "source": "math500", "ks": [17, 15, 14, 6, 59, 40, 44, 33], "n_distinct_wrong": 7}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-274", "pos": 5, "source": "math500", "ks": [17, 15, 14, 59, 6, 40, 44, 33], "n_distinct_wrong": 7}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-274", "pos": 6, "source": "math500", "ks": [17, 15, 14, 59, 40, 6, 44, 33], "n_distinct_wrong": 7}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-274", "pos": 7, "source": "math500", "ks": [17, 15, 14, 59, 40, 44, 6, 33], "n_distinct_wrong": 7}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-274", "pos": 8, "source": "math500", "ks": [17, 15, 14, 59, 40, 44, 33, 6], "n_distinct_wrong": 7}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-333", "pos": 1, "source": "math500", "ks": [8, 44, 57, 25, 2, 22, 4, 14], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-333", "pos": 2, "source": "math500", "ks": [44, 8, 57, 25, 2, 22, 4, 14], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-333", "pos": 3, "source": "math500", "ks": [44, 57, 8, 25, 2, 22, 4, 14], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-333", "pos": 4, "source": "math500", "ks": [44, 57, 25, 8, 2, 22, 4, 14], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-333", "pos": 5, "source": "math500", "ks": [44, 57, 25, 2, 8, 22, 4, 14], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-333", "pos": 6, "source": "math500", "ks": [44, 57, 25, 2, 22, 8, 4, 14], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-333", "pos": 7, "source": "math500", "ks": [44, 57, 25, 2, 22, 4, 8, 14], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-333", "pos": 8, "source": "math500", "ks": [44, 57, 25, 2, 22, 4, 14, 8], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-128", "pos": 1, "source": "math500", "ks": [28, 22, 31, 62, 30, 8, 0, 21], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-128", "pos": 2, "source": "math500", "ks": [22, 28, 31, 62, 30, 8, 0, 21], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-128", "pos": 3, "source": "math500", "ks": [22, 31, 28, 62, 30, 8, 0, 21], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-128", "pos": 4, "source": "math500", "ks": [22, 31, 62, 28, 30, 8, 0, 21], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-128", "pos": 5, "source": "math500", "ks": [22, 31, 62, 30, 28, 8, 0, 21], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-128", "pos": 6, "source": "math500", "ks": [22, 31, 62, 30, 8, 28, 0, 21], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-128", "pos": 7, "source": "math500", "ks": [22, 31, 62, 30, 8, 0, 28, 21], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-128", "pos": 8, "source": "math500", "ks": [22, 31, 62, 30, 8, 0, 21, 28], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-147", "pos": 1, "source": "math500", "ks": [1, 40, 22, 51, 14, 52, 19, 60], "n_distinct_wrong": 4}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-147", "pos": 2, "source": "math500", "ks": [40, 1, 22, 51, 14, 52, 19, 60], "n_distinct_wrong": 4}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-147", "pos": 3, "source": "math500", "ks": [40, 22, 1, 51, 14, 52, 19, 60], "n_distinct_wrong": 4}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-147", "pos": 4, "source": "math500", "ks": [40, 22, 51, 1, 14, 52, 19, 60], "n_distinct_wrong": 4}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-147", "pos": 5, "source": "math500", "ks": [40, 22, 51, 14, 1, 52, 19, 60], "n_distinct_wrong": 4}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-147", "pos": 6, "source": "math500", "ks": [40, 22, 51, 14, 52, 1, 19, 60], "n_distinct_wrong": 4}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-147", "pos": 7, "source": "math500", "ks": [40, 22, 51, 14, 52, 19, 1, 60], "n_distinct_wrong": 4}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-147", "pos": 8, "source": "math500", "ks": [40, 22, 51, 14, 52, 19, 60, 1], "n_distinct_wrong": 4}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-444", "pos": 1, "source": "math500", "ks": [44, 31, 54, 62, 49, 57, 59, 11], "n_distinct_wrong": 7}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-444", "pos": 2, "source": "math500", "ks": [31, 44, 54, 62, 49, 57, 59, 11], "n_distinct_wrong": 7}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-444", "pos": 3, "source": "math500", "ks": [31, 54, 44, 62, 49, 57, 59, 11], "n_distinct_wrong": 7}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-444", "pos": 4, "source": "math500", "ks": [31, 54, 62, 44, 49, 57, 59, 11], "n_distinct_wrong": 7}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-444", "pos": 5, "source": "math500", "ks": [31, 54, 62, 49, 44, 57, 59, 11], "n_distinct_wrong": 7}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-444", "pos": 6, "source": "math500", "ks": [31, 54, 62, 49, 57, 44, 59, 11], "n_distinct_wrong": 7}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-444", "pos": 7, "source": "math500", "ks": [31, 54, 62, 49, 57, 59, 44, 11], "n_distinct_wrong": 7}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-444", "pos": 8, "source": "math500", "ks": [31, 54, 62, 49, 57, 59, 11, 44], "n_distinct_wrong": 7}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-448", "pos": 1, "source": "math500", "ks": [45, 18, 20, 4, 44, 2, 60, 49], "n_distinct_wrong": 6}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-448", "pos": 2, "source": "math500", "ks": [18, 45, 20, 4, 44, 2, 60, 49], "n_distinct_wrong": 6}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-448", "pos": 3, "source": "math500", "ks": [18, 20, 45, 4, 44, 2, 60, 49], "n_distinct_wrong": 6}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-448", "pos": 4, "source": "math500", "ks": [18, 20, 4, 45, 44, 2, 60, 49], "n_distinct_wrong": 6}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-448", "pos": 5, "source": "math500", "ks": [18, 20, 4, 44, 45, 2, 60, 49], "n_distinct_wrong": 6}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-448", "pos": 6, "source": "math500", "ks": [18, 20, 4, 44, 2, 45, 60, 49], "n_distinct_wrong": 6}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-448", "pos": 7, "source": "math500", "ks": [18, 20, 4, 44, 2, 60, 45, 49], "n_distinct_wrong": 6}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-448", "pos": 8, "source": "math500", "ks": [18, 20, 4, 44, 2, 60, 49, 45], "n_distinct_wrong": 6}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-276", "pos": 1, "source": "math500", "ks": [7, 45, 37, 27, 33, 20, 57, 5], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-276", "pos": 2, "source": "math500", "ks": [45, 7, 37, 27, 33, 20, 57, 5], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-276", "pos": 3, "source": "math500", "ks": [45, 37, 7, 27, 33, 20, 57, 5], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-276", "pos": 4, "source": "math500", "ks": [45, 37, 27, 7, 33, 20, 57, 5], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-276", "pos": 5, "source": "math500", "ks": [45, 37, 27, 33, 7, 20, 57, 5], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-276", "pos": 6, "source": "math500", "ks": [45, 37, 27, 33, 20, 7, 57, 5], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-276", "pos": 7, "source": "math500", "ks": [45, 37, 27, 33, 20, 57, 7, 5], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-276", "pos": 8, "source": "math500", "ks": [45, 37, 27, 33, 20, 57, 5, 7], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-64", "pos": 1, "source": "math500", "ks": [0, 15, 56, 27, 35, 13, 52, 28], "n_distinct_wrong": 6}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-64", "pos": 2, "source": "math500", "ks": [15, 0, 56, 27, 35, 13, 52, 28], "n_distinct_wrong": 6}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-64", "pos": 3, "source": "math500", "ks": [15, 56, 0, 27, 35, 13, 52, 28], "n_distinct_wrong": 6}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-64", "pos": 4, "source": "math500", "ks": [15, 56, 27, 0, 35, 13, 52, 28], "n_distinct_wrong": 6}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-64", "pos": 5, "source": "math500", "ks": [15, 56, 27, 35, 0, 13, 52, 28], "n_distinct_wrong": 6}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-64", "pos": 6, "source": "math500", "ks": [15, 56, 27, 35, 13, 0, 52, 28], "n_distinct_wrong": 6}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-64", "pos": 7, "source": "math500", "ks": [15, 56, 27, 35, 13, 52, 0, 28], "n_distinct_wrong": 6}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-64", "pos": 8, "source": "math500", "ks": [15, 56, 27, 35, 13, 52, 28, 0], "n_distinct_wrong": 6}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-288", "pos": 1, "source": "math500", "ks": [10, 63, 29, 23, 45, 57, 30, 0], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-288", "pos": 2, "source": "math500", "ks": [63, 10, 29, 23, 45, 57, 30, 0], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-288", "pos": 3, "source": "math500", "ks": [63, 29, 10, 23, 45, 57, 30, 0], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-288", "pos": 4, "source": "math500", "ks": [63, 29, 23, 10, 45, 57, 30, 0], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-288", "pos": 5, "source": "math500", "ks": [63, 29, 23, 45, 10, 57, 30, 0], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-288", "pos": 6, "source": "math500", "ks": [63, 29, 23, 45, 57, 10, 30, 0], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-288", "pos": 7, "source": "math500", "ks": [63, 29, 23, 45, 57, 30, 10, 0], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-288", "pos": 8, "source": "math500", "ks": [63, 29, 23, 45, 57, 30, 0, 10], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-213", "pos": 1, "source": "math500", "ks": [20, 3, 28, 48, 59, 26, 13, 6], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-213", "pos": 2, "source": "math500", "ks": [3, 20, 28, 48, 59, 26, 13, 6], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-213", "pos": 3, "source": "math500", "ks": [3, 28, 20, 48, 59, 26, 13, 6], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-213", "pos": 4, "source": "math500", "ks": [3, 28, 48, 20, 59, 26, 13, 6], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-213", "pos": 5, "source": "math500", "ks": [3, 28, 48, 59, 20, 26, 13, 6], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-213", "pos": 6, "source": "math500", "ks": [3, 28, 48, 59, 26, 20, 13, 6], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-213", "pos": 7, "source": "math500", "ks": [3, 28, 48, 59, 26, 13, 20, 6], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-213", "pos": 8, "source": "math500", "ks": [3, 28, 48, 59, 26, 13, 6, 20], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-425", "pos": 1, "source": "math500", "ks": [16, 35, 36, 33, 9, 52, 2, 12], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-425", "pos": 2, "source": "math500", "ks": [35, 16, 36, 33, 9, 52, 2, 12], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-425", "pos": 3, "source": "math500", "ks": [35, 36, 16, 33, 9, 52, 2, 12], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-425", "pos": 4, "source": "math500", "ks": [35, 36, 33, 16, 9, 52, 2, 12], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-425", "pos": 5, "source": "math500", "ks": [35, 36, 33, 9, 16, 52, 2, 12], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-425", "pos": 6, "source": "math500", "ks": [35, 36, 33, 9, 52, 16, 2, 12], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-425", "pos": 7, "source": "math500", "ks": [35, 36, 33, 9, 52, 2, 16, 12], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-425", "pos": 8, "source": "math500", "ks": [35, 36, 33, 9, 52, 2, 12, 16], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-292", "pos": 1, "source": "math500", "ks": [63, 40, 44, 34, 1, 2, 8, 37], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-292", "pos": 2, "source": "math500", "ks": [40, 63, 44, 34, 1, 2, 8, 37], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-292", "pos": 3, "source": "math500", "ks": [40, 44, 63, 34, 1, 2, 8, 37], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-292", "pos": 4, "source": "math500", "ks": [40, 44, 34, 63, 1, 2, 8, 37], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-292", "pos": 5, "source": "math500", "ks": [40, 44, 34, 1, 63, 2, 8, 37], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-292", "pos": 6, "source": "math500", "ks": [40, 44, 34, 1, 2, 63, 8, 37], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-292", "pos": 7, "source": "math500", "ks": [40, 44, 34, 1, 2, 8, 63, 37], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-292", "pos": 8, "source": "math500", "ks": [40, 44, 34, 1, 2, 8, 37, 63], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-326", "pos": 1, "source": "math500", "ks": [36, 23, 31, 4, 33, 32, 52, 61], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-326", "pos": 2, "source": "math500", "ks": [23, 36, 31, 4, 33, 32, 52, 61], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-326", "pos": 3, "source": "math500", "ks": [23, 31, 36, 4, 33, 32, 52, 61], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-326", "pos": 4, "source": "math500", "ks": [23, 31, 4, 36, 33, 32, 52, 61], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-326", "pos": 5, "source": "math500", "ks": [23, 31, 4, 33, 36, 32, 52, 61], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-326", "pos": 6, "source": "math500", "ks": [23, 31, 4, 33, 32, 36, 52, 61], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-326", "pos": 7, "source": "math500", "ks": [23, 31, 4, 33, 32, 52, 36, 61], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-326", "pos": 8, "source": "math500", "ks": [23, 31, 4, 33, 32, 52, 61, 36], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-403", "pos": 1, "source": "math500", "ks": [41, 27, 57, 16, 2, 60, 7, 58], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-403", "pos": 2, "source": "math500", "ks": [27, 41, 57, 16, 2, 60, 7, 58], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-403", "pos": 3, "source": "math500", "ks": [27, 57, 41, 16, 2, 60, 7, 58], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-403", "pos": 4, "source": "math500", "ks": [27, 57, 16, 41, 2, 60, 7, 58], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-403", "pos": 5, "source": "math500", "ks": [27, 57, 16, 2, 41, 60, 7, 58], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-403", "pos": 6, "source": "math500", "ks": [27, 57, 16, 2, 60, 41, 7, 58], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-403", "pos": 7, "source": "math500", "ks": [27, 57, 16, 2, 60, 7, 41, 58], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-403", "pos": 8, "source": "math500", "ks": [27, 57, 16, 2, 60, 7, 58, 41], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-332", "pos": 1, "source": "math500", "ks": [63, 17, 19, 3, 33, 12, 42, 15], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-332", "pos": 2, "source": "math500", "ks": [17, 63, 19, 3, 33, 12, 42, 15], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-332", "pos": 3, "source": "math500", "ks": [17, 19, 63, 3, 33, 12, 42, 15], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-332", "pos": 4, "source": "math500", "ks": [17, 19, 3, 63, 33, 12, 42, 15], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-332", "pos": 5, "source": "math500", "ks": [17, 19, 3, 33, 63, 12, 42, 15], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-332", "pos": 6, "source": "math500", "ks": [17, 19, 3, 33, 12, 63, 42, 15], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-332", "pos": 7, "source": "math500", "ks": [17, 19, 3, 33, 12, 42, 63, 15], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-332", "pos": 8, "source": "math500", "ks": [17, 19, 3, 33, 12, 42, 15, 63], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-328", "pos": 1, "source": "math500", "ks": [17, 51, 23, 33, 2, 44, 41, 16], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-328", "pos": 2, "source": "math500", "ks": [51, 17, 23, 33, 2, 44, 41, 16], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-328", "pos": 3, "source": "math500", "ks": [51, 23, 17, 33, 2, 44, 41, 16], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-328", "pos": 4, "source": "math500", "ks": [51, 23, 33, 17, 2, 44, 41, 16], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-328", "pos": 5, "source": "math500", "ks": [51, 23, 33, 2, 17, 44, 41, 16], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-328", "pos": 6, "source": "math500", "ks": [51, 23, 33, 2, 44, 17, 41, 16], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-328", "pos": 7, "source": "math500", "ks": [51, 23, 33, 2, 44, 41, 17, 16], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-328", "pos": 8, "source": "math500", "ks": [51, 23, 33, 2, 44, 41, 16, 17], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-166", "pos": 1, "source": "math500", "ks": [13, 3, 44, 46, 55, 12, 35, 49], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-166", "pos": 2, "source": "math500", "ks": [3, 13, 44, 46, 55, 12, 35, 49], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-166", "pos": 3, "source": "math500", "ks": [3, 44, 13, 46, 55, 12, 35, 49], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-166", "pos": 4, "source": "math500", "ks": [3, 44, 46, 13, 55, 12, 35, 49], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-166", "pos": 5, "source": "math500", "ks": [3, 44, 46, 55, 13, 12, 35, 49], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-166", "pos": 6, "source": "math500", "ks": [3, 44, 46, 55, 12, 13, 35, 49], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-166", "pos": 7, "source": "math500", "ks": [3, 44, 46, 55, 12, 35, 13, 49], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-166", "pos": 8, "source": "math500", "ks": [3, 44, 46, 55, 12, 35, 49, 13], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-279", "pos": 1, "source": "math500", "ks": [6, 12, 15, 18, 17, 57, 58, 36], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-279", "pos": 2, "source": "math500", "ks": [12, 6, 15, 18, 17, 57, 58, 36], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-279", "pos": 3, "source": "math500", "ks": [12, 15, 6, 18, 17, 57, 58, 36], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-279", "pos": 4, "source": "math500", "ks": [12, 15, 18, 6, 17, 57, 58, 36], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-279", "pos": 5, "source": "math500", "ks": [12, 15, 18, 17, 6, 57, 58, 36], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-279", "pos": 6, "source": "math500", "ks": [12, 15, 18, 17, 57, 6, 58, 36], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-279", "pos": 7, "source": "math500", "ks": [12, 15, 18, 17, 57, 58, 6, 36], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-279", "pos": 8, "source": "math500", "ks": [12, 15, 18, 17, 57, 58, 36, 6], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-302", "pos": 1, "source": "math500", "ks": [21, 53, 57, 48, 9, 30, 8, 7], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-302", "pos": 2, "source": "math500", "ks": [53, 21, 57, 48, 9, 30, 8, 7], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-302", "pos": 3, "source": "math500", "ks": [53, 57, 21, 48, 9, 30, 8, 7], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-302", "pos": 4, "source": "math500", "ks": [53, 57, 48, 21, 9, 30, 8, 7], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-302", "pos": 5, "source": "math500", "ks": [53, 57, 48, 9, 21, 30, 8, 7], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-302", "pos": 6, "source": "math500", "ks": [53, 57, 48, 9, 30, 21, 8, 7], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-302", "pos": 7, "source": "math500", "ks": [53, 57, 48, 9, 30, 8, 21, 7], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-302", "pos": 8, "source": "math500", "ks": [53, 57, 48, 9, 30, 8, 7, 21], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-408", "pos": 1, "source": "math500", "ks": [33, 61, 50, 16, 19, 42, 63, 5], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-408", "pos": 2, "source": "math500", "ks": [61, 33, 50, 16, 19, 42, 63, 5], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-408", "pos": 3, "source": "math500", "ks": [61, 50, 33, 16, 19, 42, 63, 5], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-408", "pos": 4, "source": "math500", "ks": [61, 50, 16, 33, 19, 42, 63, 5], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-408", "pos": 5, "source": "math500", "ks": [61, 50, 16, 19, 33, 42, 63, 5], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-408", "pos": 6, "source": "math500", "ks": [61, 50, 16, 19, 42, 33, 63, 5], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-408", "pos": 7, "source": "math500", "ks": [61, 50, 16, 19, 42, 63, 33, 5], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-408", "pos": 8, "source": "math500", "ks": [61, 50, 16, 19, 42, 63, 5, 33], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-365", "pos": 1, "source": "math500", "ks": [10, 47, 44, 48, 27, 42, 35, 54], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-365", "pos": 2, "source": "math500", "ks": [47, 10, 44, 48, 27, 42, 35, 54], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-365", "pos": 3, "source": "math500", "ks": [47, 44, 10, 48, 27, 42, 35, 54], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-365", "pos": 4, "source": "math500", "ks": [47, 44, 48, 10, 27, 42, 35, 54], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-365", "pos": 5, "source": "math500", "ks": [47, 44, 48, 27, 10, 42, 35, 54], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-365", "pos": 6, "source": "math500", "ks": [47, 44, 48, 27, 42, 10, 35, 54], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-365", "pos": 7, "source": "math500", "ks": [47, 44, 48, 27, 42, 35, 10, 54], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-365", "pos": 8, "source": "math500", "ks": [47, 44, 48, 27, 42, 35, 54, 10], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-89", "pos": 1, "source": "math500", "ks": [30, 17, 61, 21, 25, 13, 20, 37], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-89", "pos": 2, "source": "math500", "ks": [17, 30, 61, 21, 25, 13, 20, 37], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-89", "pos": 3, "source": "math500", "ks": [17, 61, 30, 21, 25, 13, 20, 37], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-89", "pos": 4, "source": "math500", "ks": [17, 61, 21, 30, 25, 13, 20, 37], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-89", "pos": 5, "source": "math500", "ks": [17, 61, 21, 25, 30, 13, 20, 37], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-89", "pos": 6, "source": "math500", "ks": [17, 61, 21, 25, 13, 30, 20, 37], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-89", "pos": 7, "source": "math500", "ks": [17, 61, 21, 25, 13, 20, 30, 37], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-89", "pos": 8, "source": "math500", "ks": [17, 61, 21, 25, 13, 20, 37, 30], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-145", "pos": 1, "source": "math500", "ks": [7, 26, 23, 62, 24, 55, 2, 51], "n_distinct_wrong": 6}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-145", "pos": 2, "source": "math500", "ks": [26, 7, 23, 62, 24, 55, 2, 51], "n_distinct_wrong": 6}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-145", "pos": 3, "source": "math500", "ks": [26, 23, 7, 62, 24, 55, 2, 51], "n_distinct_wrong": 6}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-145", "pos": 4, "source": "math500", "ks": [26, 23, 62, 7, 24, 55, 2, 51], "n_distinct_wrong": 6}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-145", "pos": 5, "source": "math500", "ks": [26, 23, 62, 24, 7, 55, 2, 51], "n_distinct_wrong": 6}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-145", "pos": 6, "source": "math500", "ks": [26, 23, 62, 24, 55, 7, 2, 51], "n_distinct_wrong": 6}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-145", "pos": 7, "source": "math500", "ks": [26, 23, 62, 24, 55, 2, 7, 51], "n_distinct_wrong": 6}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-145", "pos": 8, "source": "math500", "ks": [26, 23, 62, 24, 55, 2, 51, 7], "n_distinct_wrong": 6}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-309", "pos": 1, "source": "math500", "ks": [42, 46, 56, 40, 38, 13, 31, 52], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-309", "pos": 2, "source": "math500", "ks": [46, 42, 56, 40, 38, 13, 31, 52], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-309", "pos": 3, "source": "math500", "ks": [46, 56, 42, 40, 38, 13, 31, 52], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-309", "pos": 4, "source": "math500", "ks": [46, 56, 40, 42, 38, 13, 31, 52], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-309", "pos": 5, "source": "math500", "ks": [46, 56, 40, 38, 42, 13, 31, 52], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-309", "pos": 6, "source": "math500", "ks": [46, 56, 40, 38, 13, 42, 31, 52], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-309", "pos": 7, "source": "math500", "ks": [46, 56, 40, 38, 13, 31, 42, 52], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-309", "pos": 8, "source": "math500", "ks": [46, 56, 40, 38, 13, 31, 52, 42], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-71", "pos": 1, "source": "math500", "ks": [26, 5, 49, 28, 36, 15, 22, 3], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-71", "pos": 2, "source": "math500", "ks": [5, 26, 49, 28, 36, 15, 22, 3], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-71", "pos": 3, "source": "math500", "ks": [5, 49, 26, 28, 36, 15, 22, 3], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-71", "pos": 4, "source": "math500", "ks": [5, 49, 28, 26, 36, 15, 22, 3], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-71", "pos": 5, "source": "math500", "ks": [5, 49, 28, 36, 26, 15, 22, 3], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-71", "pos": 6, "source": "math500", "ks": [5, 49, 28, 36, 15, 26, 22, 3], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-71", "pos": 7, "source": "math500", "ks": [5, 49, 28, 36, 15, 22, 26, 3], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-71", "pos": 8, "source": "math500", "ks": [5, 49, 28, 36, 15, 22, 3, 26], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-470", "pos": 1, "source": "math500", "ks": [35, 22, 20, 48, 37, 55, 47, 16], "n_distinct_wrong": 4}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-470", "pos": 2, "source": "math500", "ks": [22, 35, 20, 48, 37, 55, 47, 16], "n_distinct_wrong": 4}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-470", "pos": 3, "source": "math500", "ks": [22, 20, 35, 48, 37, 55, 47, 16], "n_distinct_wrong": 4}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-470", "pos": 4, "source": "math500", "ks": [22, 20, 48, 35, 37, 55, 47, 16], "n_distinct_wrong": 4}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-470", "pos": 5, "source": "math500", "ks": [22, 20, 48, 37, 35, 55, 47, 16], "n_distinct_wrong": 4}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-470", "pos": 6, "source": "math500", "ks": [22, 20, 48, 37, 55, 35, 47, 16], "n_distinct_wrong": 4}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-470", "pos": 7, "source": "math500", "ks": [22, 20, 48, 37, 55, 47, 35, 16], "n_distinct_wrong": 4}
+{"model": "qwen3-8b", "N": 8, "draw": 10, "pid": "math500-470", "pos": 8, "source": "math500", "ks": [22, 20, 48, 37, 55, 47, 16, 35], "n_distinct_wrong": 4}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "aime25-3", "pos": 1, "source": "aime25", "ks": [28, 12, 27, 0, 29, 25, 15, 21, 13, 9, 16, 6, 31, 22, 18, 19], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "aime25-3", "pos": 2, "source": "aime25", "ks": [12, 28, 27, 0, 29, 25, 15, 21, 13, 9, 16, 6, 31, 22, 18, 19], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "aime25-3", "pos": 3, "source": "aime25", "ks": [12, 27, 28, 0, 29, 25, 15, 21, 13, 9, 16, 6, 31, 22, 18, 19], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "aime25-3", "pos": 4, "source": "aime25", "ks": [12, 27, 0, 28, 29, 25, 15, 21, 13, 9, 16, 6, 31, 22, 18, 19], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "aime25-3", "pos": 5, "source": "aime25", "ks": [12, 27, 0, 29, 28, 25, 15, 21, 13, 9, 16, 6, 31, 22, 18, 19], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "aime25-3", "pos": 6, "source": "aime25", "ks": [12, 27, 0, 29, 25, 28, 15, 21, 13, 9, 16, 6, 31, 22, 18, 19], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "aime25-3", "pos": 7, "source": "aime25", "ks": [12, 27, 0, 29, 25, 15, 28, 21, 13, 9, 16, 6, 31, 22, 18, 19], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "aime25-3", "pos": 8, "source": "aime25", "ks": [12, 27, 0, 29, 25, 15, 21, 28, 13, 9, 16, 6, 31, 22, 18, 19], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "aime25-3", "pos": 9, "source": "aime25", "ks": [12, 27, 0, 29, 25, 15, 21, 13, 28, 9, 16, 6, 31, 22, 18, 19], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "aime25-3", "pos": 10, "source": "aime25", "ks": [12, 27, 0, 29, 25, 15, 21, 13, 9, 28, 16, 6, 31, 22, 18, 19], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "aime25-3", "pos": 11, "source": "aime25", "ks": [12, 27, 0, 29, 25, 15, 21, 13, 9, 16, 28, 6, 31, 22, 18, 19], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "aime25-3", "pos": 12, "source": "aime25", "ks": [12, 27, 0, 29, 25, 15, 21, 13, 9, 16, 6, 28, 31, 22, 18, 19], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "aime25-3", "pos": 13, "source": "aime25", "ks": [12, 27, 0, 29, 25, 15, 21, 13, 9, 16, 6, 31, 28, 22, 18, 19], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "aime25-3", "pos": 14, "source": "aime25", "ks": [12, 27, 0, 29, 25, 15, 21, 13, 9, 16, 6, 31, 22, 28, 18, 19], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "aime25-3", "pos": 15, "source": "aime25", "ks": [12, 27, 0, 29, 25, 15, 21, 13, 9, 16, 6, 31, 22, 18, 28, 19], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "aime25-3", "pos": 16, "source": "aime25", "ks": [12, 27, 0, 29, 25, 15, 21, 13, 9, 16, 6, 31, 22, 18, 19, 28], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "hmmt25-14", "pos": 1, "source": "hmmt25", "ks": [2, 0, 19, 28, 12, 3, 31, 8, 21, 30, 26, 6, 5, 13, 24, 7], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "hmmt25-14", "pos": 2, "source": "hmmt25", "ks": [0, 2, 19, 28, 12, 3, 31, 8, 21, 30, 26, 6, 5, 13, 24, 7], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "hmmt25-14", "pos": 3, "source": "hmmt25", "ks": [0, 19, 2, 28, 12, 3, 31, 8, 21, 30, 26, 6, 5, 13, 24, 7], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "hmmt25-14", "pos": 4, "source": "hmmt25", "ks": [0, 19, 28, 2, 12, 3, 31, 8, 21, 30, 26, 6, 5, 13, 24, 7], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "hmmt25-14", "pos": 5, "source": "hmmt25", "ks": [0, 19, 28, 12, 2, 3, 31, 8, 21, 30, 26, 6, 5, 13, 24, 7], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "hmmt25-14", "pos": 6, "source": "hmmt25", "ks": [0, 19, 28, 12, 3, 2, 31, 8, 21, 30, 26, 6, 5, 13, 24, 7], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "hmmt25-14", "pos": 7, "source": "hmmt25", "ks": [0, 19, 28, 12, 3, 31, 2, 8, 21, 30, 26, 6, 5, 13, 24, 7], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "hmmt25-14", "pos": 8, "source": "hmmt25", "ks": [0, 19, 28, 12, 3, 31, 8, 2, 21, 30, 26, 6, 5, 13, 24, 7], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "hmmt25-14", "pos": 9, "source": "hmmt25", "ks": [0, 19, 28, 12, 3, 31, 8, 21, 2, 30, 26, 6, 5, 13, 24, 7], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "hmmt25-14", "pos": 10, "source": "hmmt25", "ks": [0, 19, 28, 12, 3, 31, 8, 21, 30, 2, 26, 6, 5, 13, 24, 7], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "hmmt25-14", "pos": 11, "source": "hmmt25", "ks": [0, 19, 28, 12, 3, 31, 8, 21, 30, 26, 2, 6, 5, 13, 24, 7], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "hmmt25-14", "pos": 12, "source": "hmmt25", "ks": [0, 19, 28, 12, 3, 31, 8, 21, 30, 26, 6, 2, 5, 13, 24, 7], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "hmmt25-14", "pos": 13, "source": "hmmt25", "ks": [0, 19, 28, 12, 3, 31, 8, 21, 30, 26, 6, 5, 2, 13, 24, 7], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "hmmt25-14", "pos": 14, "source": "hmmt25", "ks": [0, 19, 28, 12, 3, 31, 8, 21, 30, 26, 6, 5, 13, 2, 24, 7], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "hmmt25-14", "pos": 15, "source": "hmmt25", "ks": [0, 19, 28, 12, 3, 31, 8, 21, 30, 26, 6, 5, 13, 24, 2, 7], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "hmmt25-14", "pos": 16, "source": "hmmt25", "ks": [0, 19, 28, 12, 3, 31, 8, 21, 30, 26, 6, 5, 13, 24, 7, 2], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-222", "pos": 1, "source": "math500", "ks": [25, 48, 5, 34, 43, 36, 42, 20, 0, 29, 56, 57, 26, 60, 10, 21], "n_distinct_wrong": 6}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-222", "pos": 2, "source": "math500", "ks": [48, 25, 5, 34, 43, 36, 42, 20, 0, 29, 56, 57, 26, 60, 10, 21], "n_distinct_wrong": 6}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-222", "pos": 3, "source": "math500", "ks": [48, 5, 25, 34, 43, 36, 42, 20, 0, 29, 56, 57, 26, 60, 10, 21], "n_distinct_wrong": 6}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-222", "pos": 4, "source": "math500", "ks": [48, 5, 34, 25, 43, 36, 42, 20, 0, 29, 56, 57, 26, 60, 10, 21], "n_distinct_wrong": 6}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-222", "pos": 5, "source": "math500", "ks": [48, 5, 34, 43, 25, 36, 42, 20, 0, 29, 56, 57, 26, 60, 10, 21], "n_distinct_wrong": 6}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-222", "pos": 6, "source": "math500", "ks": [48, 5, 34, 43, 36, 25, 42, 20, 0, 29, 56, 57, 26, 60, 10, 21], "n_distinct_wrong": 6}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-222", "pos": 7, "source": "math500", "ks": [48, 5, 34, 43, 36, 42, 25, 20, 0, 29, 56, 57, 26, 60, 10, 21], "n_distinct_wrong": 6}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-222", "pos": 8, "source": "math500", "ks": [48, 5, 34, 43, 36, 42, 20, 25, 0, 29, 56, 57, 26, 60, 10, 21], "n_distinct_wrong": 6}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-222", "pos": 9, "source": "math500", "ks": [48, 5, 34, 43, 36, 42, 20, 0, 25, 29, 56, 57, 26, 60, 10, 21], "n_distinct_wrong": 6}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-222", "pos": 10, "source": "math500", "ks": [48, 5, 34, 43, 36, 42, 20, 0, 29, 25, 56, 57, 26, 60, 10, 21], "n_distinct_wrong": 6}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-222", "pos": 11, "source": "math500", "ks": [48, 5, 34, 43, 36, 42, 20, 0, 29, 56, 25, 57, 26, 60, 10, 21], "n_distinct_wrong": 6}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-222", "pos": 12, "source": "math500", "ks": [48, 5, 34, 43, 36, 42, 20, 0, 29, 56, 57, 25, 26, 60, 10, 21], "n_distinct_wrong": 6}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-222", "pos": 13, "source": "math500", "ks": [48, 5, 34, 43, 36, 42, 20, 0, 29, 56, 57, 26, 25, 60, 10, 21], "n_distinct_wrong": 6}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-222", "pos": 14, "source": "math500", "ks": [48, 5, 34, 43, 36, 42, 20, 0, 29, 56, 57, 26, 60, 25, 10, 21], "n_distinct_wrong": 6}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-222", "pos": 15, "source": "math500", "ks": [48, 5, 34, 43, 36, 42, 20, 0, 29, 56, 57, 26, 60, 10, 25, 21], "n_distinct_wrong": 6}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-222", "pos": 16, "source": "math500", "ks": [48, 5, 34, 43, 36, 42, 20, 0, 29, 56, 57, 26, 60, 10, 21, 25], "n_distinct_wrong": 6}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-323", "pos": 1, "source": "math500", "ks": [18, 33, 24, 25, 44, 51, 28, 36, 13, 6, 62, 49, 35, 7, 11, 34], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-323", "pos": 2, "source": "math500", "ks": [33, 18, 24, 25, 44, 51, 28, 36, 13, 6, 62, 49, 35, 7, 11, 34], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-323", "pos": 3, "source": "math500", "ks": [33, 24, 18, 25, 44, 51, 28, 36, 13, 6, 62, 49, 35, 7, 11, 34], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-323", "pos": 4, "source": "math500", "ks": [33, 24, 25, 18, 44, 51, 28, 36, 13, 6, 62, 49, 35, 7, 11, 34], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-323", "pos": 5, "source": "math500", "ks": [33, 24, 25, 44, 18, 51, 28, 36, 13, 6, 62, 49, 35, 7, 11, 34], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-323", "pos": 6, "source": "math500", "ks": [33, 24, 25, 44, 51, 18, 28, 36, 13, 6, 62, 49, 35, 7, 11, 34], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-323", "pos": 7, "source": "math500", "ks": [33, 24, 25, 44, 51, 28, 18, 36, 13, 6, 62, 49, 35, 7, 11, 34], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-323", "pos": 8, "source": "math500", "ks": [33, 24, 25, 44, 51, 28, 36, 18, 13, 6, 62, 49, 35, 7, 11, 34], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-323", "pos": 9, "source": "math500", "ks": [33, 24, 25, 44, 51, 28, 36, 13, 18, 6, 62, 49, 35, 7, 11, 34], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-323", "pos": 10, "source": "math500", "ks": [33, 24, 25, 44, 51, 28, 36, 13, 6, 18, 62, 49, 35, 7, 11, 34], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-323", "pos": 11, "source": "math500", "ks": [33, 24, 25, 44, 51, 28, 36, 13, 6, 62, 18, 49, 35, 7, 11, 34], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-323", "pos": 12, "source": "math500", "ks": [33, 24, 25, 44, 51, 28, 36, 13, 6, 62, 49, 18, 35, 7, 11, 34], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-323", "pos": 13, "source": "math500", "ks": [33, 24, 25, 44, 51, 28, 36, 13, 6, 62, 49, 35, 18, 7, 11, 34], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-323", "pos": 14, "source": "math500", "ks": [33, 24, 25, 44, 51, 28, 36, 13, 6, 62, 49, 35, 7, 18, 11, 34], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-323", "pos": 15, "source": "math500", "ks": [33, 24, 25, 44, 51, 28, 36, 13, 6, 62, 49, 35, 7, 11, 18, 34], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-323", "pos": 16, "source": "math500", "ks": [33, 24, 25, 44, 51, 28, 36, 13, 6, 62, 49, 35, 7, 11, 34, 18], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-274", "pos": 1, "source": "math500", "ks": [41, 3, 59, 11, 37, 61, 15, 2, 20, 7, 53, 44, 32, 57, 33, 8], "n_distinct_wrong": 10}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-274", "pos": 2, "source": "math500", "ks": [3, 41, 59, 11, 37, 61, 15, 2, 20, 7, 53, 44, 32, 57, 33, 8], "n_distinct_wrong": 10}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-274", "pos": 3, "source": "math500", "ks": [3, 59, 41, 11, 37, 61, 15, 2, 20, 7, 53, 44, 32, 57, 33, 8], "n_distinct_wrong": 10}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-274", "pos": 4, "source": "math500", "ks": [3, 59, 11, 41, 37, 61, 15, 2, 20, 7, 53, 44, 32, 57, 33, 8], "n_distinct_wrong": 10}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-274", "pos": 5, "source": "math500", "ks": [3, 59, 11, 37, 41, 61, 15, 2, 20, 7, 53, 44, 32, 57, 33, 8], "n_distinct_wrong": 10}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-274", "pos": 6, "source": "math500", "ks": [3, 59, 11, 37, 61, 41, 15, 2, 20, 7, 53, 44, 32, 57, 33, 8], "n_distinct_wrong": 10}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-274", "pos": 7, "source": "math500", "ks": [3, 59, 11, 37, 61, 15, 41, 2, 20, 7, 53, 44, 32, 57, 33, 8], "n_distinct_wrong": 10}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-274", "pos": 8, "source": "math500", "ks": [3, 59, 11, 37, 61, 15, 2, 41, 20, 7, 53, 44, 32, 57, 33, 8], "n_distinct_wrong": 10}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-274", "pos": 9, "source": "math500", "ks": [3, 59, 11, 37, 61, 15, 2, 20, 41, 7, 53, 44, 32, 57, 33, 8], "n_distinct_wrong": 10}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-274", "pos": 10, "source": "math500", "ks": [3, 59, 11, 37, 61, 15, 2, 20, 7, 41, 53, 44, 32, 57, 33, 8], "n_distinct_wrong": 10}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-274", "pos": 11, "source": "math500", "ks": [3, 59, 11, 37, 61, 15, 2, 20, 7, 53, 41, 44, 32, 57, 33, 8], "n_distinct_wrong": 10}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-274", "pos": 12, "source": "math500", "ks": [3, 59, 11, 37, 61, 15, 2, 20, 7, 53, 44, 41, 32, 57, 33, 8], "n_distinct_wrong": 10}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-274", "pos": 13, "source": "math500", "ks": [3, 59, 11, 37, 61, 15, 2, 20, 7, 53, 44, 32, 41, 57, 33, 8], "n_distinct_wrong": 10}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-274", "pos": 14, "source": "math500", "ks": [3, 59, 11, 37, 61, 15, 2, 20, 7, 53, 44, 32, 57, 41, 33, 8], "n_distinct_wrong": 10}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-274", "pos": 15, "source": "math500", "ks": [3, 59, 11, 37, 61, 15, 2, 20, 7, 53, 44, 32, 57, 33, 41, 8], "n_distinct_wrong": 10}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-274", "pos": 16, "source": "math500", "ks": [3, 59, 11, 37, 61, 15, 2, 20, 7, 53, 44, 32, 57, 33, 8, 41], "n_distinct_wrong": 10}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-71", "pos": 1, "source": "math500", "ks": [56, 33, 13, 8, 18, 34, 21, 57, 63, 27, 36, 24, 1, 16, 50, 49], "n_distinct_wrong": 10}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-71", "pos": 2, "source": "math500", "ks": [33, 56, 13, 8, 18, 34, 21, 57, 63, 27, 36, 24, 1, 16, 50, 49], "n_distinct_wrong": 10}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-71", "pos": 3, "source": "math500", "ks": [33, 13, 56, 8, 18, 34, 21, 57, 63, 27, 36, 24, 1, 16, 50, 49], "n_distinct_wrong": 10}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-71", "pos": 4, "source": "math500", "ks": [33, 13, 8, 56, 18, 34, 21, 57, 63, 27, 36, 24, 1, 16, 50, 49], "n_distinct_wrong": 10}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-71", "pos": 5, "source": "math500", "ks": [33, 13, 8, 18, 56, 34, 21, 57, 63, 27, 36, 24, 1, 16, 50, 49], "n_distinct_wrong": 10}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-71", "pos": 6, "source": "math500", "ks": [33, 13, 8, 18, 34, 56, 21, 57, 63, 27, 36, 24, 1, 16, 50, 49], "n_distinct_wrong": 10}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-71", "pos": 7, "source": "math500", "ks": [33, 13, 8, 18, 34, 21, 56, 57, 63, 27, 36, 24, 1, 16, 50, 49], "n_distinct_wrong": 10}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-71", "pos": 8, "source": "math500", "ks": [33, 13, 8, 18, 34, 21, 57, 56, 63, 27, 36, 24, 1, 16, 50, 49], "n_distinct_wrong": 10}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-71", "pos": 9, "source": "math500", "ks": [33, 13, 8, 18, 34, 21, 57, 63, 56, 27, 36, 24, 1, 16, 50, 49], "n_distinct_wrong": 10}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-71", "pos": 10, "source": "math500", "ks": [33, 13, 8, 18, 34, 21, 57, 63, 27, 56, 36, 24, 1, 16, 50, 49], "n_distinct_wrong": 10}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-71", "pos": 11, "source": "math500", "ks": [33, 13, 8, 18, 34, 21, 57, 63, 27, 36, 56, 24, 1, 16, 50, 49], "n_distinct_wrong": 10}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-71", "pos": 12, "source": "math500", "ks": [33, 13, 8, 18, 34, 21, 57, 63, 27, 36, 24, 56, 1, 16, 50, 49], "n_distinct_wrong": 10}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-71", "pos": 13, "source": "math500", "ks": [33, 13, 8, 18, 34, 21, 57, 63, 27, 36, 24, 1, 56, 16, 50, 49], "n_distinct_wrong": 10}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-71", "pos": 14, "source": "math500", "ks": [33, 13, 8, 18, 34, 21, 57, 63, 27, 36, 24, 1, 16, 56, 50, 49], "n_distinct_wrong": 10}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-71", "pos": 15, "source": "math500", "ks": [33, 13, 8, 18, 34, 21, 57, 63, 27, 36, 24, 1, 16, 50, 56, 49], "n_distinct_wrong": 10}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-71", "pos": 16, "source": "math500", "ks": [33, 13, 8, 18, 34, 21, 57, 63, 27, 36, 24, 1, 16, 50, 49, 56], "n_distinct_wrong": 10}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-372", "pos": 1, "source": "math500", "ks": [61, 40, 35, 48, 21, 12, 0, 10, 17, 4, 22, 24, 6, 30, 42, 54], "n_distinct_wrong": 6}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-372", "pos": 2, "source": "math500", "ks": [40, 61, 35, 48, 21, 12, 0, 10, 17, 4, 22, 24, 6, 30, 42, 54], "n_distinct_wrong": 6}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-372", "pos": 3, "source": "math500", "ks": [40, 35, 61, 48, 21, 12, 0, 10, 17, 4, 22, 24, 6, 30, 42, 54], "n_distinct_wrong": 6}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-372", "pos": 4, "source": "math500", "ks": [40, 35, 48, 61, 21, 12, 0, 10, 17, 4, 22, 24, 6, 30, 42, 54], "n_distinct_wrong": 6}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-372", "pos": 5, "source": "math500", "ks": [40, 35, 48, 21, 61, 12, 0, 10, 17, 4, 22, 24, 6, 30, 42, 54], "n_distinct_wrong": 6}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-372", "pos": 6, "source": "math500", "ks": [40, 35, 48, 21, 12, 61, 0, 10, 17, 4, 22, 24, 6, 30, 42, 54], "n_distinct_wrong": 6}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-372", "pos": 7, "source": "math500", "ks": [40, 35, 48, 21, 12, 0, 61, 10, 17, 4, 22, 24, 6, 30, 42, 54], "n_distinct_wrong": 6}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-372", "pos": 8, "source": "math500", "ks": [40, 35, 48, 21, 12, 0, 10, 61, 17, 4, 22, 24, 6, 30, 42, 54], "n_distinct_wrong": 6}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-372", "pos": 9, "source": "math500", "ks": [40, 35, 48, 21, 12, 0, 10, 17, 61, 4, 22, 24, 6, 30, 42, 54], "n_distinct_wrong": 6}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-372", "pos": 10, "source": "math500", "ks": [40, 35, 48, 21, 12, 0, 10, 17, 4, 61, 22, 24, 6, 30, 42, 54], "n_distinct_wrong": 6}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-372", "pos": 11, "source": "math500", "ks": [40, 35, 48, 21, 12, 0, 10, 17, 4, 22, 61, 24, 6, 30, 42, 54], "n_distinct_wrong": 6}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-372", "pos": 12, "source": "math500", "ks": [40, 35, 48, 21, 12, 0, 10, 17, 4, 22, 24, 61, 6, 30, 42, 54], "n_distinct_wrong": 6}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-372", "pos": 13, "source": "math500", "ks": [40, 35, 48, 21, 12, 0, 10, 17, 4, 22, 24, 6, 61, 30, 42, 54], "n_distinct_wrong": 6}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-372", "pos": 14, "source": "math500", "ks": [40, 35, 48, 21, 12, 0, 10, 17, 4, 22, 24, 6, 30, 61, 42, 54], "n_distinct_wrong": 6}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-372", "pos": 15, "source": "math500", "ks": [40, 35, 48, 21, 12, 0, 10, 17, 4, 22, 24, 6, 30, 42, 61, 54], "n_distinct_wrong": 6}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-372", "pos": 16, "source": "math500", "ks": [40, 35, 48, 21, 12, 0, 10, 17, 4, 22, 24, 6, 30, 42, 54, 61], "n_distinct_wrong": 6}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-219", "pos": 1, "source": "math500", "ks": [30, 33, 29, 42, 6, 4, 60, 24, 9, 15, 27, 58, 34, 50, 52, 59], "n_distinct_wrong": 9}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-219", "pos": 2, "source": "math500", "ks": [33, 30, 29, 42, 6, 4, 60, 24, 9, 15, 27, 58, 34, 50, 52, 59], "n_distinct_wrong": 9}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-219", "pos": 3, "source": "math500", "ks": [33, 29, 30, 42, 6, 4, 60, 24, 9, 15, 27, 58, 34, 50, 52, 59], "n_distinct_wrong": 9}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-219", "pos": 4, "source": "math500", "ks": [33, 29, 42, 30, 6, 4, 60, 24, 9, 15, 27, 58, 34, 50, 52, 59], "n_distinct_wrong": 9}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-219", "pos": 5, "source": "math500", "ks": [33, 29, 42, 6, 30, 4, 60, 24, 9, 15, 27, 58, 34, 50, 52, 59], "n_distinct_wrong": 9}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-219", "pos": 6, "source": "math500", "ks": [33, 29, 42, 6, 4, 30, 60, 24, 9, 15, 27, 58, 34, 50, 52, 59], "n_distinct_wrong": 9}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-219", "pos": 7, "source": "math500", "ks": [33, 29, 42, 6, 4, 60, 30, 24, 9, 15, 27, 58, 34, 50, 52, 59], "n_distinct_wrong": 9}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-219", "pos": 8, "source": "math500", "ks": [33, 29, 42, 6, 4, 60, 24, 30, 9, 15, 27, 58, 34, 50, 52, 59], "n_distinct_wrong": 9}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-219", "pos": 9, "source": "math500", "ks": [33, 29, 42, 6, 4, 60, 24, 9, 30, 15, 27, 58, 34, 50, 52, 59], "n_distinct_wrong": 9}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-219", "pos": 10, "source": "math500", "ks": [33, 29, 42, 6, 4, 60, 24, 9, 15, 30, 27, 58, 34, 50, 52, 59], "n_distinct_wrong": 9}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-219", "pos": 11, "source": "math500", "ks": [33, 29, 42, 6, 4, 60, 24, 9, 15, 27, 30, 58, 34, 50, 52, 59], "n_distinct_wrong": 9}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-219", "pos": 12, "source": "math500", "ks": [33, 29, 42, 6, 4, 60, 24, 9, 15, 27, 58, 30, 34, 50, 52, 59], "n_distinct_wrong": 9}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-219", "pos": 13, "source": "math500", "ks": [33, 29, 42, 6, 4, 60, 24, 9, 15, 27, 58, 34, 30, 50, 52, 59], "n_distinct_wrong": 9}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-219", "pos": 14, "source": "math500", "ks": [33, 29, 42, 6, 4, 60, 24, 9, 15, 27, 58, 34, 50, 30, 52, 59], "n_distinct_wrong": 9}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-219", "pos": 15, "source": "math500", "ks": [33, 29, 42, 6, 4, 60, 24, 9, 15, 27, 58, 34, 50, 52, 30, 59], "n_distinct_wrong": 9}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-219", "pos": 16, "source": "math500", "ks": [33, 29, 42, 6, 4, 60, 24, 9, 15, 27, 58, 34, 50, 52, 59, 30], "n_distinct_wrong": 9}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-138", "pos": 1, "source": "math500", "ks": [32, 1, 45, 30, 17, 58, 62, 56, 29, 2, 28, 54, 34, 4, 3, 18], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-138", "pos": 2, "source": "math500", "ks": [1, 32, 45, 30, 17, 58, 62, 56, 29, 2, 28, 54, 34, 4, 3, 18], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-138", "pos": 3, "source": "math500", "ks": [1, 45, 32, 30, 17, 58, 62, 56, 29, 2, 28, 54, 34, 4, 3, 18], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-138", "pos": 4, "source": "math500", "ks": [1, 45, 30, 32, 17, 58, 62, 56, 29, 2, 28, 54, 34, 4, 3, 18], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-138", "pos": 5, "source": "math500", "ks": [1, 45, 30, 17, 32, 58, 62, 56, 29, 2, 28, 54, 34, 4, 3, 18], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-138", "pos": 6, "source": "math500", "ks": [1, 45, 30, 17, 58, 32, 62, 56, 29, 2, 28, 54, 34, 4, 3, 18], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-138", "pos": 7, "source": "math500", "ks": [1, 45, 30, 17, 58, 62, 32, 56, 29, 2, 28, 54, 34, 4, 3, 18], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-138", "pos": 8, "source": "math500", "ks": [1, 45, 30, 17, 58, 62, 56, 32, 29, 2, 28, 54, 34, 4, 3, 18], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-138", "pos": 9, "source": "math500", "ks": [1, 45, 30, 17, 58, 62, 56, 29, 32, 2, 28, 54, 34, 4, 3, 18], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-138", "pos": 10, "source": "math500", "ks": [1, 45, 30, 17, 58, 62, 56, 29, 2, 32, 28, 54, 34, 4, 3, 18], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-138", "pos": 11, "source": "math500", "ks": [1, 45, 30, 17, 58, 62, 56, 29, 2, 28, 32, 54, 34, 4, 3, 18], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-138", "pos": 12, "source": "math500", "ks": [1, 45, 30, 17, 58, 62, 56, 29, 2, 28, 54, 32, 34, 4, 3, 18], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-138", "pos": 13, "source": "math500", "ks": [1, 45, 30, 17, 58, 62, 56, 29, 2, 28, 54, 34, 32, 4, 3, 18], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-138", "pos": 14, "source": "math500", "ks": [1, 45, 30, 17, 58, 62, 56, 29, 2, 28, 54, 34, 4, 32, 3, 18], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-138", "pos": 15, "source": "math500", "ks": [1, 45, 30, 17, 58, 62, 56, 29, 2, 28, 54, 34, 4, 3, 32, 18], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-138", "pos": 16, "source": "math500", "ks": [1, 45, 30, 17, 58, 62, 56, 29, 2, 28, 54, 34, 4, 3, 18, 32], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-147", "pos": 1, "source": "math500", "ks": [12, 14, 55, 29, 37, 25, 60, 11, 19, 54, 42, 40, 21, 48, 28, 10], "n_distinct_wrong": 4}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-147", "pos": 2, "source": "math500", "ks": [14, 12, 55, 29, 37, 25, 60, 11, 19, 54, 42, 40, 21, 48, 28, 10], "n_distinct_wrong": 4}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-147", "pos": 3, "source": "math500", "ks": [14, 55, 12, 29, 37, 25, 60, 11, 19, 54, 42, 40, 21, 48, 28, 10], "n_distinct_wrong": 4}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-147", "pos": 4, "source": "math500", "ks": [14, 55, 29, 12, 37, 25, 60, 11, 19, 54, 42, 40, 21, 48, 28, 10], "n_distinct_wrong": 4}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-147", "pos": 5, "source": "math500", "ks": [14, 55, 29, 37, 12, 25, 60, 11, 19, 54, 42, 40, 21, 48, 28, 10], "n_distinct_wrong": 4}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-147", "pos": 6, "source": "math500", "ks": [14, 55, 29, 37, 25, 12, 60, 11, 19, 54, 42, 40, 21, 48, 28, 10], "n_distinct_wrong": 4}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-147", "pos": 7, "source": "math500", "ks": [14, 55, 29, 37, 25, 60, 12, 11, 19, 54, 42, 40, 21, 48, 28, 10], "n_distinct_wrong": 4}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-147", "pos": 8, "source": "math500", "ks": [14, 55, 29, 37, 25, 60, 11, 12, 19, 54, 42, 40, 21, 48, 28, 10], "n_distinct_wrong": 4}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-147", "pos": 9, "source": "math500", "ks": [14, 55, 29, 37, 25, 60, 11, 19, 12, 54, 42, 40, 21, 48, 28, 10], "n_distinct_wrong": 4}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-147", "pos": 10, "source": "math500", "ks": [14, 55, 29, 37, 25, 60, 11, 19, 54, 12, 42, 40, 21, 48, 28, 10], "n_distinct_wrong": 4}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-147", "pos": 11, "source": "math500", "ks": [14, 55, 29, 37, 25, 60, 11, 19, 54, 42, 12, 40, 21, 48, 28, 10], "n_distinct_wrong": 4}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-147", "pos": 12, "source": "math500", "ks": [14, 55, 29, 37, 25, 60, 11, 19, 54, 42, 40, 12, 21, 48, 28, 10], "n_distinct_wrong": 4}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-147", "pos": 13, "source": "math500", "ks": [14, 55, 29, 37, 25, 60, 11, 19, 54, 42, 40, 21, 12, 48, 28, 10], "n_distinct_wrong": 4}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-147", "pos": 14, "source": "math500", "ks": [14, 55, 29, 37, 25, 60, 11, 19, 54, 42, 40, 21, 48, 12, 28, 10], "n_distinct_wrong": 4}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-147", "pos": 15, "source": "math500", "ks": [14, 55, 29, 37, 25, 60, 11, 19, 54, 42, 40, 21, 48, 28, 12, 10], "n_distinct_wrong": 4}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-147", "pos": 16, "source": "math500", "ks": [14, 55, 29, 37, 25, 60, 11, 19, 54, 42, 40, 21, 48, 28, 10, 12], "n_distinct_wrong": 4}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-180", "pos": 1, "source": "math500", "ks": [47, 62, 5, 2, 21, 9, 50, 49, 42, 24, 46, 45, 22, 61, 54, 7], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-180", "pos": 2, "source": "math500", "ks": [62, 47, 5, 2, 21, 9, 50, 49, 42, 24, 46, 45, 22, 61, 54, 7], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-180", "pos": 3, "source": "math500", "ks": [62, 5, 47, 2, 21, 9, 50, 49, 42, 24, 46, 45, 22, 61, 54, 7], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-180", "pos": 4, "source": "math500", "ks": [62, 5, 2, 47, 21, 9, 50, 49, 42, 24, 46, 45, 22, 61, 54, 7], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-180", "pos": 5, "source": "math500", "ks": [62, 5, 2, 21, 47, 9, 50, 49, 42, 24, 46, 45, 22, 61, 54, 7], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-180", "pos": 6, "source": "math500", "ks": [62, 5, 2, 21, 9, 47, 50, 49, 42, 24, 46, 45, 22, 61, 54, 7], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-180", "pos": 7, "source": "math500", "ks": [62, 5, 2, 21, 9, 50, 47, 49, 42, 24, 46, 45, 22, 61, 54, 7], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-180", "pos": 8, "source": "math500", "ks": [62, 5, 2, 21, 9, 50, 49, 47, 42, 24, 46, 45, 22, 61, 54, 7], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-180", "pos": 9, "source": "math500", "ks": [62, 5, 2, 21, 9, 50, 49, 42, 47, 24, 46, 45, 22, 61, 54, 7], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-180", "pos": 10, "source": "math500", "ks": [62, 5, 2, 21, 9, 50, 49, 42, 24, 47, 46, 45, 22, 61, 54, 7], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-180", "pos": 11, "source": "math500", "ks": [62, 5, 2, 21, 9, 50, 49, 42, 24, 46, 47, 45, 22, 61, 54, 7], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-180", "pos": 12, "source": "math500", "ks": [62, 5, 2, 21, 9, 50, 49, 42, 24, 46, 45, 47, 22, 61, 54, 7], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-180", "pos": 13, "source": "math500", "ks": [62, 5, 2, 21, 9, 50, 49, 42, 24, 46, 45, 22, 47, 61, 54, 7], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-180", "pos": 14, "source": "math500", "ks": [62, 5, 2, 21, 9, 50, 49, 42, 24, 46, 45, 22, 61, 47, 54, 7], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-180", "pos": 15, "source": "math500", "ks": [62, 5, 2, 21, 9, 50, 49, 42, 24, 46, 45, 22, 61, 54, 47, 7], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-180", "pos": 16, "source": "math500", "ks": [62, 5, 2, 21, 9, 50, 49, 42, 24, 46, 45, 22, 61, 54, 7, 47], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-276", "pos": 1, "source": "math500", "ks": [0, 63, 28, 14, 57, 21, 29, 49, 37, 32, 33, 45, 62, 4, 27, 8], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-276", "pos": 2, "source": "math500", "ks": [63, 0, 28, 14, 57, 21, 29, 49, 37, 32, 33, 45, 62, 4, 27, 8], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-276", "pos": 3, "source": "math500", "ks": [63, 28, 0, 14, 57, 21, 29, 49, 37, 32, 33, 45, 62, 4, 27, 8], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-276", "pos": 4, "source": "math500", "ks": [63, 28, 14, 0, 57, 21, 29, 49, 37, 32, 33, 45, 62, 4, 27, 8], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-276", "pos": 5, "source": "math500", "ks": [63, 28, 14, 57, 0, 21, 29, 49, 37, 32, 33, 45, 62, 4, 27, 8], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-276", "pos": 6, "source": "math500", "ks": [63, 28, 14, 57, 21, 0, 29, 49, 37, 32, 33, 45, 62, 4, 27, 8], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-276", "pos": 7, "source": "math500", "ks": [63, 28, 14, 57, 21, 29, 0, 49, 37, 32, 33, 45, 62, 4, 27, 8], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-276", "pos": 8, "source": "math500", "ks": [63, 28, 14, 57, 21, 29, 49, 0, 37, 32, 33, 45, 62, 4, 27, 8], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-276", "pos": 9, "source": "math500", "ks": [63, 28, 14, 57, 21, 29, 49, 37, 0, 32, 33, 45, 62, 4, 27, 8], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-276", "pos": 10, "source": "math500", "ks": [63, 28, 14, 57, 21, 29, 49, 37, 32, 0, 33, 45, 62, 4, 27, 8], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-276", "pos": 11, "source": "math500", "ks": [63, 28, 14, 57, 21, 29, 49, 37, 32, 33, 0, 45, 62, 4, 27, 8], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-276", "pos": 12, "source": "math500", "ks": [63, 28, 14, 57, 21, 29, 49, 37, 32, 33, 45, 0, 62, 4, 27, 8], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-276", "pos": 13, "source": "math500", "ks": [63, 28, 14, 57, 21, 29, 49, 37, 32, 33, 45, 62, 0, 4, 27, 8], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-276", "pos": 14, "source": "math500", "ks": [63, 28, 14, 57, 21, 29, 49, 37, 32, 33, 45, 62, 4, 0, 27, 8], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-276", "pos": 15, "source": "math500", "ks": [63, 28, 14, 57, 21, 29, 49, 37, 32, 33, 45, 62, 4, 27, 0, 8], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-276", "pos": 16, "source": "math500", "ks": [63, 28, 14, 57, 21, 29, 49, 37, 32, 33, 45, 62, 4, 27, 8, 0], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-478", "pos": 1, "source": "math500", "ks": [2, 53, 7, 13, 27, 6, 3, 29, 19, 45, 62, 33, 17, 46, 30, 54], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-478", "pos": 2, "source": "math500", "ks": [53, 2, 7, 13, 27, 6, 3, 29, 19, 45, 62, 33, 17, 46, 30, 54], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-478", "pos": 3, "source": "math500", "ks": [53, 7, 2, 13, 27, 6, 3, 29, 19, 45, 62, 33, 17, 46, 30, 54], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-478", "pos": 4, "source": "math500", "ks": [53, 7, 13, 2, 27, 6, 3, 29, 19, 45, 62, 33, 17, 46, 30, 54], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-478", "pos": 5, "source": "math500", "ks": [53, 7, 13, 27, 2, 6, 3, 29, 19, 45, 62, 33, 17, 46, 30, 54], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-478", "pos": 6, "source": "math500", "ks": [53, 7, 13, 27, 6, 2, 3, 29, 19, 45, 62, 33, 17, 46, 30, 54], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-478", "pos": 7, "source": "math500", "ks": [53, 7, 13, 27, 6, 3, 2, 29, 19, 45, 62, 33, 17, 46, 30, 54], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-478", "pos": 8, "source": "math500", "ks": [53, 7, 13, 27, 6, 3, 29, 2, 19, 45, 62, 33, 17, 46, 30, 54], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-478", "pos": 9, "source": "math500", "ks": [53, 7, 13, 27, 6, 3, 29, 19, 2, 45, 62, 33, 17, 46, 30, 54], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-478", "pos": 10, "source": "math500", "ks": [53, 7, 13, 27, 6, 3, 29, 19, 45, 2, 62, 33, 17, 46, 30, 54], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-478", "pos": 11, "source": "math500", "ks": [53, 7, 13, 27, 6, 3, 29, 19, 45, 62, 2, 33, 17, 46, 30, 54], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-478", "pos": 12, "source": "math500", "ks": [53, 7, 13, 27, 6, 3, 29, 19, 45, 62, 33, 2, 17, 46, 30, 54], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-478", "pos": 13, "source": "math500", "ks": [53, 7, 13, 27, 6, 3, 29, 19, 45, 62, 33, 17, 2, 46, 30, 54], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-478", "pos": 14, "source": "math500", "ks": [53, 7, 13, 27, 6, 3, 29, 19, 45, 62, 33, 17, 46, 2, 30, 54], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-478", "pos": 15, "source": "math500", "ks": [53, 7, 13, 27, 6, 3, 29, 19, 45, 62, 33, 17, 46, 30, 2, 54], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-478", "pos": 16, "source": "math500", "ks": [53, 7, 13, 27, 6, 3, 29, 19, 45, 62, 33, 17, 46, 30, 54, 2], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-177", "pos": 1, "source": "math500", "ks": [13, 45, 53, 47, 21, 24, 10, 63, 51, 27, 9, 30, 12, 58, 62, 56], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-177", "pos": 2, "source": "math500", "ks": [45, 13, 53, 47, 21, 24, 10, 63, 51, 27, 9, 30, 12, 58, 62, 56], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-177", "pos": 3, "source": "math500", "ks": [45, 53, 13, 47, 21, 24, 10, 63, 51, 27, 9, 30, 12, 58, 62, 56], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-177", "pos": 4, "source": "math500", "ks": [45, 53, 47, 13, 21, 24, 10, 63, 51, 27, 9, 30, 12, 58, 62, 56], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-177", "pos": 5, "source": "math500", "ks": [45, 53, 47, 21, 13, 24, 10, 63, 51, 27, 9, 30, 12, 58, 62, 56], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-177", "pos": 6, "source": "math500", "ks": [45, 53, 47, 21, 24, 13, 10, 63, 51, 27, 9, 30, 12, 58, 62, 56], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-177", "pos": 7, "source": "math500", "ks": [45, 53, 47, 21, 24, 10, 13, 63, 51, 27, 9, 30, 12, 58, 62, 56], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-177", "pos": 8, "source": "math500", "ks": [45, 53, 47, 21, 24, 10, 63, 13, 51, 27, 9, 30, 12, 58, 62, 56], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-177", "pos": 9, "source": "math500", "ks": [45, 53, 47, 21, 24, 10, 63, 51, 13, 27, 9, 30, 12, 58, 62, 56], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-177", "pos": 10, "source": "math500", "ks": [45, 53, 47, 21, 24, 10, 63, 51, 27, 13, 9, 30, 12, 58, 62, 56], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-177", "pos": 11, "source": "math500", "ks": [45, 53, 47, 21, 24, 10, 63, 51, 27, 9, 13, 30, 12, 58, 62, 56], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-177", "pos": 12, "source": "math500", "ks": [45, 53, 47, 21, 24, 10, 63, 51, 27, 9, 30, 13, 12, 58, 62, 56], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-177", "pos": 13, "source": "math500", "ks": [45, 53, 47, 21, 24, 10, 63, 51, 27, 9, 30, 12, 13, 58, 62, 56], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-177", "pos": 14, "source": "math500", "ks": [45, 53, 47, 21, 24, 10, 63, 51, 27, 9, 30, 12, 58, 13, 62, 56], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-177", "pos": 15, "source": "math500", "ks": [45, 53, 47, 21, 24, 10, 63, 51, 27, 9, 30, 12, 58, 62, 13, 56], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-177", "pos": 16, "source": "math500", "ks": [45, 53, 47, 21, 24, 10, 63, 51, 27, 9, 30, 12, 58, 62, 56, 13], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-498", "pos": 1, "source": "math500", "ks": [41, 30, 63, 18, 51, 11, 9, 56, 57, 5, 13, 32, 10, 14, 2, 58], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-498", "pos": 2, "source": "math500", "ks": [30, 41, 63, 18, 51, 11, 9, 56, 57, 5, 13, 32, 10, 14, 2, 58], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-498", "pos": 3, "source": "math500", "ks": [30, 63, 41, 18, 51, 11, 9, 56, 57, 5, 13, 32, 10, 14, 2, 58], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-498", "pos": 4, "source": "math500", "ks": [30, 63, 18, 41, 51, 11, 9, 56, 57, 5, 13, 32, 10, 14, 2, 58], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-498", "pos": 5, "source": "math500", "ks": [30, 63, 18, 51, 41, 11, 9, 56, 57, 5, 13, 32, 10, 14, 2, 58], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-498", "pos": 6, "source": "math500", "ks": [30, 63, 18, 51, 11, 41, 9, 56, 57, 5, 13, 32, 10, 14, 2, 58], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-498", "pos": 7, "source": "math500", "ks": [30, 63, 18, 51, 11, 9, 41, 56, 57, 5, 13, 32, 10, 14, 2, 58], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-498", "pos": 8, "source": "math500", "ks": [30, 63, 18, 51, 11, 9, 56, 41, 57, 5, 13, 32, 10, 14, 2, 58], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-498", "pos": 9, "source": "math500", "ks": [30, 63, 18, 51, 11, 9, 56, 57, 41, 5, 13, 32, 10, 14, 2, 58], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-498", "pos": 10, "source": "math500", "ks": [30, 63, 18, 51, 11, 9, 56, 57, 5, 41, 13, 32, 10, 14, 2, 58], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-498", "pos": 11, "source": "math500", "ks": [30, 63, 18, 51, 11, 9, 56, 57, 5, 13, 41, 32, 10, 14, 2, 58], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-498", "pos": 12, "source": "math500", "ks": [30, 63, 18, 51, 11, 9, 56, 57, 5, 13, 32, 41, 10, 14, 2, 58], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-498", "pos": 13, "source": "math500", "ks": [30, 63, 18, 51, 11, 9, 56, 57, 5, 13, 32, 10, 41, 14, 2, 58], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-498", "pos": 14, "source": "math500", "ks": [30, 63, 18, 51, 11, 9, 56, 57, 5, 13, 32, 10, 14, 41, 2, 58], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-498", "pos": 15, "source": "math500", "ks": [30, 63, 18, 51, 11, 9, 56, 57, 5, 13, 32, 10, 14, 2, 41, 58], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-498", "pos": 16, "source": "math500", "ks": [30, 63, 18, 51, 11, 9, 56, 57, 5, 13, 32, 10, 14, 2, 58, 41], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-17", "pos": 1, "source": "math500", "ks": [27, 22, 61, 31, 44, 2, 56, 57, 1, 53, 26, 12, 25, 21, 10, 40], "n_distinct_wrong": 6}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-17", "pos": 2, "source": "math500", "ks": [22, 27, 61, 31, 44, 2, 56, 57, 1, 53, 26, 12, 25, 21, 10, 40], "n_distinct_wrong": 6}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-17", "pos": 3, "source": "math500", "ks": [22, 61, 27, 31, 44, 2, 56, 57, 1, 53, 26, 12, 25, 21, 10, 40], "n_distinct_wrong": 6}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-17", "pos": 4, "source": "math500", "ks": [22, 61, 31, 27, 44, 2, 56, 57, 1, 53, 26, 12, 25, 21, 10, 40], "n_distinct_wrong": 6}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-17", "pos": 5, "source": "math500", "ks": [22, 61, 31, 44, 27, 2, 56, 57, 1, 53, 26, 12, 25, 21, 10, 40], "n_distinct_wrong": 6}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-17", "pos": 6, "source": "math500", "ks": [22, 61, 31, 44, 2, 27, 56, 57, 1, 53, 26, 12, 25, 21, 10, 40], "n_distinct_wrong": 6}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-17", "pos": 7, "source": "math500", "ks": [22, 61, 31, 44, 2, 56, 27, 57, 1, 53, 26, 12, 25, 21, 10, 40], "n_distinct_wrong": 6}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-17", "pos": 8, "source": "math500", "ks": [22, 61, 31, 44, 2, 56, 57, 27, 1, 53, 26, 12, 25, 21, 10, 40], "n_distinct_wrong": 6}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-17", "pos": 9, "source": "math500", "ks": [22, 61, 31, 44, 2, 56, 57, 1, 27, 53, 26, 12, 25, 21, 10, 40], "n_distinct_wrong": 6}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-17", "pos": 10, "source": "math500", "ks": [22, 61, 31, 44, 2, 56, 57, 1, 53, 27, 26, 12, 25, 21, 10, 40], "n_distinct_wrong": 6}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-17", "pos": 11, "source": "math500", "ks": [22, 61, 31, 44, 2, 56, 57, 1, 53, 26, 27, 12, 25, 21, 10, 40], "n_distinct_wrong": 6}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-17", "pos": 12, "source": "math500", "ks": [22, 61, 31, 44, 2, 56, 57, 1, 53, 26, 12, 27, 25, 21, 10, 40], "n_distinct_wrong": 6}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-17", "pos": 13, "source": "math500", "ks": [22, 61, 31, 44, 2, 56, 57, 1, 53, 26, 12, 25, 27, 21, 10, 40], "n_distinct_wrong": 6}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-17", "pos": 14, "source": "math500", "ks": [22, 61, 31, 44, 2, 56, 57, 1, 53, 26, 12, 25, 21, 27, 10, 40], "n_distinct_wrong": 6}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-17", "pos": 15, "source": "math500", "ks": [22, 61, 31, 44, 2, 56, 57, 1, 53, 26, 12, 25, 21, 10, 27, 40], "n_distinct_wrong": 6}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-17", "pos": 16, "source": "math500", "ks": [22, 61, 31, 44, 2, 56, 57, 1, 53, 26, 12, 25, 21, 10, 40, 27], "n_distinct_wrong": 6}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-317", "pos": 1, "source": "math500", "ks": [21, 17, 7, 4, 16, 46, 45, 55, 5, 24, 40, 12, 61, 20, 8, 22], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-317", "pos": 2, "source": "math500", "ks": [17, 21, 7, 4, 16, 46, 45, 55, 5, 24, 40, 12, 61, 20, 8, 22], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-317", "pos": 3, "source": "math500", "ks": [17, 7, 21, 4, 16, 46, 45, 55, 5, 24, 40, 12, 61, 20, 8, 22], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-317", "pos": 4, "source": "math500", "ks": [17, 7, 4, 21, 16, 46, 45, 55, 5, 24, 40, 12, 61, 20, 8, 22], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-317", "pos": 5, "source": "math500", "ks": [17, 7, 4, 16, 21, 46, 45, 55, 5, 24, 40, 12, 61, 20, 8, 22], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-317", "pos": 6, "source": "math500", "ks": [17, 7, 4, 16, 46, 21, 45, 55, 5, 24, 40, 12, 61, 20, 8, 22], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-317", "pos": 7, "source": "math500", "ks": [17, 7, 4, 16, 46, 45, 21, 55, 5, 24, 40, 12, 61, 20, 8, 22], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-317", "pos": 8, "source": "math500", "ks": [17, 7, 4, 16, 46, 45, 55, 21, 5, 24, 40, 12, 61, 20, 8, 22], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-317", "pos": 9, "source": "math500", "ks": [17, 7, 4, 16, 46, 45, 55, 5, 21, 24, 40, 12, 61, 20, 8, 22], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-317", "pos": 10, "source": "math500", "ks": [17, 7, 4, 16, 46, 45, 55, 5, 24, 21, 40, 12, 61, 20, 8, 22], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-317", "pos": 11, "source": "math500", "ks": [17, 7, 4, 16, 46, 45, 55, 5, 24, 40, 21, 12, 61, 20, 8, 22], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-317", "pos": 12, "source": "math500", "ks": [17, 7, 4, 16, 46, 45, 55, 5, 24, 40, 12, 21, 61, 20, 8, 22], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-317", "pos": 13, "source": "math500", "ks": [17, 7, 4, 16, 46, 45, 55, 5, 24, 40, 12, 61, 21, 20, 8, 22], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-317", "pos": 14, "source": "math500", "ks": [17, 7, 4, 16, 46, 45, 55, 5, 24, 40, 12, 61, 20, 21, 8, 22], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-317", "pos": 15, "source": "math500", "ks": [17, 7, 4, 16, 46, 45, 55, 5, 24, 40, 12, 61, 20, 8, 21, 22], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-317", "pos": 16, "source": "math500", "ks": [17, 7, 4, 16, 46, 45, 55, 5, 24, 40, 12, 61, 20, 8, 22, 21], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-326", "pos": 1, "source": "math500", "ks": [5, 8, 57, 54, 55, 30, 16, 2, 31, 29, 12, 62, 58, 23, 51, 50], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-326", "pos": 2, "source": "math500", "ks": [8, 5, 57, 54, 55, 30, 16, 2, 31, 29, 12, 62, 58, 23, 51, 50], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-326", "pos": 3, "source": "math500", "ks": [8, 57, 5, 54, 55, 30, 16, 2, 31, 29, 12, 62, 58, 23, 51, 50], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-326", "pos": 4, "source": "math500", "ks": [8, 57, 54, 5, 55, 30, 16, 2, 31, 29, 12, 62, 58, 23, 51, 50], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-326", "pos": 5, "source": "math500", "ks": [8, 57, 54, 55, 5, 30, 16, 2, 31, 29, 12, 62, 58, 23, 51, 50], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-326", "pos": 6, "source": "math500", "ks": [8, 57, 54, 55, 30, 5, 16, 2, 31, 29, 12, 62, 58, 23, 51, 50], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-326", "pos": 7, "source": "math500", "ks": [8, 57, 54, 55, 30, 16, 5, 2, 31, 29, 12, 62, 58, 23, 51, 50], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-326", "pos": 8, "source": "math500", "ks": [8, 57, 54, 55, 30, 16, 2, 5, 31, 29, 12, 62, 58, 23, 51, 50], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-326", "pos": 9, "source": "math500", "ks": [8, 57, 54, 55, 30, 16, 2, 31, 5, 29, 12, 62, 58, 23, 51, 50], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-326", "pos": 10, "source": "math500", "ks": [8, 57, 54, 55, 30, 16, 2, 31, 29, 5, 12, 62, 58, 23, 51, 50], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-326", "pos": 11, "source": "math500", "ks": [8, 57, 54, 55, 30, 16, 2, 31, 29, 12, 5, 62, 58, 23, 51, 50], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-326", "pos": 12, "source": "math500", "ks": [8, 57, 54, 55, 30, 16, 2, 31, 29, 12, 62, 5, 58, 23, 51, 50], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-326", "pos": 13, "source": "math500", "ks": [8, 57, 54, 55, 30, 16, 2, 31, 29, 12, 62, 58, 5, 23, 51, 50], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-326", "pos": 14, "source": "math500", "ks": [8, 57, 54, 55, 30, 16, 2, 31, 29, 12, 62, 58, 23, 5, 51, 50], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-326", "pos": 15, "source": "math500", "ks": [8, 57, 54, 55, 30, 16, 2, 31, 29, 12, 62, 58, 23, 51, 5, 50], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-326", "pos": 16, "source": "math500", "ks": [8, 57, 54, 55, 30, 16, 2, 31, 29, 12, 62, 58, 23, 51, 50, 5], "n_distinct_wrong": 5}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-482", "pos": 1, "source": "math500", "ks": [0, 28, 45, 37, 18, 27, 3, 12, 1, 23, 26, 61, 50, 22, 44, 62], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-482", "pos": 2, "source": "math500", "ks": [28, 0, 45, 37, 18, 27, 3, 12, 1, 23, 26, 61, 50, 22, 44, 62], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-482", "pos": 3, "source": "math500", "ks": [28, 45, 0, 37, 18, 27, 3, 12, 1, 23, 26, 61, 50, 22, 44, 62], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-482", "pos": 4, "source": "math500", "ks": [28, 45, 37, 0, 18, 27, 3, 12, 1, 23, 26, 61, 50, 22, 44, 62], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-482", "pos": 5, "source": "math500", "ks": [28, 45, 37, 18, 0, 27, 3, 12, 1, 23, 26, 61, 50, 22, 44, 62], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-482", "pos": 6, "source": "math500", "ks": [28, 45, 37, 18, 27, 0, 3, 12, 1, 23, 26, 61, 50, 22, 44, 62], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-482", "pos": 7, "source": "math500", "ks": [28, 45, 37, 18, 27, 3, 0, 12, 1, 23, 26, 61, 50, 22, 44, 62], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-482", "pos": 8, "source": "math500", "ks": [28, 45, 37, 18, 27, 3, 12, 0, 1, 23, 26, 61, 50, 22, 44, 62], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-482", "pos": 9, "source": "math500", "ks": [28, 45, 37, 18, 27, 3, 12, 1, 0, 23, 26, 61, 50, 22, 44, 62], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-482", "pos": 10, "source": "math500", "ks": [28, 45, 37, 18, 27, 3, 12, 1, 23, 0, 26, 61, 50, 22, 44, 62], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-482", "pos": 11, "source": "math500", "ks": [28, 45, 37, 18, 27, 3, 12, 1, 23, 26, 0, 61, 50, 22, 44, 62], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-482", "pos": 12, "source": "math500", "ks": [28, 45, 37, 18, 27, 3, 12, 1, 23, 26, 61, 0, 50, 22, 44, 62], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-482", "pos": 13, "source": "math500", "ks": [28, 45, 37, 18, 27, 3, 12, 1, 23, 26, 61, 50, 0, 22, 44, 62], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-482", "pos": 14, "source": "math500", "ks": [28, 45, 37, 18, 27, 3, 12, 1, 23, 26, 61, 50, 22, 0, 44, 62], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-482", "pos": 15, "source": "math500", "ks": [28, 45, 37, 18, 27, 3, 12, 1, 23, 26, 61, 50, 22, 44, 0, 62], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-482", "pos": 16, "source": "math500", "ks": [28, 45, 37, 18, 27, 3, 12, 1, 23, 26, 61, 50, 22, 44, 62, 0], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-89", "pos": 1, "source": "math500", "ks": [52, 61, 18, 60, 13, 19, 41, 31, 22, 62, 37, 50, 51, 7, 45, 39], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-89", "pos": 2, "source": "math500", "ks": [61, 52, 18, 60, 13, 19, 41, 31, 22, 62, 37, 50, 51, 7, 45, 39], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-89", "pos": 3, "source": "math500", "ks": [61, 18, 52, 60, 13, 19, 41, 31, 22, 62, 37, 50, 51, 7, 45, 39], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-89", "pos": 4, "source": "math500", "ks": [61, 18, 60, 52, 13, 19, 41, 31, 22, 62, 37, 50, 51, 7, 45, 39], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-89", "pos": 5, "source": "math500", "ks": [61, 18, 60, 13, 52, 19, 41, 31, 22, 62, 37, 50, 51, 7, 45, 39], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-89", "pos": 6, "source": "math500", "ks": [61, 18, 60, 13, 19, 52, 41, 31, 22, 62, 37, 50, 51, 7, 45, 39], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-89", "pos": 7, "source": "math500", "ks": [61, 18, 60, 13, 19, 41, 52, 31, 22, 62, 37, 50, 51, 7, 45, 39], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-89", "pos": 8, "source": "math500", "ks": [61, 18, 60, 13, 19, 41, 31, 52, 22, 62, 37, 50, 51, 7, 45, 39], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-89", "pos": 9, "source": "math500", "ks": [61, 18, 60, 13, 19, 41, 31, 22, 52, 62, 37, 50, 51, 7, 45, 39], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-89", "pos": 10, "source": "math500", "ks": [61, 18, 60, 13, 19, 41, 31, 22, 62, 52, 37, 50, 51, 7, 45, 39], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-89", "pos": 11, "source": "math500", "ks": [61, 18, 60, 13, 19, 41, 31, 22, 62, 37, 52, 50, 51, 7, 45, 39], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-89", "pos": 12, "source": "math500", "ks": [61, 18, 60, 13, 19, 41, 31, 22, 62, 37, 50, 52, 51, 7, 45, 39], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-89", "pos": 13, "source": "math500", "ks": [61, 18, 60, 13, 19, 41, 31, 22, 62, 37, 50, 51, 52, 7, 45, 39], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-89", "pos": 14, "source": "math500", "ks": [61, 18, 60, 13, 19, 41, 31, 22, 62, 37, 50, 51, 7, 52, 45, 39], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-89", "pos": 15, "source": "math500", "ks": [61, 18, 60, 13, 19, 41, 31, 22, 62, 37, 50, 51, 7, 45, 52, 39], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-89", "pos": 16, "source": "math500", "ks": [61, 18, 60, 13, 19, 41, 31, 22, 62, 37, 50, 51, 7, 45, 39, 52], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-26", "pos": 1, "source": "math500", "ks": [32, 48, 61, 2, 45, 42, 14, 30, 54, 51, 52, 1, 34, 13, 49, 8], "n_distinct_wrong": 4}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-26", "pos": 2, "source": "math500", "ks": [48, 32, 61, 2, 45, 42, 14, 30, 54, 51, 52, 1, 34, 13, 49, 8], "n_distinct_wrong": 4}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-26", "pos": 3, "source": "math500", "ks": [48, 61, 32, 2, 45, 42, 14, 30, 54, 51, 52, 1, 34, 13, 49, 8], "n_distinct_wrong": 4}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-26", "pos": 4, "source": "math500", "ks": [48, 61, 2, 32, 45, 42, 14, 30, 54, 51, 52, 1, 34, 13, 49, 8], "n_distinct_wrong": 4}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-26", "pos": 5, "source": "math500", "ks": [48, 61, 2, 45, 32, 42, 14, 30, 54, 51, 52, 1, 34, 13, 49, 8], "n_distinct_wrong": 4}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-26", "pos": 6, "source": "math500", "ks": [48, 61, 2, 45, 42, 32, 14, 30, 54, 51, 52, 1, 34, 13, 49, 8], "n_distinct_wrong": 4}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-26", "pos": 7, "source": "math500", "ks": [48, 61, 2, 45, 42, 14, 32, 30, 54, 51, 52, 1, 34, 13, 49, 8], "n_distinct_wrong": 4}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-26", "pos": 8, "source": "math500", "ks": [48, 61, 2, 45, 42, 14, 30, 32, 54, 51, 52, 1, 34, 13, 49, 8], "n_distinct_wrong": 4}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-26", "pos": 9, "source": "math500", "ks": [48, 61, 2, 45, 42, 14, 30, 54, 32, 51, 52, 1, 34, 13, 49, 8], "n_distinct_wrong": 4}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-26", "pos": 10, "source": "math500", "ks": [48, 61, 2, 45, 42, 14, 30, 54, 51, 32, 52, 1, 34, 13, 49, 8], "n_distinct_wrong": 4}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-26", "pos": 11, "source": "math500", "ks": [48, 61, 2, 45, 42, 14, 30, 54, 51, 52, 32, 1, 34, 13, 49, 8], "n_distinct_wrong": 4}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-26", "pos": 12, "source": "math500", "ks": [48, 61, 2, 45, 42, 14, 30, 54, 51, 52, 1, 32, 34, 13, 49, 8], "n_distinct_wrong": 4}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-26", "pos": 13, "source": "math500", "ks": [48, 61, 2, 45, 42, 14, 30, 54, 51, 52, 1, 34, 32, 13, 49, 8], "n_distinct_wrong": 4}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-26", "pos": 14, "source": "math500", "ks": [48, 61, 2, 45, 42, 14, 30, 54, 51, 52, 1, 34, 13, 32, 49, 8], "n_distinct_wrong": 4}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-26", "pos": 15, "source": "math500", "ks": [48, 61, 2, 45, 42, 14, 30, 54, 51, 52, 1, 34, 13, 49, 32, 8], "n_distinct_wrong": 4}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-26", "pos": 16, "source": "math500", "ks": [48, 61, 2, 45, 42, 14, 30, 54, 51, 52, 1, 34, 13, 49, 8, 32], "n_distinct_wrong": 4}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-64", "pos": 1, "source": "math500", "ks": [3, 45, 37, 51, 18, 7, 1, 4, 30, 52, 34, 21, 5, 31, 32, 20], "n_distinct_wrong": 7}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-64", "pos": 2, "source": "math500", "ks": [45, 3, 37, 51, 18, 7, 1, 4, 30, 52, 34, 21, 5, 31, 32, 20], "n_distinct_wrong": 7}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-64", "pos": 3, "source": "math500", "ks": [45, 37, 3, 51, 18, 7, 1, 4, 30, 52, 34, 21, 5, 31, 32, 20], "n_distinct_wrong": 7}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-64", "pos": 4, "source": "math500", "ks": [45, 37, 51, 3, 18, 7, 1, 4, 30, 52, 34, 21, 5, 31, 32, 20], "n_distinct_wrong": 7}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-64", "pos": 5, "source": "math500", "ks": [45, 37, 51, 18, 3, 7, 1, 4, 30, 52, 34, 21, 5, 31, 32, 20], "n_distinct_wrong": 7}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-64", "pos": 6, "source": "math500", "ks": [45, 37, 51, 18, 7, 3, 1, 4, 30, 52, 34, 21, 5, 31, 32, 20], "n_distinct_wrong": 7}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-64", "pos": 7, "source": "math500", "ks": [45, 37, 51, 18, 7, 1, 3, 4, 30, 52, 34, 21, 5, 31, 32, 20], "n_distinct_wrong": 7}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-64", "pos": 8, "source": "math500", "ks": [45, 37, 51, 18, 7, 1, 4, 3, 30, 52, 34, 21, 5, 31, 32, 20], "n_distinct_wrong": 7}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-64", "pos": 9, "source": "math500", "ks": [45, 37, 51, 18, 7, 1, 4, 30, 3, 52, 34, 21, 5, 31, 32, 20], "n_distinct_wrong": 7}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-64", "pos": 10, "source": "math500", "ks": [45, 37, 51, 18, 7, 1, 4, 30, 52, 3, 34, 21, 5, 31, 32, 20], "n_distinct_wrong": 7}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-64", "pos": 11, "source": "math500", "ks": [45, 37, 51, 18, 7, 1, 4, 30, 52, 34, 3, 21, 5, 31, 32, 20], "n_distinct_wrong": 7}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-64", "pos": 12, "source": "math500", "ks": [45, 37, 51, 18, 7, 1, 4, 30, 52, 34, 21, 3, 5, 31, 32, 20], "n_distinct_wrong": 7}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-64", "pos": 13, "source": "math500", "ks": [45, 37, 51, 18, 7, 1, 4, 30, 52, 34, 21, 5, 3, 31, 32, 20], "n_distinct_wrong": 7}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-64", "pos": 14, "source": "math500", "ks": [45, 37, 51, 18, 7, 1, 4, 30, 52, 34, 21, 5, 31, 3, 32, 20], "n_distinct_wrong": 7}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-64", "pos": 15, "source": "math500", "ks": [45, 37, 51, 18, 7, 1, 4, 30, 52, 34, 21, 5, 31, 32, 3, 20], "n_distinct_wrong": 7}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-64", "pos": 16, "source": "math500", "ks": [45, 37, 51, 18, 7, 1, 4, 30, 52, 34, 21, 5, 31, 32, 20, 3], "n_distinct_wrong": 7}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-228", "pos": 1, "source": "math500", "ks": [23, 14, 35, 27, 16, 52, 48, 6, 7, 19, 24, 38, 10, 62, 8, 2], "n_distinct_wrong": 6}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-228", "pos": 2, "source": "math500", "ks": [14, 23, 35, 27, 16, 52, 48, 6, 7, 19, 24, 38, 10, 62, 8, 2], "n_distinct_wrong": 6}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-228", "pos": 3, "source": "math500", "ks": [14, 35, 23, 27, 16, 52, 48, 6, 7, 19, 24, 38, 10, 62, 8, 2], "n_distinct_wrong": 6}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-228", "pos": 4, "source": "math500", "ks": [14, 35, 27, 23, 16, 52, 48, 6, 7, 19, 24, 38, 10, 62, 8, 2], "n_distinct_wrong": 6}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-228", "pos": 5, "source": "math500", "ks": [14, 35, 27, 16, 23, 52, 48, 6, 7, 19, 24, 38, 10, 62, 8, 2], "n_distinct_wrong": 6}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-228", "pos": 6, "source": "math500", "ks": [14, 35, 27, 16, 52, 23, 48, 6, 7, 19, 24, 38, 10, 62, 8, 2], "n_distinct_wrong": 6}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-228", "pos": 7, "source": "math500", "ks": [14, 35, 27, 16, 52, 48, 23, 6, 7, 19, 24, 38, 10, 62, 8, 2], "n_distinct_wrong": 6}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-228", "pos": 8, "source": "math500", "ks": [14, 35, 27, 16, 52, 48, 6, 23, 7, 19, 24, 38, 10, 62, 8, 2], "n_distinct_wrong": 6}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-228", "pos": 9, "source": "math500", "ks": [14, 35, 27, 16, 52, 48, 6, 7, 23, 19, 24, 38, 10, 62, 8, 2], "n_distinct_wrong": 6}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-228", "pos": 10, "source": "math500", "ks": [14, 35, 27, 16, 52, 48, 6, 7, 19, 23, 24, 38, 10, 62, 8, 2], "n_distinct_wrong": 6}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-228", "pos": 11, "source": "math500", "ks": [14, 35, 27, 16, 52, 48, 6, 7, 19, 24, 23, 38, 10, 62, 8, 2], "n_distinct_wrong": 6}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-228", "pos": 12, "source": "math500", "ks": [14, 35, 27, 16, 52, 48, 6, 7, 19, 24, 38, 23, 10, 62, 8, 2], "n_distinct_wrong": 6}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-228", "pos": 13, "source": "math500", "ks": [14, 35, 27, 16, 52, 48, 6, 7, 19, 24, 38, 10, 23, 62, 8, 2], "n_distinct_wrong": 6}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-228", "pos": 14, "source": "math500", "ks": [14, 35, 27, 16, 52, 48, 6, 7, 19, 24, 38, 10, 62, 23, 8, 2], "n_distinct_wrong": 6}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-228", "pos": 15, "source": "math500", "ks": [14, 35, 27, 16, 52, 48, 6, 7, 19, 24, 38, 10, 62, 8, 23, 2], "n_distinct_wrong": 6}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-228", "pos": 16, "source": "math500", "ks": [14, 35, 27, 16, 52, 48, 6, 7, 19, 24, 38, 10, 62, 8, 2, 23], "n_distinct_wrong": 6}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-279", "pos": 1, "source": "math500", "ks": [43, 27, 1, 26, 58, 17, 57, 54, 4, 9, 37, 12, 36, 23, 15, 48], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-279", "pos": 2, "source": "math500", "ks": [27, 43, 1, 26, 58, 17, 57, 54, 4, 9, 37, 12, 36, 23, 15, 48], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-279", "pos": 3, "source": "math500", "ks": [27, 1, 43, 26, 58, 17, 57, 54, 4, 9, 37, 12, 36, 23, 15, 48], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-279", "pos": 4, "source": "math500", "ks": [27, 1, 26, 43, 58, 17, 57, 54, 4, 9, 37, 12, 36, 23, 15, 48], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-279", "pos": 5, "source": "math500", "ks": [27, 1, 26, 58, 43, 17, 57, 54, 4, 9, 37, 12, 36, 23, 15, 48], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-279", "pos": 6, "source": "math500", "ks": [27, 1, 26, 58, 17, 43, 57, 54, 4, 9, 37, 12, 36, 23, 15, 48], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-279", "pos": 7, "source": "math500", "ks": [27, 1, 26, 58, 17, 57, 43, 54, 4, 9, 37, 12, 36, 23, 15, 48], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-279", "pos": 8, "source": "math500", "ks": [27, 1, 26, 58, 17, 57, 54, 43, 4, 9, 37, 12, 36, 23, 15, 48], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-279", "pos": 9, "source": "math500", "ks": [27, 1, 26, 58, 17, 57, 54, 4, 43, 9, 37, 12, 36, 23, 15, 48], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-279", "pos": 10, "source": "math500", "ks": [27, 1, 26, 58, 17, 57, 54, 4, 9, 43, 37, 12, 36, 23, 15, 48], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-279", "pos": 11, "source": "math500", "ks": [27, 1, 26, 58, 17, 57, 54, 4, 9, 37, 43, 12, 36, 23, 15, 48], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-279", "pos": 12, "source": "math500", "ks": [27, 1, 26, 58, 17, 57, 54, 4, 9, 37, 12, 43, 36, 23, 15, 48], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-279", "pos": 13, "source": "math500", "ks": [27, 1, 26, 58, 17, 57, 54, 4, 9, 37, 12, 36, 43, 23, 15, 48], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-279", "pos": 14, "source": "math500", "ks": [27, 1, 26, 58, 17, 57, 54, 4, 9, 37, 12, 36, 23, 43, 15, 48], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-279", "pos": 15, "source": "math500", "ks": [27, 1, 26, 58, 17, 57, 54, 4, 9, 37, 12, 36, 23, 15, 43, 48], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-279", "pos": 16, "source": "math500", "ks": [27, 1, 26, 58, 17, 57, 54, 4, 9, 37, 12, 36, 23, 15, 48, 43], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-296", "pos": 1, "source": "math500", "ks": [31, 2, 28, 38, 10, 27, 24, 7, 9, 15, 12, 62, 42, 51, 21, 55], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-296", "pos": 2, "source": "math500", "ks": [2, 31, 28, 38, 10, 27, 24, 7, 9, 15, 12, 62, 42, 51, 21, 55], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-296", "pos": 3, "source": "math500", "ks": [2, 28, 31, 38, 10, 27, 24, 7, 9, 15, 12, 62, 42, 51, 21, 55], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-296", "pos": 4, "source": "math500", "ks": [2, 28, 38, 31, 10, 27, 24, 7, 9, 15, 12, 62, 42, 51, 21, 55], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-296", "pos": 5, "source": "math500", "ks": [2, 28, 38, 10, 31, 27, 24, 7, 9, 15, 12, 62, 42, 51, 21, 55], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-296", "pos": 6, "source": "math500", "ks": [2, 28, 38, 10, 27, 31, 24, 7, 9, 15, 12, 62, 42, 51, 21, 55], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-296", "pos": 7, "source": "math500", "ks": [2, 28, 38, 10, 27, 24, 31, 7, 9, 15, 12, 62, 42, 51, 21, 55], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-296", "pos": 8, "source": "math500", "ks": [2, 28, 38, 10, 27, 24, 7, 31, 9, 15, 12, 62, 42, 51, 21, 55], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-296", "pos": 9, "source": "math500", "ks": [2, 28, 38, 10, 27, 24, 7, 9, 31, 15, 12, 62, 42, 51, 21, 55], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-296", "pos": 10, "source": "math500", "ks": [2, 28, 38, 10, 27, 24, 7, 9, 15, 31, 12, 62, 42, 51, 21, 55], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-296", "pos": 11, "source": "math500", "ks": [2, 28, 38, 10, 27, 24, 7, 9, 15, 12, 31, 62, 42, 51, 21, 55], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-296", "pos": 12, "source": "math500", "ks": [2, 28, 38, 10, 27, 24, 7, 9, 15, 12, 62, 31, 42, 51, 21, 55], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-296", "pos": 13, "source": "math500", "ks": [2, 28, 38, 10, 27, 24, 7, 9, 15, 12, 62, 42, 31, 51, 21, 55], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-296", "pos": 14, "source": "math500", "ks": [2, 28, 38, 10, 27, 24, 7, 9, 15, 12, 62, 42, 51, 31, 21, 55], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-296", "pos": 15, "source": "math500", "ks": [2, 28, 38, 10, 27, 24, 7, 9, 15, 12, 62, 42, 51, 21, 31, 55], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-296", "pos": 16, "source": "math500", "ks": [2, 28, 38, 10, 27, 24, 7, 9, 15, 12, 62, 42, 51, 21, 55, 31], "n_distinct_wrong": 1}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-403", "pos": 1, "source": "math500", "ks": [45, 43, 32, 39, 44, 57, 17, 58, 27, 55, 42, 14, 52, 26, 24, 63], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-403", "pos": 2, "source": "math500", "ks": [43, 45, 32, 39, 44, 57, 17, 58, 27, 55, 42, 14, 52, 26, 24, 63], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-403", "pos": 3, "source": "math500", "ks": [43, 32, 45, 39, 44, 57, 17, 58, 27, 55, 42, 14, 52, 26, 24, 63], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-403", "pos": 4, "source": "math500", "ks": [43, 32, 39, 45, 44, 57, 17, 58, 27, 55, 42, 14, 52, 26, 24, 63], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-403", "pos": 5, "source": "math500", "ks": [43, 32, 39, 44, 45, 57, 17, 58, 27, 55, 42, 14, 52, 26, 24, 63], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-403", "pos": 6, "source": "math500", "ks": [43, 32, 39, 44, 57, 45, 17, 58, 27, 55, 42, 14, 52, 26, 24, 63], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-403", "pos": 7, "source": "math500", "ks": [43, 32, 39, 44, 57, 17, 45, 58, 27, 55, 42, 14, 52, 26, 24, 63], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-403", "pos": 8, "source": "math500", "ks": [43, 32, 39, 44, 57, 17, 58, 45, 27, 55, 42, 14, 52, 26, 24, 63], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-403", "pos": 9, "source": "math500", "ks": [43, 32, 39, 44, 57, 17, 58, 27, 45, 55, 42, 14, 52, 26, 24, 63], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-403", "pos": 10, "source": "math500", "ks": [43, 32, 39, 44, 57, 17, 58, 27, 55, 45, 42, 14, 52, 26, 24, 63], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-403", "pos": 11, "source": "math500", "ks": [43, 32, 39, 44, 57, 17, 58, 27, 55, 42, 45, 14, 52, 26, 24, 63], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-403", "pos": 12, "source": "math500", "ks": [43, 32, 39, 44, 57, 17, 58, 27, 55, 42, 14, 45, 52, 26, 24, 63], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-403", "pos": 13, "source": "math500", "ks": [43, 32, 39, 44, 57, 17, 58, 27, 55, 42, 14, 52, 45, 26, 24, 63], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-403", "pos": 14, "source": "math500", "ks": [43, 32, 39, 44, 57, 17, 58, 27, 55, 42, 14, 52, 26, 45, 24, 63], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-403", "pos": 15, "source": "math500", "ks": [43, 32, 39, 44, 57, 17, 58, 27, 55, 42, 14, 52, 26, 24, 45, 63], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-403", "pos": 16, "source": "math500", "ks": [43, 32, 39, 44, 57, 17, 58, 27, 55, 42, 14, 52, 26, 24, 63, 45], "n_distinct_wrong": 2}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-288", "pos": 1, "source": "math500", "ks": [62, 44, 20, 0, 59, 45, 63, 23, 52, 30, 27, 56, 46, 12, 29, 21], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-288", "pos": 2, "source": "math500", "ks": [44, 62, 20, 0, 59, 45, 63, 23, 52, 30, 27, 56, 46, 12, 29, 21], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-288", "pos": 3, "source": "math500", "ks": [44, 20, 62, 0, 59, 45, 63, 23, 52, 30, 27, 56, 46, 12, 29, 21], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-288", "pos": 4, "source": "math500", "ks": [44, 20, 0, 62, 59, 45, 63, 23, 52, 30, 27, 56, 46, 12, 29, 21], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-288", "pos": 5, "source": "math500", "ks": [44, 20, 0, 59, 62, 45, 63, 23, 52, 30, 27, 56, 46, 12, 29, 21], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-288", "pos": 6, "source": "math500", "ks": [44, 20, 0, 59, 45, 62, 63, 23, 52, 30, 27, 56, 46, 12, 29, 21], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-288", "pos": 7, "source": "math500", "ks": [44, 20, 0, 59, 45, 63, 62, 23, 52, 30, 27, 56, 46, 12, 29, 21], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-288", "pos": 8, "source": "math500", "ks": [44, 20, 0, 59, 45, 63, 23, 62, 52, 30, 27, 56, 46, 12, 29, 21], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-288", "pos": 9, "source": "math500", "ks": [44, 20, 0, 59, 45, 63, 23, 52, 62, 30, 27, 56, 46, 12, 29, 21], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-288", "pos": 10, "source": "math500", "ks": [44, 20, 0, 59, 45, 63, 23, 52, 30, 62, 27, 56, 46, 12, 29, 21], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-288", "pos": 11, "source": "math500", "ks": [44, 20, 0, 59, 45, 63, 23, 52, 30, 27, 62, 56, 46, 12, 29, 21], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-288", "pos": 12, "source": "math500", "ks": [44, 20, 0, 59, 45, 63, 23, 52, 30, 27, 56, 62, 46, 12, 29, 21], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-288", "pos": 13, "source": "math500", "ks": [44, 20, 0, 59, 45, 63, 23, 52, 30, 27, 56, 46, 62, 12, 29, 21], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-288", "pos": 14, "source": "math500", "ks": [44, 20, 0, 59, 45, 63, 23, 52, 30, 27, 56, 46, 12, 62, 29, 21], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-288", "pos": 15, "source": "math500", "ks": [44, 20, 0, 59, 45, 63, 23, 52, 30, 27, 56, 46, 12, 29, 62, 21], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-288", "pos": 16, "source": "math500", "ks": [44, 20, 0, 59, 45, 63, 23, 52, 30, 27, 56, 46, 12, 29, 21, 62], "n_distinct_wrong": 3}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-240", "pos": 1, "source": "math500", "ks": [37, 7, 12, 35, 43, 39, 8, 45, 2, 1, 32, 63, 51, 54, 15, 40], "n_distinct_wrong": 8}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-240", "pos": 2, "source": "math500", "ks": [7, 37, 12, 35, 43, 39, 8, 45, 2, 1, 32, 63, 51, 54, 15, 40], "n_distinct_wrong": 8}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-240", "pos": 3, "source": "math500", "ks": [7, 12, 37, 35, 43, 39, 8, 45, 2, 1, 32, 63, 51, 54, 15, 40], "n_distinct_wrong": 8}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-240", "pos": 4, "source": "math500", "ks": [7, 12, 35, 37, 43, 39, 8, 45, 2, 1, 32, 63, 51, 54, 15, 40], "n_distinct_wrong": 8}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-240", "pos": 5, "source": "math500", "ks": [7, 12, 35, 43, 37, 39, 8, 45, 2, 1, 32, 63, 51, 54, 15, 40], "n_distinct_wrong": 8}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-240", "pos": 6, "source": "math500", "ks": [7, 12, 35, 43, 39, 37, 8, 45, 2, 1, 32, 63, 51, 54, 15, 40], "n_distinct_wrong": 8}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-240", "pos": 7, "source": "math500", "ks": [7, 12, 35, 43, 39, 8, 37, 45, 2, 1, 32, 63, 51, 54, 15, 40], "n_distinct_wrong": 8}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-240", "pos": 8, "source": "math500", "ks": [7, 12, 35, 43, 39, 8, 45, 37, 2, 1, 32, 63, 51, 54, 15, 40], "n_distinct_wrong": 8}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-240", "pos": 9, "source": "math500", "ks": [7, 12, 35, 43, 39, 8, 45, 2, 37, 1, 32, 63, 51, 54, 15, 40], "n_distinct_wrong": 8}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-240", "pos": 10, "source": "math500", "ks": [7, 12, 35, 43, 39, 8, 45, 2, 1, 37, 32, 63, 51, 54, 15, 40], "n_distinct_wrong": 8}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-240", "pos": 11, "source": "math500", "ks": [7, 12, 35, 43, 39, 8, 45, 2, 1, 32, 37, 63, 51, 54, 15, 40], "n_distinct_wrong": 8}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-240", "pos": 12, "source": "math500", "ks": [7, 12, 35, 43, 39, 8, 45, 2, 1, 32, 63, 37, 51, 54, 15, 40], "n_distinct_wrong": 8}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-240", "pos": 13, "source": "math500", "ks": [7, 12, 35, 43, 39, 8, 45, 2, 1, 32, 63, 51, 37, 54, 15, 40], "n_distinct_wrong": 8}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-240", "pos": 14, "source": "math500", "ks": [7, 12, 35, 43, 39, 8, 45, 2, 1, 32, 63, 51, 54, 37, 15, 40], "n_distinct_wrong": 8}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-240", "pos": 15, "source": "math500", "ks": [7, 12, 35, 43, 39, 8, 45, 2, 1, 32, 63, 51, 54, 15, 37, 40], "n_distinct_wrong": 8}
+{"model": "qwen3-8b", "N": 16, "draw": 10, "pid": "math500-240", "pos": 16, "source": "math500", "ks": [7, 12, 35, 43, 39, 8, 45, 2, 1, 32, 63, 51, 54, 15, 40, 37], "n_distinct_wrong": 8}

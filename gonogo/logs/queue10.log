@@ -1,0 +1,11 @@
+qwen3-4b: 980 requests, Counter({('select', 'one_correct_pair'): 516, ('select', 'both_correct_pair'): 432, ('lookup', 'one_correct_pair'): 32})
+qwen3-8b: 976 requests, Counter({('select', 'one_correct_pair'): 520, ('select', 'both_correct_pair'): 424, ('lookup', 'one_correct_pair'): 32})
+[2026-11-25T16:39:33+08:00] START e2_direct_qwen3-4b
+[2026-11-25T16:50:32+08:00] OK e2_direct_qwen3-4b
+[2026-11-25T16:50:32+08:00] START e2_direct_qwen3-8b
+[2026-11-25T17:06:48+08:00] OK e2_direct_qwen3-8b
+[2026-11-25T17:06:48+08:00] START e2_think_qwen3-4b
+[2026-11-25T19:25:03+08:00] OK e2_think_qwen3-4b
+[2026-11-25T19:25:03+08:00] START e2_think_qwen3-8b
+[2026-11-25T23:00:24+08:00] OK e2_think_qwen3-8b
+[2026-11-25T23:00:24+08:00] QUEUE10_DONE

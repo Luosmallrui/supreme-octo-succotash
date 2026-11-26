@@ -1,0 +1,2 @@
+math500 {'problems': 500, 'samples': 13408, 'valid': 10438, 'correct': 7620, 'elig_N4': 115, 'elig_N8': 92, 'elig_N16': 60, 'elig_N32': 24} sample_acc=0.730
+comp {'problems': 90, 'samples': 2736, 'valid': 1939, 'correct': 375, 'elig_N4': 31, 'elig_N8': 23, 'elig_N16': 15} sample_acc=0.193

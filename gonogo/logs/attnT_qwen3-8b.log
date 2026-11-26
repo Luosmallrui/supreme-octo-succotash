@@ -1,0 +1,18 @@
+`torch_dtype` is deprecated! Use `dtype` instead!
+Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 5/5 [00:00<00:00, 132.20it/s]
+680 sequences ({4: 30, 8: 30, 16: 20} problems per N)
+0/680 4s T=15365
+50/680 211s T=15455
+100/680 305s T=12298
+150/680 620s T=28185
+200/680 945s T=25510
+250/680 1201s T=11891
+300/680 1402s T=22678
+350/680 1579s T=23266
+400/680 1893s T=24391
+450/680 2213s T=22111
+500/680 2561s T=25788
+550/680 2786s T=16224
+600/680 3050s T=23050
+650/680 3313s T=23471
+saved 680 -> out/attnT_qwen3-8b.pkl

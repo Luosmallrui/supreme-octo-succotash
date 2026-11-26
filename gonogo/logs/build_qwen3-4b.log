@@ -1,0 +1,23 @@
+{
+ "4": {
+  "elig_math": 115,
+  "elig_comp": 31,
+  "used": 146
+ },
+ "8": {
+  "elig_math": 92,
+  "elig_comp": 23,
+  "used": 115
+ },
+ "16": {
+  "elig_math": 60,
+  "elig_comp": 5,
+  "used": 65
+ },
+ "32": {
+  "elig_math": 13,
+  "elig_comp": 0,
+  "used": 13
+ }
+}
+2960 specs

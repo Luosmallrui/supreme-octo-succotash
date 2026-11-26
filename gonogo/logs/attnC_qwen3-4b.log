@@ -1,0 +1,18 @@
+`torch_dtype` is deprecated! Use `dtype` instead!
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 3/3 [00:00<00:00, 79.27it/s]
+1376 specs x modes C
+0/1376 2s
+100/1376 132s
+200/1376 317s
+300/1376 719s
+400/1376 968s
+500/1376 1185s
+600/1376 1673s
+700/1376 2124s
+800/1376 2334s
+900/1376 2774s
+1000/1376 3145s
+1100/1376 3433s
+1200/1376 4051s
+1300/1376 4377s
+saved 1376 -> out/attnC_qwen3-4b.pkl
