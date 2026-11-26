@@ -6,3 +6,7 @@ __pycache__/
 *.gen.jsonl
 gonogo/out/smoke/
 gonogo/.e3-submit.*/
+# API keys stay out of the repository
+key.txt
+*.key
+.env

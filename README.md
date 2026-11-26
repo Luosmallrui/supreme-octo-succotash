@@ -23,6 +23,7 @@
 | 扫描与注意力分析 | `analyze.py`、`analyze_think.py`、`plot*.py` | `results/report_tables.md`、`results/report_think_*.md`、`results/fig*` |
 | E1 自然候选集：槽位先验、校准、多顺序投票 | `e1_sets.py` → `e1_run.py`（托管模型：`e1_api.py`）→ `e1_analyze.py` | `out/e1_*`、`results/report_e1_*.md` |
 | E2 物理位置 × 打印编号 | `e2_design.py` → `e2_run.py` → `e2_analyze.py`（`run_queue10.sh`） | `out/e2_position_label/` |
+| E1 / E2 托管模型评审（OpenAI 兼容接口；direct 取 top-5 编号 logprobs，think 开推理） | `api_select.py --exp e1\|e2`（密钥读 `$OPENAI_API_KEY` 或 `--key-file`，不进仓库） → `e1_analyze.py` / `e2_analyze.py`；跨评审对比 `e2_compare.py` | `out/e1_api-*_qwen3-8b.jsonl`、`out/e2_position_label/api/` |
 | E3 读出形式（编号 / 引文 / 答案），协议 v2 | `e3_design.py` → `e3_run.py` → `e3_analyze.py`（`run_queue12.sh`） | `out/e3v2_readout/` |
 | E4 注意力隔离 × 共享位置编号（2×2 因果干预） | `e4_run.py` → `e4_analyze.py`（`run_queue13.sh`） | `out/e4_mask_position/` |
 

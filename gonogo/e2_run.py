@@ -1,6 +1,5 @@
 """Run the E2 crossed position/printed-label experiment on a Qwen3 model."""
 import argparse
-import fcntl
 import json
 import math
 import os
@@ -144,6 +143,8 @@ def recover_results(handle, wanted, mode):
 
 
 def main():
+    import fcntl  # Unix-only; imported here so the API runner can reuse the prompt code on Windows
+
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--manifest", type=Path, required=True)
     ap.add_argument("--model", choices=MODELS, required=True)

@@ -77,12 +77,15 @@ for mode in ["direct", "think"] + api_modes:
     has_p = all(r.get("p") is not None for r in rows)
     rep.append(f"\n## {mode} mode ({len(rows)} calls)\n")
     if mode.startswith("api-"):
-        # selector is a different model judging Qwen3-8B candidates; choice-only (no logprobs from the API)
-        rep.append(f"model {rows[0].get('api_model')}; choice-only. errors {np.mean(['error' in r for r in rows]):.3f}; "
+        # selector is a different model judging Qwen3-8B candidates; label logprobs only if the API returned them
+        ok = list({(r["set_id"], r["order_name"]): r for r in rows if "error" not in r}.values())
+        has_p = bool(ok) and all(r.get("p") is not None for r in ok)
+        readout = "label distribution from API logprobs" if has_p else "choice-only"
+        rep.append(f"model {rows[0].get('api_model')}; {readout}. errors {np.mean(['error' in r for r in rows]):.3f}; "
                    f"forced ending {np.mean([bool(r.get('forced')) for r in rows]):.2f}; no index even after forcing "
                    f"{np.mean([r['choice'] is None for r in rows]):.3f}; mean reasoning tokens "
                    f"{np.mean([r.get('n_reason') or 0 for r in rows]):.0f}\n")
-        rows = list({(r["set_id"], r["order_name"]): r for r in rows if "error" not in r}.values())
+        rows = ok
     if mode == "think":
         fr = np.mean([r["forced"] for r in rows])
         tr = np.mean([r["finish"] == "length" for r in rows])
