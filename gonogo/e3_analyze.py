@@ -13,7 +13,8 @@ READOUTS = ("label", "quote", "answer")
 METRICS = ("选择 A", "正确率", "未匹配率")
 
 
-def load(path):
+def load(path, strict_quote=False):
+    """strict_quote: count quotes attributed only by shingle overlap (protocol v2) as unmatched."""
     layouts = defaultdict(lambda: defaultdict(dict))
     controls = defaultdict(list)
     quality = defaultdict(Counter)
@@ -30,10 +31,15 @@ def load(path):
                 raise ValueError(f"{path}: duplicate request {rid}")
             ids.add(rid)
             kind, header = r["readout"], r["header"]
+            if strict_quote and r.get("quote_match") == "shingle":
+                r = dict(r, parsed=False, correct=False, choice_candidate=None, parse_error="shingle_only")
             qc = quality[kind, header]
             qc["calls"] += 1
             qc["unparsed"] += not r["parsed"]
             qc["length"] += r["finish"] == "length"
+            qc["forced"] += bool(r.get("forced"))
+            qc["boxed"] += r.get("parse_rule") == "boxed"
+            qc["shingle"] += r.get("quote_match") == "shingle"
             correct = bool(r["parsed"] and r["correct"])
             if kind in ("solo_answer", "lookup_quote"):
                 controls[kind].append((r["pid"], correct))
@@ -119,16 +125,20 @@ class Report:
         self.comparison(name, [k[0] for k in keys], values(left), values(right))
 
 
-def report(primary, paired, n_boot):
+def report(primary, paired, n_boot, strict_quote=False):
     (model, mode), layouts, controls, quality = primary
     full = {key: physical_means(blocks) for key, blocks in layouts.items() if key[2] == "numbered"}
     rpt = Report(n_boot)
+    rpt.lines.append("")
+    rpt.lines.append("短句读出按严格逐字匹配（忽略空白与 $ * `）计分。" if strict_quote else
+                     "短句读出包括逐字匹配和 20 字符片段归属两种匹配（协议 v2）；严格版本见 --strict-quote 报告。")
     rpt.section(f"## {model} · {mode} · 输出质量")
-    rpt.lines.extend(["| 输出形式 | 标题 | 调用数 | 未解析或未匹配数 (%) | 触及长度上限数 |",
-                      "|---|---|---:|---:|---:|"])
+    rpt.lines.extend(["| 输出形式 | 标题 | 调用数 | 未解析或未匹配数 (%) | 触及长度上限数 | 强制收尾数 | 方框回退数 | 片段归属数 |",
+                      "|---|---|---:|---:|---:|---:|---:|---:|"])
     for (kind, header), qc in sorted(quality.items()):
         rpt.lines.append(f"| {kind} | {header} | {qc['calls']} | {qc['unparsed']} "
-                         f"({percent(qc['unparsed']/qc['calls'])}%) | {qc['length']} |")
+                         f"({percent(qc['unparsed']/qc['calls'])}%) | {qc['length']} | {qc['forced']} | "
+                         f"{qc['boxed']} | {qc['shingle']} |")
 
     for stratum in sorted({key[0] for key in layouts}):
         rpt.section(f"## {stratum} · 编号四格")
@@ -221,9 +231,13 @@ if __name__ == "__main__":
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--paired-input", type=Path)
     parser.add_argument("--B", type=int, default=5000)
+    parser.add_argument("--strict-quote", action="store_true",
+                        help="count shingle-attributed quotes as unmatched")
     args = parser.parse_args()
     if args.B < 1:
         parser.error("--B must be positive")
-    result = report(load(args.input), load(args.paired_input) if args.paired_input else None, args.B)
+    strict = args.strict_quote
+    result = report(load(args.input, strict),
+                    load(args.paired_input, strict) if args.paired_input else None, args.B, strict)
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(result, encoding="utf-8")

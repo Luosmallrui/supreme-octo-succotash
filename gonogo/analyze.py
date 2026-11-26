@@ -19,7 +19,8 @@ from scipy.optimize import minimize
 
 ap = argparse.ArgumentParser()
 ap.add_argument("--models", default="qwen3-8b,qwen3-4b")
-ap.add_argument("--dir", default="results")
+ap.add_argument("--dir", default="results", help="where reports and summaries are written")
+ap.add_argument("--data", default="out", help="raw run outputs that are read (sel*, keys, attn*, e1_*)")
 ap.add_argument("--B", type=int, default=2000)
 args = ap.parse_args()
 rng = np.random.default_rng(0)
@@ -97,12 +98,12 @@ def perm_test(M, n_perm=2000):
 report = []
 summary = {}
 for model in args.models.split(","):
-    files = sorted(f for f in os.listdir(args.dir) if f.startswith("sel") and f.endswith(f"_{model}.jsonl"))
+    files = sorted(f for f in os.listdir(args.data) if f.startswith("sel") and f.endswith(f"_{model}.jsonl"))
     if not files:
         continue
     rows = []
     for f in files:
-        rs = load_jsonl(os.path.join(args.dir, f))
+        rs = load_jsonl(os.path.join(args.data, f))
         if f.startswith("selT"):  # thinking-mode selection: keep separate from direct-answer mode A
             for r in rs:
                 r["mode"] = "T"
@@ -160,7 +161,7 @@ for model in args.models.split(","):
         report.append(f"- N={N}: per-position P(correct) = {np.round(Mp.mean(0), 3).tolist()}; front−mid {100*(Mp[:, f].mean()-Mp[:, m].mean()):+.1f} "
                       f"[{100*ci_f[0]:+.1f},{100*ci_f[1]:+.1f}], back−mid {100*(Mp[:, b].mean()-Mp[:, m].mean()):+.1f} [{100*ci_b[0]:+.1f},{100*ci_b[1]:+.1f}]")
     # majority effect: does the model side with the largest answer cluster?
-    kp = os.path.join(args.dir, f"keys_{model}.json")
+    kp = os.path.join(args.data, f"keys_{model}.json")
     if os.path.exists(kp):
         K = json.load(open(kp))
         report.append("\nMajority effect in mode A (wrong candidates often share an answer):\n")
@@ -278,20 +279,20 @@ def fit_clogit(X, y):
 
 attn_summary = {}
 for model in args.models.split(","):
-    sp = os.path.join(args.dir, f"sel_{model}.jsonl")
-    kp = os.path.join(args.dir, f"keys_{model}.json")
+    sp = os.path.join(args.data, f"sel_{model}.jsonl")
+    kp = os.path.join(args.data, f"keys_{model}.json")
     KEYS = json.load(open(kp)) if os.path.exists(kp) else None
     recs = []
     for tag in ("attnA", "attnC", "attn"):
-        p = os.path.join(args.dir, f"{tag}_{model}.pkl")
+        p = os.path.join(args.data, f"{tag}_{model}.pkl")
         if os.path.exists(p):
             recs += pickle.load(open(p, "rb"))
     if not recs or not os.path.exists(sp):
         continue
     sel = {(r["N"], r["pid"], r["draw"], r["pos"], r["mode"]): r
-           for f in sorted(os.listdir(args.dir))
+           for f in sorted(os.listdir(args.data))
            if f.startswith("sel") and not f.startswith("selT") and f.endswith(f"_{model}.jsonl")
-           for r in load_jsonl(os.path.join(args.dir, f))}
+           for r in load_jsonl(os.path.join(args.data, f))}
     NL = recs[0]["inst"].shape[0]
     report.append(f"\n## {model}: attention (head-mean, query = instruction rows)\n")
     for mode in ["A", "C"]:

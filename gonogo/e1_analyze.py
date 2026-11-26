@@ -16,7 +16,8 @@ import pickle
 import numpy as np
 
 ap = argparse.ArgumentParser()
-ap.add_argument("--dir", default="results")
+ap.add_argument("--dir", default="results", help="where reports and summaries are written")
+ap.add_argument("--data", default="out", help="raw run outputs that are read (sel*, keys, attn*, e1_*)")
 ap.add_argument("--model", default="qwen3-8b")
 ap.add_argument("--B", type=int, default=2000)
 ap.add_argument("--few", default="5,10,20", help="numbers of calibration problems for the few-problem prior")
@@ -28,7 +29,7 @@ def load_jsonl(p):
     return [json.loads(l) for l in open(p) if l.strip()]
 
 
-SETS = {s["set_id"]: s for s in load_jsonl(os.path.join(args.dir, f"e1_sets_{args.model}.jsonl"))}
+SETS = {s["set_id"]: s for s in load_jsonl(os.path.join(args.data, f"e1_sets_{args.model}.jsonl"))}
 rep = [f"# E1 ({args.model}): positional prior and single-call calibration\n"]
 summary = {}
 
@@ -65,10 +66,10 @@ def boot_diff(by_pid, B):
     return float(np.mean(allv)), np.percentile(bs, [2.5, 97.5])
 
 
-api_modes = sorted(f[len("e1_"):-len(f"_{args.model}.jsonl")] for f in os.listdir(args.dir)
+api_modes = sorted(f[len("e1_"):-len(f"_{args.model}.jsonl")] for f in os.listdir(args.data)
                    if f.startswith("e1_api-") and f.endswith(f"_{args.model}.jsonl"))
 for mode in ["direct", "think"] + api_modes:
-    fp = os.path.join(args.dir, f"e1_{mode}_{args.model}.jsonl")
+    fp = os.path.join(args.data, f"e1_{mode}_{args.model}.jsonl")
     if not os.path.exists(fp):
         rep.append(f"\n(no e1_{mode} results yet)\n")
         continue
