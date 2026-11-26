@@ -5,6 +5,7 @@ Each input is judge:mode:path. Effects use the same block definition as e2_analy
 both judges completed. 95% intervals resample whole problems.
 """
 import argparse
+import zlib
 from collections import defaultdict
 import json
 from pathlib import Path
@@ -41,6 +42,11 @@ def block_effects(rows):
     return out
 
 
+def cell_rng(*key):
+    """Bootstrap stream fixed per table cell, so adding a judge does not move other judges' intervals."""
+    return np.random.default_rng(zlib.crc32("|".join(map(str, key)).encode()))
+
+
 def fmt(est, lo, hi, scale=100, signed=True):
     f = "+.1f" if signed else ".1f"
     return f"{scale * est:{f}} [{scale * lo:{f}}, {scale * hi:{f}}]"
@@ -53,7 +59,6 @@ def main():
     ap.add_argument("--B", type=int, default=5000)
     ap.add_argument("--output", type=Path)
     args = ap.parse_args()
-    rng = np.random.default_rng(0)
     runs = {}
     for spec in args.inputs:
         judge, mode, path = spec.split(":", 2)
@@ -77,8 +82,8 @@ def main():
             sel = [r for r in rows if r["task"] == "select" and "error" not in r]
             look = [r for r in rows if r["task"] == "lookup" and "error" not in r]
             pids = [r["pid"] for r in sel]
-            acc = cluster_mean(pids, [[r["correct"]] for r in sel], args.B, rng)
-            first = cluster_mean(pids, [[r["choice_slot"] == 1] for r in sel], args.B, rng)
+            acc = cluster_mean(pids, [[r["correct"]] for r in sel], args.B, cell_rng("acc", judge, mode))
+            first = cluster_mean(pids, [[r["choice_slot"] == 1] for r in sel], args.B, cell_rng("first", judge, mode))
             lk = (f"{100 * np.mean([r['correct'] for r in look]):.1f}（{len(look)} 次）" if look else "—")
             lines.append(f"| {judge} | {mode} | {len(rows)} | {sum('error' in r for r in rows)} | "
                          f"{sum(bool(r.get('forced')) for r in rows)} | "
@@ -98,7 +103,7 @@ def main():
                 if not eff:
                     continue
                 pids = [k[1] for k in eff]
-                est, lo, hi = cluster_mean(pids, list(eff.values()), args.B, rng)
+                est, lo, hi = cluster_mean(pids, list(eff.values()), args.B, cell_rng("eff", judge, mode, stratum))
                 lines.append(f"| {judge} | {mode} | {len(eff)} | "
                              + " | ".join(fmt(est[i], lo[i], hi[i]) for i in range(len(METRICS))) + " |")
         lines += ["", f"与 {args.reference} 的配对差值（该评审减 {args.reference}）：", "",
@@ -113,7 +118,8 @@ def main():
                 keys = [k for k in ref if k in eff]
                 if not keys:
                     continue
-                est, lo, hi = cluster_mean([k[1] for k in keys], [eff[k] - ref[k] for k in keys], args.B, rng)
+                est, lo, hi = cluster_mean([k[1] for k in keys], [eff[k] - ref[k] for k in keys], args.B,
+                                           cell_rng("diff", judge, mode, stratum))
                 lines.append(f"| {judge} | {mode} | {len(keys)} | "
                              + " | ".join(fmt(est[i], lo[i], hi[i]) for i in range(len(METRICS))) + " |")
         lines.append("")

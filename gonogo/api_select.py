@@ -1,7 +1,7 @@
 """E1 / E2 candidate selection with a hosted judge on an OpenAI-compatible Chat Completions API.
 
-The judge sees the same Qwen3-8B candidate sets, orderings and user prompts as the local runs; only the
-assistant pre-fill is missing, because hosted chat APIs do not accept one.
+The judge sees the same Qwen3-8B candidate sets, orderings and user prompts as the local runs. Most hosted
+chat APIs do not accept an assistant pre-fill, so by default the judge writes \boxed{k} itself.
 
 direct  Reasoning off where the model allows it (--effort none). The prompt already asks for only \\boxed{k}.
         When the API returns logprobs, the label distribution is read at the first digit token inside the
@@ -12,10 +12,18 @@ direct  Reasoning off where the model allows it (--effort none). The prompt alre
 think   Reasoning on (--effort, default medium). The choice is the last \\boxed{k} in the visible reply.
         A reply without one gets one follow-up turn that asks only for the label (forced=True). The hidden
         reasoning is not carried into that turn.
+--prefill  (direct only; DeepSeek beta "chat prefix completion" at <base-url>/beta) pre-fills the assistant
+        turn exactly as the local Qwen3 runs do ("The best solution is Solution ", or "The printed label is
+        Solution " for E2 lookup) and reads the label distribution at the first generated token.
+
+Tested providers: OpenAI (default --base-url) and DeepSeek (--base-url https://api.deepseek.com
+--key-file deepseek.txt --top-logprobs 20 --max-tokens-param max_tokens). Without a pre-fill, DeepSeek in
+non-thinking mode writes a full visible analysis before \boxed{k}, so use --prefill for its direct mode. A quota or balance error (429 insufficient quota, 402) stops the
+whole run; error rows are retried on the next start.
 
 Rows are appended as they return. A restart skips saved request IDs, retries rows saved with an error,
-and refuses to mix rows produced with different API settings. The key comes from $OPENAI_API_KEY or
---key-file and is never printed or written. Token caps stop new submissions.
+and refuses to mix rows produced with different API settings. The key comes from --key-file, else from
+the variable named by --key-env (default OPENAI_API_KEY); it is never printed or written. Token caps stop new submissions.
 
 Outputs are read by the existing analyses:
   E1  out/e1_api-<tag>-<mode>_qwen3-8b.jsonl  -> e1_analyze.py --data out (mode "api-<tag>-<mode>")
@@ -39,8 +47,8 @@ from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE))
-from common import build_user_content, last_boxed  # noqa: E402
-from e2_run import make_result as e2_make_result, user_prompt as e2_user_prompt  # noqa: E402
+from common import PREFILL, build_user_content, last_boxed  # noqa: E402
+from e2_run import make_result as e2_make_result, prefill as e2_prefill, user_prompt as e2_user_prompt  # noqa: E402
 
 LABEL = re.compile(r"\s*(?:\\text\{)?\s*(?:Solution\s*)?#?\s*(\d+)\s*\}?\s*")
 TOKEN_LABEL = re.compile(r"\s*(\d+)\s*\}?\s*")
@@ -96,29 +104,48 @@ def label_distribution(tokens, text, n):
     return [x / mass for x in p], mass
 
 
-def read_key(key_file):
-    key = os.environ.get("OPENAI_API_KEY", "").strip()
-    if not key and key_file:
-        key = Path(key_file).read_text(encoding="utf-8").strip()
+def first_token_distribution(tokens, n):
+    """(p over labels 1..n, raw mass) at the first non-blank generated token after a pre-fill, or (None, None)."""
+    t = next((t for t in tokens or [] if t["token"].strip()), None)
+    if t is None:
+        return None, None
+    alts = {a["token"]: a["logprob"] for a in t.get("top_logprobs") or []}
+    alts.setdefault(t["token"], t["logprob"])
+    p = [0.0] * n
+    for tok, lp in alts.items():
+        m = TOKEN_LABEL.fullmatch(tok)
+        if m and 1 <= int(m.group(1)) <= n:
+            p[int(m.group(1)) - 1] += math.exp(lp)
+    mass = sum(p)
+    if not math.isfinite(mass) or mass <= 0:
+        return None, None
+    return [x / mass for x in p], mass
+
+
+def read_key(key_file, key_env):
+    """The key file wins, so a key set for another provider in the environment is never sent here."""
+    key = Path(key_file).read_text(encoding="utf-8").strip() if key_file else os.environ.get(key_env, "").strip()
     if not key:
-        sys.exit("Set OPENAI_API_KEY or pass --key-file")
+        sys.exit(f"Pass --key-file or set {key_env}")
     return key
 
 
 class Client:
     def __init__(self, base_url, key, timeout, halt):
         self.url = base_url.rstrip("/") + "/chat/completions"
+        self.beta_url = base_url.rstrip("/") + "/beta/chat/completions"  # DeepSeek chat prefix completion
         self.key = key
         self.timeout = timeout
         self.halt = halt  # set when the run stops; waiting retries give up at once
 
-    def post(self, body):
+    def post(self, body, beta=False):
+        url = self.beta_url if beta else self.url
         data = json.dumps(body).encode()
         last = "no attempt"
         for attempt in range(8):
             if self.halt.is_set():
                 return {"error": f"run stopped before retry: {last}", "fatal": True}
-            req = urllib.request.Request(self.url, data=data, method="POST",
+            req = urllib.request.Request(url, data=data, method="POST",
                                          headers={"Authorization": "Bearer " + self.key,
                                                   "Content-Type": "application/json"})
             try:
@@ -126,7 +153,7 @@ class Client:
                     return json.loads(r.read())
             except urllib.error.HTTPError as e:
                 msg = e.read().decode(errors="replace")[:300]
-                if e.code == 429 and any(q in msg.lower() for q in QUOTA):
+                if e.code == 402 or (e.code == 429 and any(q in msg.lower() for q in QUOTA)):
                     return {"error": f"{e.code} {msg}", "status": e.code, "fatal": True}
                 if e.code not in RETRY:
                     return {"error": f"{e.code} {msg}", "status": e.code}
@@ -172,7 +199,7 @@ def build_calls(args, probs, cands):
 
 
 def request_body(args, messages, effort, max_tokens, logprobs):
-    body = dict(model=args.model, messages=messages, max_completion_tokens=max_tokens)
+    body = {"model": args.model, "messages": messages, args.max_tokens_param: max_tokens}
     if effort != "omit":
         body["reasoning_effort"] = effort
     if args.temperature is not None:
@@ -182,20 +209,31 @@ def request_body(args, messages, effort, max_tokens, logprobs):
     return body
 
 
-def ask(args, client, prompt, n):
-    """One selection: returns dict with choice, choice_gen, p, mass, forced, usage and text fields."""
+def ask(args, client, prompt, n, prefix=None):
+    """One selection: returns dict with choice, choice_gen, p, mass, forced, usage and text fields.
+
+    With prefix, the assistant turn is pre-filled (DeepSeek beta prefix completion) and the label is read at
+    the first generated token, as in the local pre-filled runs."""
     t0 = time.time()
-    js = client.post(request_body(args, [{"role": "user", "content": prompt}], args.effort, args.max_tokens,
-                                  args.logprobs))
+    messages = [{"role": "user", "content": prompt}]
+    if prefix is not None:
+        messages.append({"role": "assistant", "content": prefix, "prefix": True})
+    js = client.post(request_body(args, messages, args.effort, args.max_tokens, args.logprobs),
+                     beta=prefix is not None)
     out = dict(latency=None, forced=False, n_prompt=0, n_cached=0, n_out=0, n_reason=0)
     if "error" in js:
         out.update(error=js["error"], fatal=js.get("fatal", False), latency=round(time.time() - t0, 1))
         return out
     ch = js["choices"][0]
     text = ch["message"].get("content") or ""
-    choice_gen = boxed_label(text, n)
     lp = (ch.get("logprobs") or {}).get("content")
-    p, mass = label_distribution(lp, text, n) if args.logprobs else (None, None)
+    if prefix is not None:
+        m = re.match(r"\s*(\d+)", text)
+        choice_gen = int(m.group(1)) if m and 1 <= int(m.group(1)) <= n else None
+        p, mass = first_token_distribution(lp, n) if args.logprobs else (None, None)
+    else:
+        choice_gen = boxed_label(text, n)
+        p, mass = label_distribution(lp, text, n) if args.logprobs else (None, None)
     usage = [js.get("usage") or {}]
     forced_text = None
     if p is not None:
@@ -298,11 +336,16 @@ def main():
     ap.add_argument("--max-tokens", type=int, help="max_completion_tokens, reasoning included (default 64 / 32768)")
     ap.add_argument("--logprobs", choices=("on", "off"), help="request logprobs (default on for direct)")
     ap.add_argument("--top-logprobs", type=int, default=5, help="alternatives per token (OpenAI maximum: 5)")
+    ap.add_argument("--max-tokens-param", choices=("max_completion_tokens", "max_tokens"),
+                    default="max_completion_tokens", help="DeepSeek honours only max_tokens")
     ap.add_argument("--temperature", type=float, help="omit by default; several reasoning models reject it")
     ap.add_argument("--forced-effort", default="none", help="reasoning_effort for the think-mode follow-up turn")
     ap.add_argument("--forced-max-tokens", type=int, default=256)
     ap.add_argument("--base-url", default=os.environ.get("OPENAI_BASE_URL", "https://api.openai.com/v1"))
-    ap.add_argument("--key-file", help="file holding the API key (used when $OPENAI_API_KEY is unset)")
+    ap.add_argument("--key-file", help="file holding the API key (takes precedence over --key-env)")
+    ap.add_argument("--key-env", default="OPENAI_API_KEY", help="environment variable holding the key")
+    ap.add_argument("--prefill", action="store_true",
+                    help="direct only: pre-fill the answer via DeepSeek beta prefix completion (tag gets -prefill)")
     ap.add_argument("--concurrency", type=int, default=8)
     ap.add_argument("--timeout", type=float, default=1200)
     ap.add_argument("--max-in-m", type=float, default=5.0, help="stop submitting after this many M prompt tokens")
@@ -310,11 +353,13 @@ def main():
     ap.add_argument("--out", type=Path)
     ap.add_argument("--dry-run", action="store_true", help="print the call count and prompt size, call nothing")
     args = ap.parse_args()
+    if args.prefill and args.mode != "direct":
+        ap.error("--prefill is for --mode direct")
     d = DEFAULTS[args.mode]
     args.effort = args.effort or d["effort"]
-    args.max_tokens = args.max_tokens or d["max_tokens"]
+    args.max_tokens = args.max_tokens or (4 if args.prefill else d["max_tokens"])
     args.logprobs = d["logprobs"] if args.logprobs is None else args.logprobs == "on"
-    args.tag = args.tag or args.model
+    args.tag = args.tag or (args.model + ("-prefill" if args.prefill else ""))
     if args.input is None:
         args.input = HERE / ("out/e2_position_label/manifest_qwen3-8b.jsonl" if args.exp == "e2"
                              else "out/e1_sets_qwen3-8b.jsonl")
@@ -325,6 +370,10 @@ def main():
                     max_tokens=args.max_tokens, logprobs=args.logprobs and args.top_logprobs,
                     temperature=args.temperature,
                     forced_effort=args.forced_effort, cands=args.cands.name)
+    if args.prefill:  # only added when used, so rows saved before these options existed still match
+        settings["prefill"] = True
+    if args.max_tokens_param != "max_completion_tokens":
+        settings["max_tokens_param"] = args.max_tokens_param
 
     probs = {p["pid"]: p["problem"] for p in json.loads((HERE / "data/problems.json").read_text(encoding="utf-8"))}
     cands = {(r["pid"], r["k"]): r["text"] for r in load_jsonl(args.cands)}
@@ -340,7 +389,7 @@ def main():
         return
 
     stop = threading.Event()
-    client = Client(args.base_url, read_key(args.key_file), args.timeout, stop)
+    client = Client(args.base_url, read_key(args.key_file, args.key_env), args.timeout, stop)
     args.out.parent.mkdir(parents=True, exist_ok=True)
     lock_path = Path(str(args.out) + ".lock")
     try:
@@ -355,7 +404,10 @@ def main():
             return
         rid, n, prompt, meta = call
         try:
-            got = ask(args, client, prompt, n)
+            prefix = None
+            if args.prefill:
+                prefix = e2_prefill(meta["task"]) if args.exp == "e2" else PREFILL["A"]
+            got = ask(args, client, prompt, n, prefix)
         except Exception as e:  # recorded and retried on the next start
             got = dict(error=f"exception: {e!r}", forced=False, n_prompt=0, n_cached=0, n_out=0, n_reason=0,
                        latency=None)

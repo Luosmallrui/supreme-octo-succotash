@@ -1,6 +1,13 @@
 # E2 托管模型评审：全量结果与进度（2026-11-26）
 
-评审模型 `gpt-5.4-mini`（`gpt-5.4-mini-2026-03-17`）和 `gpt-5.5`（`gpt-5.5-2026-04-23`），OpenAI 官方 Chat Completions，由 `api_select.py` 运行。候选与布局都取自 Qwen3-8B 的 E2 清单：236 个 select 区组，加 32 次 lookup，每个模型、每种模式共 976 次调用。数字见 `compare_e2_judges.md`（由 `e2_compare.py` 生成），每个运行的完整报告见 `report_e2_<模型>_<模式>.md`。
+评审模型共三个，全部由 `api_select.py` 运行：
+
+- OpenAI 官方 Chat Completions：`gpt-5.4-mini`（`gpt-5.4-mini-2026-03-17`）和 `gpt-5.5`（`gpt-5.5-2026-04-23`）；
+- DeepSeek API：`deepseek-flash`（DeepSeek-V4.1-Flash-1017）。
+
+候选与布局都取自 Qwen3-8B 的 E2 清单：236 个 select 区组，加 32 次 lookup，每个模型、每种模式共 976 次调用。数字见 `compare_e2_judges.md`，由 `e2_compare.py` 生成。每个运行的完整报告见 `report_e2_<评审>_<模式>.md`。
+
+`e2_compare.py` 的 bootstrap 随机种子按表格单元固定，增减评审不会改变其他评审的区间。因此下面的个别区间与旧版相差不超过 0.6 个百分点，以本文件和 `compare_e2_judges.md` 为准。
 
 ## 进度
 
@@ -8,23 +15,60 @@
 |---|---:|---|
 | gpt-5.4-mini direct | 976/976 | 完成，无报错 |
 | gpt-5.5 direct | 976/976 | 完成，无报错 |
+| deepseek-flash direct（预填读出） | 976/976 | 完成，无报错 |
 | gpt-5.4-mini think | 870/976 | 账户额度用完后中止（429 "no credits remaining"），剩 106 次 |
 | gpt-5.5 think | 693/976 | 同上，剩 283 次 |
 
-已用约 3,530 万输入 token、201 万输出 token（含小试）。补充额度后，用原命令重跑两个 think 运行即可：报错行会自动重试，已保存的行会跳过。剩余约 390 次调用，约 360 万输入 token。runner 已改为遇到额度类 429 立即整体停止，不再逐条退避重试。
+**OpenAI**：用户已要求充值前不再调用 OpenAI API。目前已用约 3,530 万输入 token、201 万输出 token（含小试）。充值后用原命令重跑两个 think 运行即可：报错行会自动重试，已保存的行会跳过。剩余约 390 次调用，约 360 万输入 token。
+
+**DeepSeek**：在非高峰时段运行，用了 936 万输入 token（其中缓存命中 52 万）、0.4 万输出 token，估计约 ¥8.9。运行刚结束时账户余额还没有扣费。
+
+runner 遇到额度类错误（OpenAI 的 429 insufficient quota、DeepSeek 的 402）会立即整体停止。
+
+## 读出方式
+
+- **GPT（direct）**：OpenAI 接口不接受预填，模型自己写出 `\boxed{k}`。编号分布取自 digit 处的 top-5 logprobs，选择取分布的 argmax。捕获的概率质量最低为 gpt-5.4-mini 0.768、gpt-5.5 0.930。
+- **DeepSeek（direct）**：用 beta「对话前缀续写」预填 "The best solution is Solution "（lookup 预填 "The printed label is Solution "），与本地 Qwen3 完全相同。分布取自第一个生成 token 的 top-20 logprobs，质量至少 0.999；`max_tokens=4`，关闭思考。
+  - 实际采样的编号与 argmax 一致的只有 58%，说明分布常常较平。
+  - 不预填时，即使关闭思考，flash 也会先写 1,300–2,000 token 的可见分析再给出 `\boxed{}`，所以没有采用那种读出。
 
 ## 主要结果（direct 已完整；think 只统计已完成的完整区组）
 
-1. **OpenAI 模型的物理位置效应远小于 Qwen3-8B。** 在 one_correct 区组上，A 放首位使选中 A 的概率提高：Qwen3-8B +63.5 [+56.2, +70.4]，gpt-5.4-mini +9.2 [+1.9, +16.9]，gpt-5.5 +8.1 [+1.2, +15.8]。与 Qwen 配对相减为 −54 和 −55。both_correct 上，gpt-5.4-mini 为 −5.2 [−12.3, +2.4]，gpt-5.5 为 +18.9 [+9.4, +27.8]，Qwen 为 +63.7。
-2. **位置对准确率的代价基本消失。** one_correct 上，Qwen3-8B 因位置损失 37.7 个百分点准确率；两个 OpenAI 模型分别为 +1.2 [−5.0, +7.3] 和 +2.3 [−0.8, +5.8]。
-3. **OpenAI 模型偏好显示编号 1，Qwen3-8B direct 没有这种偏好。** A 编号为 1 时选中 A 的概率提高：both_correct 上 gpt-5.4-mini +38.2 [+28.8, +47.6]，gpt-5.5 +18.9 [+13.7, +24.5]；one_correct 上两者分别为 +7.7 和 +8.8。Qwen3-8B direct 为 −0.5 和 −9.6。偏差的载体在两个家族间不同：Qwen 的偏差跟着物理位置走，OpenAI 模型的偏差跟着编号 token 走。后者与多选题评测中观察到的选项 ID 偏差（token bias）一致，引用前需核对文献。
-4. **OpenAI 模型能正确读出位置与编号的对应关系。** lookup（第 k 个位置上印的是几号）的成功率：gpt-5.5 direct 96.9%，think 100%；gpt-5.4-mini direct 50.0%，think 93.3%；Qwen3-8B 只有 6.2% 和 12.5%。
-5. **think 模式（部分数据）。** 位置效应在 one_correct 上为 gpt-5.4-mini +16.9 [+7.8, +25.9]、gpt-5.5 +8.8 [−4.4, +22.1]（只有 34 个区组）；Qwen3-8B 为 +50.0。both_correct 上的编号 1 偏好仍在：+18.8 和 +20.5。不过 Qwen3-8B think 在这里也有 +24.5，所以 think 模式下三者都偏好编号 1，差别主要在位置效应。
+1. **托管模型的物理位置效应远小于 Qwen3-8B。** A 放首位使选中 A 的概率提高：
+
+   | 评审 | one_correct | 与 Qwen3-8B 的配对差 | both_correct |
+   |---|---|---|---|
+   | Qwen3-8B | +63.5 [+56.2, +70.4] | — | +63.7 |
+   | gpt-5.4-mini | +9.2 [+1.9, +16.9] | −54 | −5.2 [−12.3, +2.4] |
+   | gpt-5.5 | +8.1 [+0.8, +15.8] | −55 | +18.9 [+9.9, +28.3] |
+   | deepseek-flash | +21.5 [+13.5, +29.6] | −42 | +11.8 [+4.7, +19.3] |
+
+2. **位置对准确率的代价大幅缩小。** one_correct 上，Qwen3-8B 因位置相差 37.7 个百分点准确率。托管模型的对应数字：gpt-5.4-mini +1.2 [−5.0, +7.3]，gpt-5.5 +2.3 [−0.8, +5.8]，deepseek-flash +8.1 [+2.3, +13.8]。
+3. **托管模型都偏好显示编号 1，Qwen3-8B direct 没有。** A 编号为 1 时选中 A 的概率提高：
+
+   | 评审 | both_correct | one_correct |
+   |---|---|---|
+   | gpt-5.4-mini | +38.2 [+28.8, +47.2] | +7.7 |
+   | gpt-5.5 | +18.9 [+13.7, +24.5] | +8.8 |
+   | deepseek-flash | +46.7 [+38.7, +55.2] | +21.5 [+15.8, +28.1] |
+   | Qwen3-8B direct | −0.5 | −9.6 |
+
+   DeepSeek 的读出与 Qwen 完全相同，所以编号 1 偏好不依赖“模型自己写 `\boxed{`”这种读出。但 DeepSeek 与 GPT 是不同的模型，GPT 的偏好里仍可能有一部分来自读出方式。
+4. **位置与编号的对应关系。** lookup 成功率：
+
+   | 评审 | direct | think |
+   |---|---|---|
+   | gpt-5.5 | 96.9% | 100% |
+   | gpt-5.4-mini | 50.0% | 93.3% |
+   | deepseek-flash | 28.1%（9/32） | — |
+   | Qwen3-8B | 6.2% | 12.5% |
+
+5. **think 模式（只有 GPT，部分数据）。**
+   - 位置效应（one_correct）：gpt-5.4-mini +16.9 [+7.2, +25.9]，gpt-5.5 +8.8 [−4.4, +22.1]（只有 34 个区组），Qwen3-8B +50.0。
+   - 编号效应（both_correct）：+18.8 和 +20.5，Qwen3-8B think 也有 +24.5。所以 think 模式下大家都偏好编号 1，差别主要在位置效应。
 
 ## 说明与注意
 
-- 25 区组的小试高估了 gpt-5.4-mini direct 的位置效应（+28.1，全量为 +9.2）。小试数字不要再用。
-- direct 模式没有预填：模型自己写出 `\boxed{k}`，编号分布取自 top-5 logprobs，选择取分布的 argmax。捕获的概率质量最低为 gpt-5.4-mini 0.768、gpt-5.5 0.930。Qwen 的 direct 是预填后读一个 token，两边读出方式不完全相同，论文中需要说明。
-- 编号 1 偏好可能与"模型自己写 `\boxed{`、下一个 token 是数字"这种读出方式有关。可以用 E3 式的读出变体（例如要求回答候选内容而不是编号）检验。
+- 25 区组的小试高估了 gpt-5.4-mini direct 的位置效应（小试 +28.1，全量 +9.2）。小试数字不要再用。
 - 总览表里的“选首位 %”不是干净的位置先验，因为 E2 的首位总是放 A 或 B。
-- 候选来自 Qwen3-8B，对 OpenAI 评审来说是“别人生成的”候选，正好回应自评偏好的质疑。但两边的准确率水平差别很大（direct 70% vs 79–91%），比较效应时要考虑这一点。
+- 候选来自 Qwen3-8B，对托管评审来说是“别人生成的”候选，正好回应自评偏好的质疑。但准确率水平差别很大（direct：Qwen3-8B 70%，托管模型 79–91%），比较效应时要考虑这一点。
