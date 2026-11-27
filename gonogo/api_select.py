@@ -449,10 +449,12 @@ def main():
     except FileExistsError:
         sys.exit(f"{lock_path} exists: another run is writing {args.out} (delete the lock if it is stale)")
     lock = threading.Lock()
-    tot = dict(n=0, err=0, ok=0, inp=0, out=0, reason=0, cached=0, forced=0, invalid=0)
+    tot = dict(n=0, err=0, ok=0, inp=0, out=0, reason=0, cached=0, forced=0, invalid=0, skipped=0)
 
     def run(call):
         if stop.is_set():
+            with lock:
+                tot["skipped"] += 1
             return
         rid, n, prompt, meta = call
         try:
@@ -496,13 +498,17 @@ def main():
                 f.result()
                 if i % 10 == 0 or i == len(futs):
                     el = time.time() - t0
-                    print(f"{i}/{len(futs)} {el / 60:.1f} min | errors {tot['err']} forced {tot['forced']} "
+                    print(f"{i}/{len(futs)} {el / 60:.1f} min | saved {tot['n']} (errors {tot['err']}), "
+                          f"not run after stop {tot['skipped']} | forced {tot['forced']} "
                           f"no-choice {tot['invalid']} | tokens in {tot['inp'] / 1e6:.2f}M "
                           f"(cached {tot['cached'] / 1e6:.2f}M) out {tot['out'] / 1e6:.3f}M "
                           f"(reasoning {tot['reason'] / 1e6:.3f}M)", flush=True)
     finally:
         os.close(lock_fd)
         lock_path.unlink()
+    if tot["skipped"] or tot["err"]:
+        print(f"INCOMPLETE: {tot['skipped']} calls not run and {tot['err']} saved with an error; "
+              "rerun the same command to resume", flush=True)
     print("DONE", flush=True)
 
 
