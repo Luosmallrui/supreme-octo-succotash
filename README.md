@@ -27,6 +27,8 @@
 | E3 读出形式（编号 / 引文 / 答案），协议 v2 | `e3_design.py` → `e3_run.py` → `e3_analyze.py`（`run_queue12.sh`） | `out/e3v2_readout/` |
 | E4 注意力隔离 × 共享位置编号（2×2 因果干预） | `e4_run.py` → `e4_analyze.py`（`run_queue13.sh`） | `out/e4_mask_position/` |
 | E3 v2 / E4 补充检查（干预后是否仍看内容、think 对独立解题、推理循环、引文失败） | `e34_checks.py` | `out/e4_mask_position/report_e4_checks.md`、`out/e3v2_readout/report_e3_checks.md` |
+| 位置感知的贝叶斯选择（闭式后验：计数先验 + 槽位敏感度通道），在 E1 上交叉拟合评估；首位探针模拟 | `bayes_select.py`、`bayes_select_active.py`（推导见 `out/method_bayes_select/method_bayes_select.md`） | `out/method_bayes_select/` |
+| E5 首位诱饵、E6 位置平衡的答案对决（E1 集合，direct；设计与预先登记的判据见 `out/method_bayes_select/run_designs_2026-11-27.md`） | `e5_run.py`、`e6_run.py`（共用 `label_readout.py`；`run_queue14.sh`）→ `e5_analyze.py`、`e6_analyze.py` | `out/e5_decoy/`、`out/e6_duels/` |
 
 E3 第一版（`out/e3_readout/`）因输出格式和长度预算问题丢失了大部分响应，协议 v2 的改动写在 `e3_run.py` 文件头；第一版的事后复核见 `results/e3_readout/report_e3_three_completed_rescore.md`。
 

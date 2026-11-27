@@ -36,6 +36,7 @@ Queue 11 writes raw results and reports to `~/attnbasin_gonogo/out/e3_readout/`.
 | E3 v1, currently finishing | `run_queue11.sh` | Original directory `out/e3_readout/` | Original directory `logs/queue11.log` |
 | E3 v2 | `run_queue12.sh` | Git working copy `gonogo/out/e3v2_readout/` | Git working copy `gonogo/logs/queue12.log` |
 | E4 attention and position intervention | `run_queue13.sh` | Git working copy `gonogo/out/e4_mask_position/` | Git working copy `gonogo/logs/queue13.log` |
+| E5 decoy in slot 1, E6 order-balanced answer duels | `run_queue14.sh` | Git working copy `gonogo/out/e5_decoy/`, `gonogo/out/e6_duels/` | Git working copy `gonogo/logs/queue14.log` |
 
 Figures and summary reports are in `gonogo/results/`. The `run_queue*.sh` scripts specify inputs, outputs, and parameters for each queue.
 
@@ -68,6 +69,38 @@ tail -f logs/queue13.log
 ```
 
 Queue 13 reports `QUEUE13_DONE` on success. For failed steps, inspect `logs/e3v2_*.log` or `logs/e4_*.log`, fix the problem, and follow the relevant script's resume behavior.
+
+## Queue 14: E5 decoy and E6 answer duels
+
+Both experiments use the E1 sets and candidates already in `gonogo/out/` (`e1_sets_<model>.jsonl`, `graded_<model>.jsonl`) and the E1 pre-filled readout without reasoning. Design and pre-registered success criteria: `gonogo/out/method_bayes_select/run_designs_2026-11-27.md`. Expected GPU time per model: E6 10–15 minutes (3,962 two-candidate prompts for Qwen3-8B), E5 20–30 minutes (about 2,600 prompts). The queue waits until GPU 0 is free.
+
+Pull the code, then run a short smoke test that checks vLLM and the readout on 16 prompts:
+
+```bash
+cd ~/supreme-octo-succotash && git pull --ff-only origin main
+cd gonogo
+CUDA_VISIBLE_DEVICES=0 PYTHONPATH="$PWD/pylib" ~/venvs/vllm/bin/python3 e6_run.py --model qwen3-8b --limit 16 --out /tmp/e6_smoke.jsonl
+head -c 600 /tmp/e6_smoke.jsonl
+```
+
+Each row should have `p` with two probabilities that sum to about 1 and `p_mass` close to 1. Then start the queue:
+
+```bash
+tmux new-session -d -s attention_e56 'bash run_queue14.sh >>logs/queue14.log 2>&1'
+tail -f logs/queue14.log
+```
+
+The queue verifies each output and reports `QUEUE14_DONE`. Step logs are `logs/e6_<model>.log` and `logs/e5_<model>.log`. Outputs are written as `.tmp` files and renamed only after the check passes. Then commit and push the results:
+
+```bash
+cd ~/supreme-octo-succotash
+git add gonogo/out/e5_decoy gonogo/out/e6_duels gonogo/logs/queue14.log gonogo/logs/e5_*.log gonogo/logs/e6_*.log
+git commit -m 'Add E5 decoy and E6 duel results'
+git pull --rebase origin main
+git push origin main
+```
+
+The analyses (`e5_analyze.py`, `e6_analyze.py`) run locally after the results are pulled.
 
 ## Sync new results
 
