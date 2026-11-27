@@ -26,6 +26,7 @@
 | E1 / E2 托管模型评审（OpenAI 兼容接口；direct 取 top-5 编号 logprobs，think 开推理） | `api_select.py --exp e1\|e2`（密钥读 `$OPENAI_API_KEY` 或 `--key-file`，不进仓库） → `e1_analyze.py` / `e2_analyze.py`；跨评审对比 `e2_compare.py` | `out/e1_api-*_qwen3-8b.jsonl`、`out/e2_position_label/api/` |
 | E3 读出形式（编号 / 引文 / 答案），协议 v2 | `e3_design.py` → `e3_run.py` → `e3_analyze.py`（`run_queue12.sh`） | `out/e3v2_readout/` |
 | E4 注意力隔离 × 共享位置编号（2×2 因果干预） | `e4_run.py` → `e4_analyze.py`（`run_queue13.sh`） | `out/e4_mask_position/` |
+| E3 v2 / E4 补充检查（干预后是否仍看内容、think 对独立解题、推理循环、引文失败） | `e34_checks.py` | `out/e4_mask_position/report_e4_checks.md`、`out/e3v2_readout/report_e3_checks.md` |
 
 E3 第一版（`out/e3_readout/`）因输出格式和长度预算问题丢失了大部分响应，协议 v2 的改动写在 `e3_run.py` 文件头；第一版的事后复核见 `results/e3_readout/report_e3_three_completed_rescore.md`。
 
