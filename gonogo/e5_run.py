@@ -86,6 +86,7 @@ def main():
         return
     if not args.out:
         ap.error("--out is required unless --dry_run")
+    out_path = os.path.abspath(args.out)
 
     from vllm import LLM
     from label_readout import score
@@ -108,13 +109,13 @@ def main():
         row.update(model=args.model, mode="direct", p=[round(x, 6) for x in p], p_mass=round(mass, 4),
                    choice_slot=None if choice is None else choice + 1, chose_decoy=choice == 0, n_prompt=n_prompt)
         rows.append(row)
-    os.makedirs(os.path.dirname(os.path.abspath(args.out)), exist_ok=True)
-    dump_jsonl(rows, args.out)
+    os.makedirs(os.path.dirname(out_path), exist_ok=True)
+    dump_jsonl(rows, out_path)
     for kind in sorted({r["decoy"] for r in rows}):
         rs = [r for r in rows if r["decoy"] == kind]
         print(f"{kind}: {len(rs)} calls, mean P(decoy) {sum(r['p'][0] for r in rs) / len(rs):.3f}, "
               f"decoy chosen {sum(r['chose_decoy'] for r in rs) / len(rs):.3f}", flush=True)
-    print(f"done in {time.time() - t0:.0f}s -> {args.out}", flush=True)
+    print(f"done in {time.time() - t0:.0f}s -> {out_path}", flush=True)
 
 
 if __name__ == "__main__":

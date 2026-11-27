@@ -67,6 +67,7 @@ def main():
         return
     if not args.out:
         ap.error("--out is required unless --dry_run")
+    out_path = os.path.abspath(args.out)
 
     from vllm import LLM
     from label_readout import score
@@ -82,14 +83,14 @@ def main():
         row = {k: v for k, v in c.items() if k != "content"}
         row.update(model=args.model, mode="direct", p=[round(x, 6) for x in p], p_mass=round(mass, 4), n_prompt=n_prompt)
         rows.append(row)
-    os.makedirs(os.path.dirname(os.path.abspath(args.out)), exist_ok=True)
-    dump_jsonl(rows, args.out)
+    os.makedirs(os.path.dirname(out_path), exist_ok=True)
+    dump_jsonl(rows, out_path)
     corr = [r for r in rows if r["cor_a"] != r["cor_b"]]
     if corr:
         pc = sum(r["p"][0] if r["cor_a"] else r["p"][1] for r in corr) / len(corr)
         print(f"mean P(correct) over {len(corr)} correct-vs-wrong duels: {pc:.3f}; mean P(first): "
               f"{sum(r['p'][0] for r in rows) / len(rows):.3f}", flush=True)
-    print(f"done in {time.time() - t0:.0f}s -> {args.out}", flush=True)
+    print(f"done in {time.time() - t0:.0f}s -> {out_path}", flush=True)
 
 
 if __name__ == "__main__":
