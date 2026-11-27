@@ -2,7 +2,7 @@
 
 由 `e34_checks.py` 生成。E3 的 think 模式沿用 v1 的贪心解码（温度 0）和 12,288 token 预算，以便复用 v1 生成。区间按原题整群重采样 5000 次。
 
-## qwen3-8b · think
+## qwen3-8b · think · 贪心
 
 ### 带候选解答 vs 独立解题（one_correct，answer 读出，numbered 标题）
 
@@ -32,7 +32,7 @@
 | both_correct_pair | 否 | 192 | 64.4 | 6.9 | +57.6 | 80.7 |
 | both_correct_pair | 是 | 232 | 81.1 | 8.2 | +73.0 | 95.3 |
 
-## qwen3-4b · think
+## qwen3-4b · think · 贪心
 
 ### 带候选解答 vs 独立解题（one_correct，answer 读出，numbered 标题）
 
