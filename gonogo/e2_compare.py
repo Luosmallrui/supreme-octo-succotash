@@ -18,8 +18,16 @@ METRICS = ["position: choose A", "position: correct", "label: choose A", "label:
 
 
 def load(path):
+    """One row per request: the last successful attempt, else the last failed one (API runs append retries)."""
+    final = {}
     with open(path, encoding="utf-8") as f:
-        return [json.loads(line) for line in f if line.strip()]
+        for line in f:
+            if line.strip():
+                r = json.loads(line)
+                key = r.get("request_id", len(final))
+                if "error" not in r or "error" in final.get(key, {"error": 1}):
+                    final[key] = r
+    return list(final.values())
 
 
 def block_effects(rows):

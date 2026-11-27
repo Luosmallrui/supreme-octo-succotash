@@ -94,18 +94,32 @@ def lookup_report(rows, n_boot, rng):
             f"强制收尾 {sum(r['forced'] for r in rows)}/{len(rows)} 次。"]
 
 
-def report(path, n_boot, seed):
-    groups = defaultdict(lambda: defaultdict(list))
+def final_rows(path):
+    """One row per request: API runs append a row per attempt, so keep the last successful one.
+
+    Rows with an "error" field (hosted-judge API failures) are left out; a request with no successful row is
+    therefore missing, which drops its block as incomplete. Local runs have one row per request and no errors.
+    """
+    rows = {}
     with path.open(encoding="utf-8") as stream:
         for n, line in enumerate(stream, start=1):
             if not line.strip():
                 continue
             r = json.loads(line)
-            if r["task"] not in ("select", "lookup"):
-                raise ValueError(f"Unknown task on line {n}: {r['task']}")
-            if r["task"] == "select" and any(type(r[k]) is not bool for k in ("a_first", "a_label1")):
-                raise ValueError(f"Expected two Boolean treatment indicators on line {n}")
-            groups[r["model"], r["mode"], r["N"], r["stratum"]][r["task"]].append(r)
+            if "error" in r:
+                continue
+            rows[r.get("request_id", f"line {n}")] = (n, r)
+    return sorted(rows.values(), key=lambda x: x[0])
+
+
+def report(path, n_boot, seed):
+    groups = defaultdict(lambda: defaultdict(list))
+    for n, r in final_rows(path):
+        if r["task"] not in ("select", "lookup"):
+            raise ValueError(f"Unknown task on line {n}: {r['task']}")
+        if r["task"] == "select" and any(type(r[k]) is not bool for k in ("a_first", "a_label1")):
+            raise ValueError(f"Expected two Boolean treatment indicators on line {n}")
+        groups[r["model"], r["mode"], r["N"], r["stratum"]][r["task"]].append(r)
     if not groups:
         raise ValueError(f"No results in {path}")
     lines = ["# E2 物理位置与显示编号", "",

@@ -20,6 +20,9 @@ Tested providers: OpenAI (default --base-url) and DeepSeek (--base-url https://a
 --key-file deepseek.txt --top-logprobs 20 --max-tokens-param max_tokens). Without a pre-fill, DeepSeek in
 non-thinking mode writes a full visible analysis before \boxed{k}, so use --prefill for its direct mode. A quota or balance error (429 insufficient quota, 402) stops the
 whole run; error rows are retried on the next start.
+OpenRouter (--base-url https://openrouter.ai/api/v1 --model openai/<id> --provider openai) sends the same
+body, pinned to the upstream provider; rows record that provider and the billed cost. To finish a run begun on
+the provider's own API, write to a new --out and pass the earlier file as --done-from.
 
 Rows are appended as they return. A restart skips saved request IDs, retries rows saved with an error,
 and refuses to mix rows produced with different API settings. The key comes from --key-file, else from
@@ -150,7 +153,18 @@ class Client:
                                                   "Content-Type": "application/json"})
             try:
                 with urllib.request.urlopen(req, timeout=self.timeout) as r:
-                    return json.loads(r.read())
+                    js = json.loads(r.read())
+                if "choices" in js or "error" not in js:
+                    return js
+                # OpenRouter can return HTTP 200 with an upstream error in the body
+                err = js["error"] if isinstance(js["error"], dict) else {"message": str(js["error"])}
+                code, msg = err.get("code"), str(err.get("message"))[:300]
+                if code == 402:
+                    return {"error": f"{code} {msg}", "status": code, "fatal": True}
+                if code not in RETRY:
+                    return {"error": f"{code} {msg}", "status": code}
+                last = f"{code} {msg}"
+                self.halt.wait(min(300, 10 * 2 ** attempt))
             except urllib.error.HTTPError as e:
                 msg = e.read().decode(errors="replace")[:300]
                 if e.code == 402 or (e.code == 429 and any(q in msg.lower() for q in QUOTA)):
@@ -206,6 +220,9 @@ def request_body(args, messages, effort, max_tokens, logprobs):
         body["temperature"] = args.temperature
     if logprobs:
         body.update(logprobs=True, top_logprobs=args.top_logprobs)
+    if args.provider:  # OpenRouter: serve only from these upstream providers, never fall back
+        body["provider"] = {"order": args.provider.split(","), "allow_fallbacks": False,
+                            "require_parameters": True}
     return body
 
 
@@ -256,6 +273,9 @@ def ask(args, client, prompt, n, prefix=None):
             choice = boxed_label(forced_text, n)
             usage.append(fj.get("usage") or {})
         out["forced"] = True
+    if js.get("provider"):  # OpenRouter: upstream provider and billed cost
+        out["provider"] = js["provider"]
+        out["cost"] = sum(u.get("cost") or 0 for u in usage)
     for u in usage:
         out["n_prompt"] += u.get("prompt_tokens") or 0
         out["n_cached"] += (u.get("prompt_tokens_details") or {}).get("cached_tokens") or 0
@@ -272,7 +292,7 @@ def make_row(args, settings, meta, got):
                   date=datetime.date.today().isoformat(), forced=got["forced"], finish=got.get("finish"),
                   n_prompt=got["n_prompt"], n_cached=got["n_cached"], n_out=got["n_out"], n_reason=got["n_reason"],
                   latency=got["latency"], content=got.get("content"), forced_content=got.get("forced_content"))
-    for k in ("error", "forced_error"):
+    for k in ("error", "forced_error", "provider", "cost"):
         if k in got:
             common[k] = got[k]
     choice = got.get("choice")
@@ -317,6 +337,28 @@ def load_done(path, settings):
     return done
 
 
+ROUTE_KEYS = ("base_url", "max_tokens_param", "provider")  # how a request travels, not what it asks
+
+
+def load_done_from(path, settings):
+    """Request IDs saved without error in another file whose rows asked the same thing by another route.
+
+    The model is compared without a router prefix ("openai/gpt-5.4-mini" matches "gpt-5.4-mini")."""
+    def what(s):
+        s = {k: v for k, v in s.items() if k not in ROUTE_KEYS}
+        s["model"] = str(s.get("model")).split("/")[-1]
+        return s
+    want = what(settings)
+    done = set()
+    for r in load_jsonl(path):
+        got = what(r.get("api_settings", {}))
+        if got != want:
+            sys.exit(f"{path} holds rows with other request settings: {got}")
+        if "error" not in r:
+            done.add(r["request_id"])
+    return done
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--exp", choices=("e1", "e2"), required=True)
@@ -344,6 +386,10 @@ def main():
     ap.add_argument("--base-url", default=os.environ.get("OPENAI_BASE_URL", "https://api.openai.com/v1"))
     ap.add_argument("--key-file", help="file holding the API key (takes precedence over --key-env)")
     ap.add_argument("--key-env", default="OPENAI_API_KEY", help="environment variable holding the key")
+    ap.add_argument("--provider", help="OpenRouter: comma-separated upstream providers to pin, e.g. openai")
+    ap.add_argument("--done-from", type=Path, action="append", default=[],
+                    help="also skip requests saved without error in this file (same request settings, other "
+                         "route, e.g. an earlier run on the provider's own API); repeatable")
     ap.add_argument("--prefill", action="store_true",
                     help="direct only: pre-fill the answer via DeepSeek beta prefix completion (tag gets -prefill)")
     ap.add_argument("--concurrency", type=int, default=8)
@@ -374,6 +420,8 @@ def main():
         settings["prefill"] = True
     if args.max_tokens_param != "max_completion_tokens":
         settings["max_tokens_param"] = args.max_tokens_param
+    if args.provider:
+        settings["provider"] = args.provider
 
     probs = {p["pid"]: p["problem"] for p in json.loads((HERE / "data/problems.json").read_text(encoding="utf-8"))}
     cands = {(r["pid"], r["k"]): r["text"] for r in load_jsonl(args.cands)}
@@ -381,6 +429,10 @@ def main():
     if len({c[0] for c in calls}) != len(calls):
         sys.exit("duplicate request IDs in the selected calls")
     done = load_done(args.out, settings)
+    for path in args.done_from:
+        if path.resolve() == args.out.resolve():
+            sys.exit("--done-from must name a file other than --out")
+        done |= load_done_from(path, settings)
     todo = [c for c in calls if c[0] not in done]
     chars = sum(len(c[2]) for c in todo)
     print(f"{args.exp} {args.mode} {args.model}: {len(todo)} calls to run, {len(calls) - len(todo)} already saved; "
