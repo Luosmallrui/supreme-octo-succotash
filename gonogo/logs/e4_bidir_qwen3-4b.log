@@ -1,0 +1,41 @@
+`torch_dtype` is deprecated! Use `dtype` instead!
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 3/3 [00:00<00:00, 80.22it/s]
+qwen3-4b: 948 layouts x 2 conditions, 0 already saved
+1/948 prompts, 1s
+26/948 prompts, 112s
+51/948 prompts, 166s
+76/948 prompts, 246s
+101/948 prompts, 329s
+126/948 prompts, 420s
+151/948 prompts, 490s
+176/948 prompts, 562s
+201/948 prompts, 638s
+226/948 prompts, 709s
+251/948 prompts, 777s
+276/948 prompts, 840s
+301/948 prompts, 924s
+326/948 prompts, 994s
+351/948 prompts, 1062s
+376/948 prompts, 1152s
+401/948 prompts, 1246s
+426/948 prompts, 1324s
+451/948 prompts, 1397s
+476/948 prompts, 1477s
+501/948 prompts, 1551s
+526/948 prompts, 1640s
+551/948 prompts, 1693s
+576/948 prompts, 1768s
+601/948 prompts, 1846s
+626/948 prompts, 1921s
+651/948 prompts, 1997s
+676/948 prompts, 2080s
+701/948 prompts, 2154s
+726/948 prompts, 2235s
+751/948 prompts, 2303s
+776/948 prompts, 2387s
+801/948 prompts, 2468s
+826/948 prompts, 2537s
+851/948 prompts, 2617s
+876/948 prompts, 2709s
+901/948 prompts, 2788s
+926/948 prompts, 2881s

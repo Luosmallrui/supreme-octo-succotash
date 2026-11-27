@@ -1,0 +1,7 @@
+`torch_dtype` is deprecated! Use `dtype` instead!
+Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 5/5 [00:00<00:00, 129.14it/s]
+selftest prompt math500-N8-math500-246-s0/one_correct_pair/10: 2718 tokens, block lengths [317, 257, 438, 341, 315, 294, 312, 298]
+[1] explicit causal mask vs stock forward: max |dp| = 0.00e+00 (digit mass 1.000)
+[2] bidir    seq    reversed order: max |dp| over labels = 0.988
+[2] bidir    shared reversed order: max |dp| over labels = 0.018  (must be ~0)
+[3] mask pattern sanity (isolated, bidir, causal): ok
