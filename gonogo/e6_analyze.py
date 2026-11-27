@@ -15,6 +15,7 @@ listwise E1 selection on the same sets (raw single call, vote over 3 orderings, 
 1 and 3 calls, from bayes_select.py). Token cost is reported per set.
 
   python e6_analyze.py --model qwen3-8b --output out/e6_duels/report_e6_qwen3-8b.md
+  python e6_analyze.py --model qwen3-8b --label deepseek-flash \n      --duels out/e6_duels/e6_api-deepseek-flash-prefill_qwen3-8b.jsonl \n      --calls out/e1_api-deepseek-flash-prefill-direct_qwen3-8b.jsonl   (hosted judge, api_select.py --exp e6)
 """
 import argparse
 import collections
@@ -32,6 +33,20 @@ EPS = 1e-6
 def logit(p):
     p = min(max(p, EPS), 1 - EPS)
     return float(np.log(p / (1 - p)))
+
+
+def load_duels(path):
+    """Duel rows, one per set. API files (api_select.py --exp e6) hold one row per distinct prompt with the sets
+    that use it under "sets", and may hold failed attempts: keep the last successful row per request and expand."""
+    last = {}
+    for r in B.load(path):
+        if "error" not in r and r.get("p") is not None:
+            last[r["request_id"]] = r
+    rows = []
+    for r in last.values():
+        for s in r.get("sets") or [None]:
+            rows.append(r if s is None else dict({k: v for k, v in r.items() if k != "sets"}, **s))
+    return rows
 
 
 def duel_table(rows):
@@ -54,12 +69,14 @@ def main():
     ap.add_argument("--model", required=True)
     ap.add_argument("--duels", type=Path, help="default out/e6_duels/e6_<model>.jsonl")
     ap.add_argument("--data", type=Path, default=HERE / "results", help="E1 sets and direct calls")
+    ap.add_argument("--calls", type=Path, help="listwise E1 calls of the same judge (default <data>/e1_direct_<model>.jsonl)")
+    ap.add_argument("--label", help="judge name in the report title (default: the model)")
     ap.add_argument("--B", type=int, default=5000)
     ap.add_argument("--output", type=Path)
     args = ap.parse_args()
-    rows = B.load(args.duels or HERE / f"out/e6_duels/e6_{args.model}.jsonl")
+    rows = load_duels(args.duels or HERE / f"out/e6_duels/e6_{args.model}.jsonl")
     sets = {s["set_id"]: s for s in B.load(args.data / f"e1_sets_{args.model}.jsonl")}
-    calls = B.load_calls(args.data / f"e1_direct_{args.model}.jsonl")
+    calls = B.load_calls(args.calls or args.data / f"e1_direct_{args.model}.jsonl")
     first, d, h, tokens = duel_table(rows)
 
     per_set, stats = {}, collections.defaultdict(list)
@@ -112,7 +129,8 @@ def main():
                 per_set[sid] = dict(res, pid=s["pid"], group=(g, N))
 
     methods = ["majority", "duel-only", "duel-one-order", "duel-ours", "list-raw1", "list-vote3", "list-ours1", "list-ours3"]
-    lines = [f"# E6 位置平衡的答案对决 · {args.model} · direct", "",
+    title = args.model if not args.label else f"{args.label} 评 {args.model} 的候选"
+    lines = [f"# E6 位置平衡的答案对决 · {title} · direct", "",
              "由 `e6_analyze.py` 生成。`duel-ours` 为闭式后验 γn_a + (δ/σ²)Σ_b d_ab；`duel-only` 为 γ=0；`duel-one-order` 只用一种顺序"
              "（首位优势 h 未消去）；`list-*` 为同一批集合上的 E1 列表式选择（`bayes_select.py` 的方法）。参数 5 折交叉拟合。数值为准确率 (%)。", "",
              "## 各组准确率", "",
@@ -123,6 +141,10 @@ def main():
         ratio = sum(v["duel-tokens"] for v in here) / sum(v["list3-tokens"] for v in here)
         lines.append(f"| {g} | {N} | {len(here)} | " + " | ".join(f"{100 * np.mean([v[m] for v in here]):.1f}" for m in methods)
                      + f" | {ratio:.2f} |")
+    allv = list(per_set.values())
+    ratio = sum(v["duel-tokens"] for v in allv) / sum(v["list3-tokens"] for v in allv)
+    lines.append(f"| 合并 | — | {len(allv)} | " + " | ".join(f"{100 * np.mean([v[m] for v in allv]):.1f}" for m in methods)
+                 + f" | {ratio:.2f} |")
     rng = np.random.default_rng(0)
     lines += ["", "## 合并所有组的配对差（按原题整群重采样）", "", "| 比较 | 差值 (pp) [95% CI] | 集合数 |", "|---|---|---:|"]
     for a, b in [("duel-ours", "majority"), ("duel-ours", "list-ours3"), ("duel-ours", "list-vote3"), ("duel-ours", "list-ours1"),

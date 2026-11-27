@@ -28,9 +28,16 @@ Rows are appended as they return. A restart skips saved request IDs, retries row
 and refuses to mix rows produced with different API settings. The key comes from --key-file, else from
 the variable named by --key-env (default OPENAI_API_KEY); it is never printed or written. Token caps stop new submissions.
 
+--exp e6 (direct; with --prefill for DeepSeek) runs the E6 order-balanced answer duels of e6_run.py on the E1 sets.
+        A duel prompt depends only on the problem and the two candidates, so each distinct (problem, k_a, k_b) is
+        called once and the row lists every set that uses it ("sets"); e6_analyze.py expands it. Calls are
+        ordered so that duels sharing the first solution follow one another: the first duel of every such group
+        is submitted before the rest, so later ones can hit the provider's prefix cache.
+
 Outputs are read by the existing analyses:
   E1  out/e1_api-<tag>-<mode>_qwen3-8b.jsonl  -> e1_analyze.py --data out (mode "api-<tag>-<mode>")
   E2  out/e2_position_label/api/e2_<tag>_<mode>.jsonl -> e2_analyze.py --input <file> (model = <tag>)
+  E6  out/e6_duels/e6_api-<tag>_qwen3-8b.jsonl -> e6_analyze.py --duels <file> --calls <E1 file of the same judge>
 """
 import argparse
 import concurrent.futures as cf
@@ -52,6 +59,9 @@ HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE))
 from common import PREFILL, build_user_content, last_boxed  # noqa: E402
 from e2_run import make_result as e2_make_result, prefill as e2_prefill, user_prompt as e2_user_prompt  # noqa: E402
+from e6_run import duel_calls  # noqa: E402
+
+DUEL_SET_FIELDS = ("set_id", "source", "N", "n_answers", "n_a", "n_b")
 
 LABEL = re.compile(r"\s*(?:\\text\{)?\s*(?:Solution\s*)?#?\s*(\d+)\s*\}?\s*")
 TOKEN_LABEL = re.compile(r"\s*(\d+)\s*\}?\s*")
@@ -196,6 +206,23 @@ def build_calls(args, probs, cands):
             random.Random(args.sample_seed).shuffle(keys)
             rows = [r for k in keys[:args.blocks] for r in blocks[k]]
         calls = [(r["request_id"], r["N"], e2_user_prompt(r, probs[r["pid"]], cands), r) for r in rows]
+    elif args.exp == "e6":
+        sets = load_jsonl(args.input)
+        if args.filter:
+            sets = [s for s in sets if eval(args.filter, {}, {"s": s})]
+        unique = {}
+        for c in duel_calls(sets, probs, cands):
+            rid = f"{c['pid']}/{c['k_a']}-{c['k_b']}"
+            if rid not in unique:
+                meta = {k: c[k] for k in ("pid", "k_a", "k_b", "key_a", "key_b", "cor_a", "cor_b")}
+                unique[rid] = (rid, 2, c["content"], dict(meta, sets=[]))
+            unique[rid][3]["sets"].append({k: c[k] for k in DUEL_SET_FIELDS})
+        groups = defaultdict(list)  # duels that share the problem and the first solution share a prompt prefix
+        for call in unique.values():
+            groups[call[3]["pid"], call[3]["k_a"]].append(call)
+        keys = sorted(groups)
+        calls = [groups[k][0] for k in keys] + [c for k in keys for c in groups[k][1:]]
+        return calls[:args.limit] if args.limit else calls
     else:
         sets = load_jsonl(args.input)
         if args.filter:
@@ -303,6 +330,10 @@ def make_row(args, settings, meta, got):
             return dict(row, mode=args.mode, choice_label=None, choice_slot=None, choice_candidate=None,
                         correct=False, **meta_out)
         return e2_make_result(row, args.mode, choice, **meta_out)
+    if args.exp == "e6":
+        return dict(meta, request_id=f"{meta['pid']}/{meta['k_a']}-{meta['k_b']}", model=args.tag,
+                    mode=args.mode, p=got.get("p"), p_mass=got.get("mass"), choice=choice,
+                    choice_gen=got.get("choice_gen"), **common)
     s, order = meta["s"], meta["order"]
     return dict(request_id=f"{s['set_id']}/{meta['name']}", set_id=s["set_id"], pid=s["pid"], source=s["source"],
                 N=s["N"], n_correct=s["n_correct"], order_name=meta["name"], order=order,
@@ -361,7 +392,7 @@ def load_done_from(path, settings):
 
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("--exp", choices=("e1", "e2"), required=True)
+    ap.add_argument("--exp", choices=("e1", "e2", "e6"), required=True)
     ap.add_argument("--model", required=True, help="API model ID, e.g. gpt-5.4-mini")
     ap.add_argument("--tag", help="short judge name in outputs (default: the model ID)")
     ap.add_argument("--mode", choices=("direct", "think"), required=True)
@@ -409,8 +440,11 @@ def main():
     if args.input is None:
         args.input = HERE / ("out/e2_position_label/manifest_qwen3-8b.jsonl" if args.exp == "e2"
                              else "out/e1_sets_qwen3-8b.jsonl")
+    if args.exp == "e6" and args.mode != "direct":
+        ap.error("--exp e6 is direct only")
     if args.out is None:
         args.out = HERE / (f"out/e2_position_label/api/e2_{args.tag}_{args.mode}.jsonl" if args.exp == "e2"
+                           else f"out/e6_duels/e6_api-{args.tag}_qwen3-8b.jsonl" if args.exp == "e6"
                            else f"out/e1_api-{args.tag}-{args.mode}_qwen3-8b.jsonl")
     settings = dict(base_url=args.base_url, model=args.model, mode=args.mode, effort=args.effort,
                     max_tokens=args.max_tokens, logprobs=args.logprobs and args.top_logprobs,
