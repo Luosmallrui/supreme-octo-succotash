@@ -65,6 +65,13 @@ DUEL_SET_FIELDS = ("set_id", "source", "N", "n_answers", "n_a", "n_b")
 
 LABEL = re.compile(r"\s*(?:\\text\{)?\s*(?:Solution\s*)?#?\s*(\d+)\s*\}?\s*")
 TOKEN_LABEL = re.compile(r"\s*(\d+)\s*\}?\s*")
+# --lenient: a reply that states its choice first, e.g. "Solution 8 is correct." or "The best solution is Solution 3",
+# or a bare number. "Solution 1:" followed by a derivation does not count.
+# --lenient after a pre-fill: the label continues the pre-fill ("3."), possibly opened as "\boxed{3" or "{3}";
+# a list such as "{1,2,3}" is not a choice.
+PREFILL_LABEL = re.compile(r"\s*(?:\$?\\boxed\{|\{)?\s*(\d+)(?!\d|\s*,\s*\d)")
+STATED = re.compile(r"\W*(?:(?:the\s+)?(?:best|correct)\s+(?:solution|one)\s+is\s+)?(?:solution\s*)?#?(\d+)\**"
+                    r"(?:\s*$|\s*[.)]?\s*$|\s+(?:is|was)\b|\s*[.,]\s)", re.I)
 FOLLOW_UP = ("Reply with only your final answer to the question above in the form \\boxed{{k}}, "
              "where k is an integer from 1 to {n}.")
 DEFAULTS = {"direct": dict(effort="none", max_tokens=64, logprobs=True),
@@ -247,6 +254,8 @@ def request_body(args, messages, effort, max_tokens, logprobs):
         body["temperature"] = args.temperature
     if logprobs:
         body.update(logprobs=True, top_logprobs=args.top_logprobs)
+    if getattr(args, "extra_body", ""):
+        body.update(json.loads(args.extra_body))
     if args.provider:  # OpenRouter: serve only from these upstream providers, never fall back
         body["provider"] = {"order": args.provider.split(","), "allow_fallbacks": False,
                             "require_parameters": True}
@@ -260,10 +269,10 @@ def ask(args, client, prompt, n, prefix=None):
     the first generated token, as in the local pre-filled runs."""
     t0 = time.time()
     messages = [{"role": "user", "content": prompt}]
-    if prefix is not None:
-        messages.append({"role": "assistant", "content": prefix, "prefix": True})
-    js = client.post(request_body(args, messages, args.effort, args.max_tokens, args.logprobs),
-                     beta=prefix is not None)
+    beta = prefix is not None and args.prefill_style == "beta"
+    if prefix is not None:   # DeepSeek: beta endpoint + "prefix" flag; OpenRouter: a plain last assistant message
+        messages.append(dict({"role": "assistant", "content": prefix}, **({"prefix": True} if beta else {})))
+    js = client.post(request_body(args, messages, args.effort, args.max_tokens, args.logprobs), beta=beta)
     out = dict(latency=None, forced=False, n_prompt=0, n_cached=0, n_out=0, n_reason=0)
     if "error" in js:
         out.update(error=js["error"], fatal=js.get("fatal", False), latency=round(time.time() - t0, 1))
@@ -272,11 +281,19 @@ def ask(args, client, prompt, n, prefix=None):
     text = ch["message"].get("content") or ""
     lp = (ch.get("logprobs") or {}).get("content")
     if prefix is not None:
-        m = re.match(r"\s*(\d+)", text)
+        m = (PREFILL_LABEL if args.lenient else re.compile(r"\s*(\d+)")).match(text)
         choice_gen = int(m.group(1)) if m and 1 <= int(m.group(1)) <= n else None
+        if choice_gen is None and args.lenient:   # the provider ignored the pre-fill and started a new reply
+            choice_gen = boxed_label(text, n)
+            if choice_gen is None:
+                m = STATED.match(text)
+                choice_gen = int(m.group(1)) if m and 1 <= int(m.group(1)) <= n else None
         p, mass = first_token_distribution(lp, n) if args.logprobs else (None, None)
     else:
         choice_gen = boxed_label(text, n)
+        if choice_gen is None and args.lenient:
+            m = STATED.match(text)
+            choice_gen = int(m.group(1)) if m and 1 <= int(m.group(1)) <= n else None
         p, mass = label_distribution(lp, text, n) if args.logprobs else (None, None)
     usage = [js.get("usage") or {}]
     forced_text = None
@@ -284,7 +301,7 @@ def ask(args, client, prompt, n, prefix=None):
         choice = p.index(max(p)) + 1
     else:
         choice = choice_gen
-    if choice is None and args.mode == "think":
+    if choice is None and (args.mode == "think" or args.follow_up):
         follow = FOLLOW_UP.format(n=n)
         if text.strip():
             messages = [{"role": "user", "content": prompt}, {"role": "assistant", "content": text},
@@ -429,6 +446,14 @@ def main():
     ap.add_argument("--max-out-m", type=float, default=2.0, help="stop submitting after this many M output tokens")
     ap.add_argument("--out", type=Path)
     ap.add_argument("--dry-run", action="store_true", help="print the call count and prompt size, call nothing")
+    ap.add_argument("--prefill-style", choices=("beta", "plain"), default="beta",
+                    help="with --prefill: 'beta' = DeepSeek prefix completion at <base-url>/beta; 'plain' = the pre-fill "
+                         "as the last assistant message on the normal endpoint (OpenRouter assistant prefill)")
+    ap.add_argument("--lenient", action="store_true",
+                    help="direct, no logprobs: also accept a reply that states its choice first ('Solution 8 is correct')")
+    ap.add_argument("--follow-up", action="store_true",
+                    help="direct mode: one follow-up turn asking only for \\boxed{k} when no label was read (forced=True)")
+    ap.add_argument("--extra-body", default="", help="JSON merged into every request body, e.g. '{\"enable_thinking\": false}'")
     args = ap.parse_args()
     if args.prefill and args.mode != "direct":
         ap.error("--prefill is for --mode direct")
@@ -452,6 +477,13 @@ def main():
                     forced_effort=args.forced_effort, cands=args.cands.name)
     if args.prefill:  # only added when used, so rows saved before these options existed still match
         settings["prefill"] = True
+    if args.prefill and args.prefill_style != "beta":
+        settings["prefill_style"] = args.prefill_style
+    for k in ("lenient", "follow_up"):
+        if getattr(args, k):
+            settings[k] = True
+    if args.extra_body:
+        settings["extra_body"] = json.loads(args.extra_body)
     if args.max_tokens_param != "max_completion_tokens":
         settings["max_tokens_param"] = args.max_tokens_param
     if args.provider:
