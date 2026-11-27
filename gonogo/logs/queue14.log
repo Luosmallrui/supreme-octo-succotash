@@ -1,0 +1,15 @@
+[2026-11-27T15:56:27+08:00] START E6 qwen3-8b
+[2026-11-27T16:06:38+08:00] FAIL at line 30
+[2026-11-27T16:49:50+08:00] START E6 qwen3-8b
+Verified 3962 duels
+[2026-11-27T16:59:50+08:00] OK E6 qwen3-8b
+[2026-11-27T16:59:50+08:00] START E5 qwen3-8b
+Verified 2616 decoy calls (0 with digit mass < 0.5)
+[2026-11-27T17:54:28+08:00] OK E5 qwen3-8b
+[2026-11-27T17:54:28+08:00] START E6 qwen3-4b
+Verified 4032 duels
+[2026-11-27T18:00:41+08:00] OK E6 qwen3-4b
+[2026-11-27T18:00:41+08:00] START E5 qwen3-4b
+Verified 2541 decoy calls (0 with digit mass < 0.5)
+[2026-11-27T18:34:53+08:00] OK E5 qwen3-4b
+[2026-11-27T18:34:53+08:00] QUEUE14_DONE
