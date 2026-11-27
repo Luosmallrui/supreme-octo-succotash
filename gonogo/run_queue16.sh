@@ -59,10 +59,12 @@ print(f"Verified {len(ids)} E7 queries")
 PY
     echo "[$(date -Is)] OK E7 $name on $cand"
 }
-e7_run qwen3-8b qwen3-8b
-e7_run qwen3-4b qwen3-4b
-for judge in ${JUDGES:-}; do e7_run qwen3-8b "$judge"; done
-"$PY" e7_label_answer.py --analyze "$e7"/e7_*.jsonl --output "$e7/report_e7.md"
+if [[ "${E7_RUN:-1}" == 1 ]]; then
+    e7_run qwen3-8b qwen3-8b
+    e7_run qwen3-4b qwen3-4b
+    for judge in ${JUDGES:-}; do e7_run qwen3-8b "$judge"; done
+    "$PY" e7_label_answer.py --analyze "$e7"/e7_*.jsonl --output "$e7/report_e7.md"
+fi
 
 # (2) E2 crossed design with other judges on Qwen3-8B's layouts
 for judge in ${JUDGES:-}; do
