@@ -162,14 +162,14 @@ def additive_mask(blk, mask_kind, dtype, device, chunk=4096):
 
 
 class Selector:
-    def __init__(self, model_name, device="cuda", align="left"):
+    def __init__(self, model_name, device="cuda", align="left", dtype_name="bfloat16"):
         path = MODELS.get(model_name, model_name)   # a MODELS key or a local model path (other judges)
         import torch
         from transformers import AutoModelForCausalLM, AutoTokenizer
         install_attention()
         self.torch, self.device, self.align = torch, device, align
         self.tok = AutoTokenizer.from_pretrained(path)
-        dtype = torch.bfloat16 if device == "cuda" else torch.float32
+        dtype = torch.float32 if device != "cuda" or dtype_name == "float32" else torch.bfloat16
         self.model = AutoModelForCausalLM.from_pretrained(path, torch_dtype=dtype,
                                                           attn_implementation="sdpa").to(device).eval()
         self.dtype = dtype
@@ -223,7 +223,8 @@ def run_rows(sel, rows, probs, cands, sink, done, conditions=CONDITIONS, judge=N
             label = int(np.argmax(p)) + 1
             slot = r["labels"].index(label)
             cand = r["order"][slot]
-            rec = dict(r, mode="direct", mask=mask, pos=pos, align=sel.align, p_label=[round(x, 6) for x in p],
+            rec = dict(r, mode="direct", mask=mask, pos=pos, align=sel.align,
+                       dtype=str(sel.dtype).removeprefix("torch."), p_label=[round(x, 6) for x in p],
                        p_mass=round(mass, 4), choice_label=label, choice_slot=slot + 1, choice_candidate=cand,
                        correct=bool(r["cor"][str(cand)]), n_tokens=len(ids),
                        block_lens=np.diff(bounds).tolist())
@@ -291,6 +292,7 @@ def main():
     ap.add_argument("--align", choices=("left", "right"), default="left")
     ap.add_argument("--limit", type=int, default=0)
     ap.add_argument("--selftest", action="store_true")
+    ap.add_argument("--dtype", choices=("bfloat16", "float32"), default="bfloat16")
     ap.add_argument("--conditions", default=",".join(f"{m}:{p}" for m, p in CONDITIONS),
                     help="comma list of mask:pos, mask in causal/isolated/bidir, pos in seq/shared "
                          "(default: the original 2x2; the PINE-style follow-up uses bidir:seq,bidir:shared)")
@@ -304,7 +306,7 @@ def main():
     probs = {p["pid"]: p["problem"] for p in json.loads((HERE / "data/problems.json").read_text())}
     cands = {(r["pid"], r["k"]): r["text"] for r in load_jsonl(HERE / "out" / f"graded_{args.model}.jsonl")}
     judge = (args.judge_name or Path(args.judge).name.lower()) if args.judge else None
-    sel = Selector(args.judge or args.model, align=args.align)
+    sel = Selector(args.judge or args.model, align=args.align, dtype_name=args.dtype)
     if args.selftest:
         sys.exit(0 if selftest(sel, rows, probs, cands, conditions) else 1)
     if args.out is None:

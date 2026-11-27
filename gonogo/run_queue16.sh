@@ -96,10 +96,10 @@ if [[ -n "${E4_JUDGE:-}" ]]; then
     wait_gpu "E4 $name"
     echo "[$(date -Is)] SELFTEST E4 $name"
     CUDA_VISIBLE_DEVICES=0 "$PY" e4_run.py --manifest "$e2/manifest_qwen3-8b.jsonl" --model qwen3-8b \
-        --judge "$E4_JUDGE" --judge-name "$name" --selftest --conditions "$conds" >>"logs/e4_selftest_$name.log" 2>&1
+        --judge "$E4_JUDGE" --judge-name "$name" --dtype "${E4_DTYPE:-bfloat16}" --selftest --conditions "$conds" >>"logs/e4_selftest_$name.log" 2>&1
     echo "[$(date -Is)] START E4 $name"
     CUDA_VISIBLE_DEVICES=0 "$PY" e4_run.py --manifest "$e2/manifest_qwen3-8b.jsonl" --model qwen3-8b \
-        --judge "$E4_JUDGE" --judge-name "$name" --conditions "$conds" --out "$out" >>"logs/e4_$name.log" 2>&1
+        --judge "$E4_JUDGE" --judge-name "$name" --dtype "${E4_DTYPE:-bfloat16}" --conditions "$conds" --out "$out" >>"logs/e4_$name.log" 2>&1
     "$PY" - "$e2/manifest_qwen3-8b.jsonl" "$out" <<'PY'
 import json, sys
 from collections import Counter
