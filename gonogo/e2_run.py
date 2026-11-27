@@ -147,13 +147,19 @@ def main():
 
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--manifest", type=Path, required=True)
-    ap.add_argument("--model", choices=MODELS, required=True)
+    ap.add_argument("--model", choices=MODELS, required=True,
+                    help="candidate generator: manifest rows and candidate texts (graded_<model>.jsonl)")
+    ap.add_argument("--judge", help="model that selects (default: --model, i.e. self-judging). A key of MODELS "
+                                    "or a local / Hugging Face model path, e.g. a larger Qwen3")
     ap.add_argument("--mode", choices=("direct", "think"), required=True)
     ap.add_argument("--out", type=Path, required=True)
     ap.add_argument("--batch-size", type=int, default=32)
     args = ap.parse_args()
     if args.batch_size < 1:
         ap.error("--batch-size must be positive")
+    judge = args.judge or args.model
+    judge_path = MODELS.get(judge, judge)
+    args.out = args.out.resolve()   # vLLM may change the working directory
     rows = [r for r in load_jsonl(args.manifest) if r["model"] == args.model]
     wanted = {r["request_id"]: r for r in rows}
     if not rows or len(wanted) != len(rows):
@@ -163,7 +169,7 @@ def main():
         fcntl.flock(sink, fcntl.LOCK_EX | fcntl.LOCK_NB)
         done = recover_results(sink, wanted, args.mode)
         pending = [r for r in rows if r["request_id"] not in done]
-        print(f"{args.model} {args.mode}: {len(done)}/{len(rows)} already saved", flush=True)
+        print(f"judge {judge} on {args.model} candidates, {args.mode}: {len(done)}/{len(rows)} already saved", flush=True)
         if not pending:
             return
         probs = {p["pid"]: p["problem"] for p in json.loads((HERE / "data/problems.json").read_text())}
@@ -171,13 +177,15 @@ def main():
                  for r in load_jsonl(HERE / "out" / f"graded_{args.model}.jsonl")}
         from vllm import LLM, SamplingParams
 
-        llm = LLM(model=MODELS[args.model], max_model_len=40960, gpu_memory_utilization=0.92,
+        llm = LLM(model=judge_path, max_model_len=40960, gpu_memory_utilization=0.92,
                   enable_prefix_caching=True, max_num_batched_tokens=32768, seed=0)
         scorer = SamplingParams(temperature=0.0, max_tokens=1, logprobs=20)
         tok = llm.get_tokenizer()
         for start in range(0, len(pending), args.batch_size):
             chunk = pending[start:start + args.batch_size]
             batch = run_batch(chunk, args.mode, probs, cands, llm, tok, SamplingParams, scorer)
+            if judge != args.model:
+                batch = [dict(r, judge=judge) for r in batch]
             for r in batch:
                 sink.write((json.dumps(r, ensure_ascii=False) + "\n").encode())
             sink.flush()

@@ -6,6 +6,9 @@ instruction / readout tokens are untouched.
   mask  causal    standard causal attention
         isolated  a candidate block attends only to the prefix and to its own earlier tokens; the instruction and
                   readout tokens still attend to everything before them
+        bidir     (follow-up, --conditions bidir:seq,bidir:shared) a candidate block attends to every other block in
+                  both directions, as in PINE's inter-document attention; attention inside a block stays causal.
+                  With pos=shared the readout is again order-invariant, but blocks can still compare each other.
   pos   seq       standard position ids 0..L-1
         shared    every block starts at the same position id (right after the prefix) and the instruction continues
                   after the longest block (--align right: every block ends at the same position id instead)
@@ -100,12 +103,26 @@ def position_ids(bounds, length, shared, align="left"):
     return pos
 
 
-def allowed(blk_q, blk_k, q_idx, k_idx, isolated, xp=np):
-    """Boolean attention pattern for query rows q_idx and key columns k_idx (True = may attend)."""
+MASKS = ("causal", "isolated", "bidir")
+
+
+def allowed(blk_q, blk_k, q_idx, k_idx, mask):
+    """Boolean attention pattern for query rows q_idx and key columns k_idx (True = may attend).
+
+    causal    standard causal attention
+    isolated  no attention between different candidate blocks
+    bidir     candidate blocks attend to every other candidate block in both directions (PINE-style inter-document
+              attention); attention within a block, and everything outside the blocks, stays causal
+    """
+    if mask not in MASKS:
+        raise ValueError(f"Unknown mask {mask}")
     ok = k_idx[None, :] <= q_idx[:, None]
-    if isolated:
-        bq, bk = blk_q[:, None], blk_k[None, :]
-        ok = ok & ~((bq >= 0) & (bk >= 0) & (bq != bk))
+    bq, bk = blk_q[:, None], blk_k[None, :]
+    cross = (bq >= 0) & (bk >= 0) & (bq != bk)
+    if mask == "isolated":
+        ok = ok & ~cross
+    elif mask == "bidir":
+        ok = ok | cross
     return ok
 
 
@@ -129,7 +146,7 @@ def install_attention():
     AttentionInterface.register("sdpa", masked_sdpa)
 
 
-def additive_mask(blk, isolated, dtype, device, chunk=4096):
+def additive_mask(blk, mask_kind, dtype, device, chunk=4096):
     """[1, 1, L, L] additive mask (0 / dtype min), allocated with an 8-aligned row stride for the SDPA kernels."""
     import torch
     L = len(blk)
@@ -139,7 +156,7 @@ def additive_mask(blk, isolated, dtype, device, chunk=4096):
     idx = torch.arange(L, device=device)
     for s in range(0, L, chunk):
         q = idx[s:s + chunk]
-        ok = allowed(b[q], b, q, idx, isolated)
+        ok = allowed(b[q], b, q, idx, mask_kind)
         mask[s:s + len(q), :L].masked_fill_(ok, 0.0)
     return mask[:L, :L][None, None]
 
@@ -175,13 +192,13 @@ class Selector:
             raise ValueError(f"Expected {row['N']} blocks in {row['request_id']}")
         return enc["input_ids"], bounds
 
-    def label_distribution(self, ids, bounds, isolated, shared, stock=False):
+    def label_distribution(self, ids, bounds, mask_kind, shared, stock=False):
         """Distribution over printed labels 1..N at the readout position, plus the raw digit mass."""
         torch = self.torch
         L, n = len(ids), len(bounds) - 1
         pos = position_ids(bounds, L, shared, self.align)
         with torch.no_grad():
-            STATE["mask"] = None if stock else additive_mask(block_ids(bounds, L), isolated, self.dtype, self.device)
+            STATE["mask"] = None if stock else additive_mask(block_ids(bounds, L), mask_kind, self.dtype, self.device)
             try:
                 out = self.model.model(input_ids=torch.tensor([ids], device=self.device),
                                        position_ids=torch.as_tensor(pos[None], device=self.device), use_cache=False)
@@ -193,15 +210,15 @@ class Selector:
         return (p / mass).tolist(), mass
 
 
-def run_rows(sel, rows, probs, cands, sink, done):
+def run_rows(sel, rows, probs, cands, sink, done, conditions=CONDITIONS):
     t0 = time.time()
     for i, r in enumerate(rows):
-        todo = [c for c in CONDITIONS if (r["request_id"], *c) not in done]
+        todo = [c for c in conditions if (r["request_id"], *c) not in done]
         if not todo:
             continue
         ids, bounds = sel.encode(r, probs[r["pid"]], cands)
         for mask, pos in todo:
-            p, mass = sel.label_distribution(ids, bounds, mask == "isolated", pos == "shared")
+            p, mass = sel.label_distribution(ids, bounds, mask, pos == "shared")
             label = int(np.argmax(p)) + 1
             slot = r["labels"].index(label)
             cand = r["order"][slot]
@@ -216,33 +233,48 @@ def run_rows(sel, rows, probs, cands, sink, done):
             print(f"{i + 1}/{len(rows)} prompts, {time.time() - t0:.0f}s", flush=True)
 
 
-def selftest(sel, rows, probs, cands):
+INVARIANT = {("isolated", "shared"), ("bidir", "shared")}   # order-invariant by construction
+
+
+def pattern_ok():
+    """Mask sanity on a toy layout: prefix 0-1, block 0 = 2-3, block 1 = 4-6, instruction 7-8."""
+    blk = block_ids([2, 4, 7], 9)
+    q = np.arange(9)
+    iso = allowed(blk, blk, q, q, "isolated")
+    bid = allowed(blk, blk, q, q, "bidir")
+    cau = allowed(blk, blk, q, q, "causal")
+    return bool(not iso[5, 3] and iso[5, 1] and iso[8, 3] and iso[6, 4]            # isolated: no block-to-block
+                and bid[3, 5] and bid[5, 3] and not bid[2, 3] and not bid[5, 8]    # bidir: both ways, causal inside
+                and not bid[1, 2] and bid[8, 3]
+                and (cau == (q[None, :] <= q[:, None])).all())
+
+
+def selftest(sel, rows, probs, cands, conditions=CONDITIONS):
     """Fails loudly if the intervention does not do what it claims on this model and transformers version."""
     ok = True
     r = min(rows, key=lambda x: sum(len(cands[x["pid"], k]) for k in x["order"]))
     ids, bounds = sel.encode(r, probs[r["pid"]], cands)
     print(f"selftest prompt {r['request_id']}: {len(ids)} tokens, block lengths {np.diff(bounds).tolist()}")
-    stock, _ = sel.label_distribution(ids, bounds, False, False, stock=True)
-    ours, mass = sel.label_distribution(ids, bounds, False, False)
+    stock, _ = sel.label_distribution(ids, bounds, "causal", False, stock=True)
+    ours, mass = sel.label_distribution(ids, bounds, "causal", False)
     d = max(abs(a - b) for a, b in zip(stock, ours))
     print(f"[1] explicit causal mask vs stock forward: max |dp| = {d:.2e} (digit mass {mass:.3f})")
     ok &= d < 2e-2
-    # Reverse the block order (labels stay with their candidates): only isolated+shared must be invariant.
+    # Reverse the block order (labels stay with their candidates): the INVARIANT conditions must not change.
     rev = dict(r, order=r["order"][::-1], labels=r["labels"][::-1], request_id=r["request_id"] + "/reversed")
     ids2, bounds2 = sel.encode(rev, probs[r["pid"]], cands)
-    for mask, pos in CONDITIONS:
-        a, _ = sel.label_distribution(ids, bounds, mask == "isolated", pos == "shared")
-        b, _ = sel.label_distribution(ids2, bounds2, mask == "isolated", pos == "shared")
+    for mask, pos in conditions:
+        a, _ = sel.label_distribution(ids, bounds, mask, pos == "shared")
+        b, _ = sel.label_distribution(ids2, bounds2, mask, pos == "shared")
         d = max(abs(x - y) for x, y in zip(a, b))
-        must = (mask, pos) == ("isolated", "shared")
+        must = (mask, pos) in INVARIANT
         print(f"[2] {mask:8s} {pos:6s} reversed order: max |dp| over labels = {d:.3f}"
               + ("  (must be ~0)" if must else ""))
         if must:
             ok &= d < 3e-2
-    blk = block_ids([2, 4, 7], 9)
-    pattern = allowed(blk, blk, np.arange(9), np.arange(9), True)
-    ok &= not pattern[5, 3] and pattern[5, 1] and pattern[8, 3] and pattern[6, 4]
-    print(f"[3] isolation pattern sanity: {'ok' if ok else 'FAILED'}")
+    p_ok = pattern_ok()
+    ok &= p_ok
+    print(f"[3] mask pattern sanity (isolated, bidir, causal): {'ok' if p_ok else 'FAILED'}")
     return ok
 
 
@@ -254,7 +286,13 @@ def main():
     ap.add_argument("--align", choices=("left", "right"), default="left")
     ap.add_argument("--limit", type=int, default=0)
     ap.add_argument("--selftest", action="store_true")
+    ap.add_argument("--conditions", default=",".join(f"{m}:{p}" for m, p in CONDITIONS),
+                    help="comma list of mask:pos, mask in causal/isolated/bidir, pos in seq/shared "
+                         "(default: the original 2x2; the PINE-style follow-up uses bidir:seq,bidir:shared)")
     args = ap.parse_args()
+    conditions = [tuple(c.split(":")) for c in args.conditions.split(",")]
+    if any(m not in MASKS or p not in ("seq", "shared") for m, p in conditions):
+        ap.error(f"bad --conditions {args.conditions}")
     rows = [r for r in load_jsonl(args.manifest) if r["model"] == args.model and r["task"] == "select"]
     if args.limit:
         rows = rows[:args.limit]
@@ -262,7 +300,7 @@ def main():
     cands = {(r["pid"], r["k"]): r["text"] for r in load_jsonl(HERE / "out" / f"graded_{args.model}.jsonl")}
     sel = Selector(args.model, align=args.align)
     if args.selftest:
-        sys.exit(0 if selftest(sel, rows, probs, cands) else 1)
+        sys.exit(0 if selftest(sel, rows, probs, cands, conditions) else 1)
     if args.out is None:
         ap.error("--out is required unless --selftest")
     args.out.parent.mkdir(parents=True, exist_ok=True)
@@ -272,9 +310,9 @@ def main():
             if rec.get("align") != args.align:
                 raise ValueError(f"{args.out} holds results for a different --align")
             done.add((rec["request_id"], rec["mask"], rec["pos"]))
-    print(f"{args.model}: {len(rows)} layouts x {len(CONDITIONS)} conditions, {len(done)} already saved", flush=True)
+    print(f"{args.model}: {len(rows)} layouts x {len(conditions)} conditions, {len(done)} already saved", flush=True)
     with args.out.open("a", encoding="utf-8") as sink:
-        run_rows(sel, rows, probs, cands, sink, done)
+        run_rows(sel, rows, probs, cands, sink, done, conditions)
 
 
 if __name__ == "__main__":

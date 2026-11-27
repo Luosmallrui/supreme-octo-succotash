@@ -37,6 +37,7 @@ Queue 11 writes raw results and reports to `~/attnbasin_gonogo/out/e3_readout/`.
 | E3 v2 | `run_queue12.sh` | Git working copy `gonogo/out/e3v2_readout/` | Git working copy `gonogo/logs/queue12.log` |
 | E4 attention and position intervention | `run_queue13.sh` | Git working copy `gonogo/out/e4_mask_position/` | Git working copy `gonogo/logs/queue13.log` |
 | E5 decoy in slot 1, E6 order-balanced answer duels | `run_queue14.sh` | Git working copy `gonogo/out/e5_decoy/`, `gonogo/out/e6_duels/` | Git working copy `gonogo/logs/queue14.log` |
+| Qwen3 cross-judging (E2) and bidirectional E4 conditions | `run_queue15.sh` | Git working copy `gonogo/out/e2_position_label/cross/`, `gonogo/out/e4_mask_position/e4_bidir_*` | Git working copy `gonogo/logs/queue15.log` |
 
 Figures and summary reports are in `gonogo/results/`. The `run_queue*.sh` scripts specify inputs, outputs, and parameters for each queue.
 
@@ -101,6 +102,28 @@ git push origin main
 ```
 
 The analyses (`e5_analyze.py`, `e6_analyze.py`) run locally after the results are pulled.
+
+## Queue 15: cross-judging inside Qwen3 and bidirectional inter-candidate attention
+
+Reviewer follow-ups, all without reasoning on the E2 layouts. Qwen3-4B judges Qwen3-8B's candidates and Qwen3-8B judges Qwen3-4B's (`e2_run.py --judge`), which separates self- from other-judging within one family. E4 gains two conditions in which candidate blocks attend to each other in both directions (PINE-style), with sequential and with shared position ids (`e4_run.py --conditions bidir:seq,bidir:shared`); the self-test checks that the shared-position version is order-invariant. The queue starts after queue 14 has finished and takes about 2.5 hours.
+
+```bash
+cd ~/supreme-octo-succotash && git pull --ff-only origin main
+cd gonogo
+tmux new-session -d -s attention_q15 'bash run_queue15.sh >>logs/queue15.log 2>&1'
+tail -f logs/queue15.log
+```
+
+To also run a larger judge on Qwen3-8B's candidates, start the queue with its model path, for example `LARGE_JUDGE=/data/home/202412012250/models/Qwen3-14B`. Qwen3-32B in bf16 needs an 80 GB GPU. The queue reports `QUEUE15_DONE`; step logs are `logs/e2_cross_*.log`, `logs/e4_bidir_*.log` and `logs/e4_bidir_selftest_*.log`. Then commit:
+
+```bash
+cd ~/supreme-octo-succotash
+git add gonogo/out/e2_position_label/cross gonogo/out/e4_mask_position/e4_bidir_*.jsonl \
+    gonogo/out/e4_mask_position/report_e4_with_bidir_*.md gonogo/logs/queue15.log gonogo/logs/e2_cross_*.log gonogo/logs/e4_bidir_*.log
+git commit -m 'Add Qwen3 cross-judging and bidirectional E4 results'
+git pull --rebase origin main
+git push origin main
+```
 
 ## Sync new results
 

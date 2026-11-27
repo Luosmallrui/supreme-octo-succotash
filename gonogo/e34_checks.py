@@ -28,7 +28,8 @@ from e2_analyze import cluster_mean
 HERE = Path(__file__).resolve().parent
 MODELS = ("qwen3-8b", "qwen3-4b")
 CONDITIONS = [("causal", "seq", "标准"), ("isolated", "seq", "隔离候选块"), ("causal", "shared", "共享位置编号"),
-              ("isolated", "shared", "隔离 + 共享")]
+              ("isolated", "shared", "隔离 + 共享"), ("bidir", "seq", "双向跨候选注意力"),
+              ("bidir", "shared", "双向 + 共享")]   # bidir rows come from e4_bidir_<model>.jsonl when present
 STRATA = ("one_correct_pair", "both_correct_pair")
 
 
@@ -48,6 +49,9 @@ def e4_report(B):
              "随机正确率为在 8 个候选中均匀随机选一个的期望正确率。区间按原题整群重采样 5000 次。", ""]
     for model in MODELS:
         rows = load(HERE / f"out/e4_mask_position/e4_{model}.jsonl")
+        extra = HERE / f"out/e4_mask_position/e4_bidir_{model}.jsonl"
+        if extra.exists():
+            rows += load(extra)
         for stratum in STRATA:
             lines += [f"## {model} · {stratum}", "",
                       "| 条件 | 行数 | 正确率 (%) | 随机正确率 (%) | 正确率 − 随机 (pp) | 选 A (%) | 选 B (%) | 选 A − 选 B (pp) "
@@ -55,6 +59,8 @@ def e4_report(B):
                       "|---|---:|---|---:|---|---:|---:|---|---:|---:|---|"]
             for mask, pos, name in CONDITIONS:
                 rs = [r for r in rows if (r["mask"], r["pos"]) == (mask, pos) and r["stratum"] == stratum]
+                if not rs:
+                    continue
                 pids = [r["pid"] for r in rs]
                 chance = [np.mean([r["cor"][str(k)] for k in r["order"]]) for r in rs]
                 vals = [[r["correct"], r["correct"] - c, r["choice_candidate"] == r["a"],

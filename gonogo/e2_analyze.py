@@ -119,7 +119,8 @@ def report(path, n_boot, seed):
             raise ValueError(f"Unknown task on line {n}: {r['task']}")
         if r["task"] == "select" and any(type(r[k]) is not bool for k in ("a_first", "a_label1")):
             raise ValueError(f"Expected two Boolean treatment indicators on line {n}")
-        groups[r["model"], r["mode"], r["N"], r["stratum"]][r["task"]].append(r)
+        name = r["model"] if "judge" not in r else f"{r['judge']} 评 {r['model']} 的候选"
+        groups[name, r["mode"], r["N"], r["stratum"]][r["task"]].append(r)
     if not groups:
         raise ValueError(f"No results in {path}")
     lines = ["# E2 物理位置与显示编号", "",
