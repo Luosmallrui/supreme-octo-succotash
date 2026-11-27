@@ -163,13 +163,14 @@ def additive_mask(blk, mask_kind, dtype, device, chunk=4096):
 
 class Selector:
     def __init__(self, model_name, device="cuda", align="left"):
+        path = MODELS.get(model_name, model_name)   # a MODELS key or a local model path (other judges)
         import torch
         from transformers import AutoModelForCausalLM, AutoTokenizer
         install_attention()
         self.torch, self.device, self.align = torch, device, align
-        self.tok = AutoTokenizer.from_pretrained(MODELS[model_name])
+        self.tok = AutoTokenizer.from_pretrained(path)
         dtype = torch.bfloat16 if device == "cuda" else torch.float32
-        self.model = AutoModelForCausalLM.from_pretrained(MODELS[model_name], torch_dtype=dtype,
+        self.model = AutoModelForCausalLM.from_pretrained(path, torch_dtype=dtype,
                                                           attn_implementation="sdpa").to(device).eval()
         self.dtype = dtype
         self.digits = []
@@ -210,7 +211,7 @@ class Selector:
         return (p / mass).tolist(), mass
 
 
-def run_rows(sel, rows, probs, cands, sink, done, conditions=CONDITIONS):
+def run_rows(sel, rows, probs, cands, sink, done, conditions=CONDITIONS, judge=None):
     t0 = time.time()
     for i, r in enumerate(rows):
         todo = [c for c in conditions if (r["request_id"], *c) not in done]
@@ -226,6 +227,8 @@ def run_rows(sel, rows, probs, cands, sink, done, conditions=CONDITIONS):
                        p_mass=round(mass, 4), choice_label=label, choice_slot=slot + 1, choice_candidate=cand,
                        correct=bool(r["cor"][str(cand)]), n_tokens=len(ids),
                        block_lens=np.diff(bounds).tolist())
+            if judge:
+                rec["judge"] = judge
             sink.write(json.dumps(rec, ensure_ascii=False) + "\n")
         sink.flush()
         os.fsync(sink.fileno())
@@ -281,7 +284,9 @@ def selftest(sel, rows, probs, cands, conditions=CONDITIONS):
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--manifest", type=Path, required=True, help="E2 manifest (selection rows are used)")
-    ap.add_argument("--model", choices=MODELS, required=True)
+    ap.add_argument("--model", choices=MODELS, required=True, help="candidate generator (manifest rows, candidates)")
+    ap.add_argument("--judge", help="model that selects: a local path (default: --model); checked on Llama-style models")
+    ap.add_argument("--judge-name", help="short judge name stored in each row (default: last part of the path)")
     ap.add_argument("--out", type=Path)
     ap.add_argument("--align", choices=("left", "right"), default="left")
     ap.add_argument("--limit", type=int, default=0)
@@ -298,7 +303,8 @@ def main():
         rows = rows[:args.limit]
     probs = {p["pid"]: p["problem"] for p in json.loads((HERE / "data/problems.json").read_text())}
     cands = {(r["pid"], r["k"]): r["text"] for r in load_jsonl(HERE / "out" / f"graded_{args.model}.jsonl")}
-    sel = Selector(args.model, align=args.align)
+    judge = (args.judge_name or Path(args.judge).name.lower()) if args.judge else None
+    sel = Selector(args.judge or args.model, align=args.align)
     if args.selftest:
         sys.exit(0 if selftest(sel, rows, probs, cands, conditions) else 1)
     if args.out is None:
@@ -310,9 +316,10 @@ def main():
             if rec.get("align") != args.align:
                 raise ValueError(f"{args.out} holds results for a different --align")
             done.add((rec["request_id"], rec["mask"], rec["pos"]))
-    print(f"{args.model}: {len(rows)} layouts x {len(conditions)} conditions, {len(done)} already saved", flush=True)
+    print(f"{judge or args.model} on {args.model} layouts: {len(rows)} x {len(conditions)} conditions, "
+          f"{len(done)} already saved", flush=True)
     with args.out.open("a", encoding="utf-8") as sink:
-        run_rows(sel, rows, probs, cands, sink, done, conditions)
+        run_rows(sel, rows, probs, cands, sink, done, conditions, judge)
 
 
 if __name__ == "__main__":

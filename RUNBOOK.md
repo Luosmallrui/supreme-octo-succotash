@@ -38,6 +38,7 @@ Queue 11 writes raw results and reports to `~/attnbasin_gonogo/out/e3_readout/`.
 | E4 attention and position intervention | `run_queue13.sh` | Git working copy `gonogo/out/e4_mask_position/` | Git working copy `gonogo/logs/queue13.log` |
 | E5 decoy in slot 1, E6 order-balanced answer duels | `run_queue14.sh` | Git working copy `gonogo/out/e5_decoy/`, `gonogo/out/e6_duels/` | Git working copy `gonogo/logs/queue14.log` |
 | Qwen3 cross-judging (E2) and bidirectional E4 conditions | `run_queue15.sh` | Git working copy `gonogo/out/e2_position_label/cross/`, `gonogo/out/e4_mask_position/e4_bidir_*` | Git working copy `gonogo/logs/queue15.log` |
+| Other judges (E2, E4), label→answer lookup (E7), sampled thinking readouts (E3) | `run_queue16.sh` | Git working copy `gonogo/out/e7_label_answer/`, `gonogo/out/e2_position_label/cross/`, `gonogo/out/e4_mask_position/judges/`, `gonogo/out/e3v2_readout/e3_think_sampled_*` | Git working copy `gonogo/logs/queue16.log` |
 
 Figures and summary reports are in `gonogo/results/`. The `run_queue*.sh` scripts specify inputs, outputs, and parameters for each queue.
 
@@ -121,6 +122,53 @@ cd ~/supreme-octo-succotash
 git add gonogo/out/e2_position_label/cross gonogo/out/e4_mask_position/e4_bidir_*.jsonl \
     gonogo/out/e4_mask_position/report_e4_with_bidir_*.md gonogo/logs/queue15.log gonogo/logs/e2_cross_*.log gonogo/logs/e4_bidir_*.log
 git commit -m 'Add Qwen3 cross-judging and bidirectional E4 results'
+git pull --rebase origin main
+git push origin main
+```
+
+## Queue 16: other model families, label binding, sampled thinking readouts
+
+Reviewer follow-ups (`run_queue16.sh`). They run after queue 15, without reasoning unless noted:
+1. **E7:** the label→answer lookup (`e7_label_answer.py`) asks for the final answer of the candidate printed as "Solution L".
+2. **E2 crossed design:** run with judges from other families and a larger Qwen3 on Qwen3-8B's layouts.
+3. **E4 intervention:** the 2×2 plus the bidirectional conditions, on one Llama-architecture judge.
+4. **E3 thinking-mode readouts:** label, answer and solo, rerun with Qwen3's recommended sampling instead of greedy decoding.
+
+Expected GPU time:
+- E7: a few minutes per model.
+- E2: about 15 minutes per 8–12B judge, about 40 minutes for Qwen3-32B.
+- E4: about 3 hours for an 8B judge.
+- E3 resample: 1–2 hours per model.
+
+Download the judges first, about 105 GB in total (Qwen3-32B in bf16 needs an 80 GB GPU). The `modelscope` CLI is `pip install modelscope`; Llama and Gemma may ask you to accept their licence on the model page first.
+
+```bash
+df -h /data/home/202412012250/models
+cd /data/home/202412012250/models
+modelscope download --model LLM-Research/Meta-Llama-3.1-8B-Instruct --local_dir Llama-3.1-8B-Instruct
+modelscope download --model LLM-Research/gemma-3-12b-it --local_dir gemma-3-12b-it
+modelscope download --model Qwen/Qwen3-32B --local_dir Qwen3-32B
+```
+
+Then start the queue. Every judge is optional: leave a path out of `JUDGES`, or unset `E4_JUDGE`, to skip it. `E3_SAMPLE=0` skips the resampling.
+
+```bash
+cd ~/supreme-octo-succotash && git pull --ff-only origin main
+cd gonogo
+M=/data/home/202412012250/models
+tmux new-session -d -s attention_q16 "JUDGES='$M/Llama-3.1-8B-Instruct $M/gemma-3-12b-it $M/Qwen3-32B' E4_JUDGE=$M/Llama-3.1-8B-Instruct bash run_queue16.sh >>logs/queue16.log 2>&1"
+tail -f logs/queue16.log
+```
+
+The queue reports `QUEUE16_DONE`. Step logs are `logs/e7_*.log`, `logs/e2_cross_*.log`, `logs/e4_selftest_*.log`, `logs/e4_*.log` and `logs/e3_think_sampled_*.log`. If the E4 selftest fails, the queue stops before the E4 run; send the selftest log. Then commit:
+
+```bash
+cd ~/supreme-octo-succotash
+git add gonogo/out/e7_label_answer gonogo/out/e2_position_label/cross gonogo/out/e4_mask_position/judges \
+    gonogo/out/e4_mask_position/report_e4_checks.md gonogo/out/e3v2_readout/e3_think_sampled_*.jsonl \
+    gonogo/out/e3v2_readout/report_e3_think_sampled_*.md gonogo/out/e3v2_readout/report_e3_checks.md \
+    gonogo/logs/queue16.log gonogo/logs/e7_*.log gonogo/logs/e2_cross_*.log gonogo/logs/e4_*.log gonogo/logs/e3_think_sampled_*.log
+git commit -m 'Add queue 16: other judges, label lookup, sampled thinking readouts'
 git pull --rebase origin main
 git push origin main
 ```

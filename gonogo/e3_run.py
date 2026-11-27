@@ -343,14 +343,21 @@ def main():
     ap.add_argument("--out", type=Path, required=True)
     ap.add_argument("--reuse", type=Path, help="think mode: v1 result file whose generations are reused")
     ap.add_argument("--batch-size", type=int, default=16)
+    ap.add_argument("--sample", action="store_true",
+                    help="think mode: Qwen3's recommended sampling (temperature 0.6, top-p 0.95, top-k 20) with each "
+                         "row's seed instead of greedy decoding; rows are marked decoding=sampled")
+    ap.add_argument("--readouts", help="comma list: run only these readouts, e.g. label,answer,solo_answer")
     args = ap.parse_args()
     if args.batch_size < 1:
         ap.error("--batch-size must be positive")
+    if args.sample and (args.mode != "think" or args.reuse):
+        ap.error("--sample is for think mode and cannot reuse greedy v1 generations")
     if args.reuse and args.mode != "think":
         ap.error("--reuse only applies to think mode (direct prompts changed in protocol v2)")
     import fcntl
 
-    rows = [r for r in load_jsonl(args.manifest) if r["model"] == args.model]
+    rows = [r for r in load_jsonl(args.manifest) if r["model"] == args.model
+            and (not args.readouts or r["readout"] in args.readouts.split(","))]
     wanted = {r["request_id"]: r for r in rows}
     if not rows or len(wanted) != len(rows):
         raise ValueError("No rows for this model or duplicate request IDs")
@@ -391,7 +398,10 @@ def main():
             fresh = [i for i, r in enumerate(chunk) if r["request_id"] not in reuse]
             gens = {i: dict(reuse[r["request_id"]]) for i, r in enumerate(chunk) if r["request_id"] in reuse}
             if fresh:
-                outs = llm.generate([prompts[i] for i in fresh], sampling, use_tqdm=False)
+                params = ([SamplingParams(temperature=0.6, top_p=0.95, top_k=20, seed=chunk[i]["seed"],
+                                          max_tokens=BUDGET[args.mode]) for i in fresh]
+                          if args.sample else sampling)
+                outs = llm.generate([prompts[i] for i in fresh], params, use_tqdm=False)
                 for i, o in zip(fresh, outs, strict=True):
                     g = o.outputs[0]
                     gens[i] = dict(gen=g.text, finish=g.finish_reason, n_out=len(g.token_ids),
@@ -410,6 +420,8 @@ def main():
                 final, rule = parsed[i]
                 record = result(r, args.mode, g["gen"], g["finish"], g["n_out"], g["n_prompt"], cands,
                                 final, rule, forced=i in forced_gen, forced_gen=forced_gen.get(i))
+                if args.sample:
+                    record["decoding"] = "sampled"
                 sink.write((json.dumps(record, ensure_ascii=False) + "\n").encode())
             sink.flush()
             os.fsync(sink.fileno())

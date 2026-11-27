@@ -47,13 +47,17 @@ def e4_report(B):
     lines = ["# E4 补充检查：干预后选择是否仍跟随内容", "",
              "由 `e34_checks.py` 生成。one_correct 中 A 正确、B 错误，“选 A − 选 B”衡量选择是否仍跟随内容；"
              "随机正确率为在 8 个候选中均匀随机选一个的期望正确率。区间按原题整群重采样 5000 次。", ""]
+    sources = []
     for model in MODELS:
-        rows = load(HERE / f"out/e4_mask_position/e4_{model}.jsonl")
-        extra = HERE / f"out/e4_mask_position/e4_bidir_{model}.jsonl"
-        if extra.exists():
-            rows += load(extra)
+        files = [HERE / f"out/e4_mask_position/e4_{model}.jsonl", HERE / f"out/e4_mask_position/e4_bidir_{model}.jsonl"]
+        sources.append((model, model, [f for f in files if f.exists()]))
+    for f in sorted((HERE / "out/e4_mask_position/judges").glob("e4_*_on_*.jsonl")):   # other judges (queue 16)
+        judge, cand = f.stem[3:].split("_on_")
+        sources.append((f"{judge} 评 {cand} 的布局", judge, [f]))
+    for title, model, files in sources:
+        rows = [r for f in files for r in load(f)]
         for stratum in STRATA:
-            lines += [f"## {model} · {stratum}", "",
+            lines += [f"## {title} · {stratum}", "",
                       "| 条件 | 行数 | 正确率 (%) | 随机正确率 (%) | 正确率 − 随机 (pp) | 选 A (%) | 选 B (%) | 选 A − 选 B (pp) "
                       "| 最常选的打印编号 | 其占比 (%) | 各槽位被选比例 (%)，槽位 1→8 |",
                       "|---|---:|---|---:|---|---:|---:|---|---:|---:|---|"]
@@ -88,17 +92,20 @@ def e3_report(B):
     lines = ["# E3 v2 补充检查：独立解题对照、推理循环与短句读出", "",
              "由 `e34_checks.py` 生成。E3 的 think 模式沿用 v1 的贪心解码（温度 0）和 12,288 token 预算，以便复用 v1 生成。"
              "区间按原题整群重采样 5000 次。", ""]
-    for model in MODELS:
-        rows = load(HERE / f"out/e3v2_readout/e3_think_{model}.jsonl")
+    variants = [(m, s) for m in MODELS for s in ("", "_sampled")
+                if (HERE / f"out/e3v2_readout/e3_think{s}_{m}.jsonl").exists()]
+    for model, suffix in variants:   # "_sampled": queue 16 rerun with Qwen3's recommended sampling (e3_run.py --sample)
+        rows = load(HERE / f"out/e3v2_readout/e3_think{suffix}_{model}.jsonl")
         solo = {r["pid"]: r["correct"] for r in rows if r["readout"] == "solo_answer"}
-        lines += [f"## {model} · think", "", "### 带候选解答 vs 独立解题（one_correct，answer 读出，numbered 标题）", "",
+        title = f"{model} · think" + (" · 采样重跑（温度 0.6）" if suffix else " · 贪心")
+        lines += [f"## {title}", "", "### 带候选解答 vs 独立解题（one_correct，answer 读出，numbered 标题）", "",
                   "| 首位候选 | 题数 | 带候选正确率 (%) | 独立解题正确率 (%) | 差值 (pp) |", "|---|---:|---:|---:|---|"]
         for first, name in ((True, "A（正确）"), (False, "B（错误）")):
             rs = [r for r in rows if r["readout"] == "answer" and r["header"] == "numbered"
                   and r["stratum"] == "one_correct_pair" and r["a_first"] == first and r["pid"] in solo]
             pids = [r["pid"] for r in rs]
             vals = [[r["correct"], solo[r["pid"]], r["correct"] - solo[r["pid"]]] for r in rs]
-            seed = zlib.crc32(f"e3solo|{model}|{first}".encode())
+            seed = zlib.crc32(f"e3solo|{model}{suffix}|{first}".encode())
             est, lo, hi = cluster_mean(pids, vals, B, np.random.default_rng(seed))
             lines.append(f"| {name} | {len(set(pids))} | {100 * est[0]:.1f} | {100 * est[1]:.1f} | "
                          f"{ci(est[2], lo[2], hi[2])} |")

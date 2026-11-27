@@ -102,6 +102,15 @@ def build_chat(tok, user_content, enable_thinking=False, prefill=""):
     ) + prefill
 
 
+def vllm_prompt(tok, text):
+    """Prompt string for vLLM, which tokenizes with special tokens added. Templates of Llama and Gemma already start
+    with the BOS token, so drop it here to avoid a doubled BOS. Qwen3 has no BOS token: its prompts are unchanged."""
+    bos = getattr(tok, "bos_token", None)
+    if bos and text.startswith(bos) and tok("a").input_ids[:1] == [tok.bos_token_id]:
+        return text[len(bos):]
+    return text
+
+
 def parse_index(text, N):
     b = last_boxed(text)
     for s in ([b] if b is not None else []) + [text]:

@@ -6,7 +6,7 @@ import os
 import re
 from pathlib import Path
 
-from common import MODELS, PREFILL, build_chat, build_user_content, last_boxed, load_jsonl
+from common import MODELS, PREFILL, build_chat, build_user_content, last_boxed, load_jsonl, vllm_prompt
 
 
 HERE = Path(__file__).resolve().parent
@@ -80,8 +80,8 @@ def make_result(row, mode, label, **meta):
 def run_batch(rows, mode, probs, cands, llm, tok, sampling_params, scorer):
     think = mode == "think"
     prompts = [
-        build_chat(tok, user_prompt(r, probs[r["pid"]], cands), enable_thinking=think,
-                   prefill="" if think else prefill(r["task"]))
+        vllm_prompt(tok, build_chat(tok, user_prompt(r, probs[r["pid"]], cands), enable_thinking=think,
+                                    prefill="" if think else prefill(r["task"])))
         for r in rows
     ]
     if not think:
@@ -154,6 +154,8 @@ def main():
     ap.add_argument("--mode", choices=("direct", "think"), required=True)
     ap.add_argument("--out", type=Path, required=True)
     ap.add_argument("--batch-size", type=int, default=32)
+    ap.add_argument("--max-model-len", type=int, default=40960, help="lower it for large judges (direct needs ~28K)")
+    ap.add_argument("--gpu-mem", type=float, default=0.92, help="vLLM gpu_memory_utilization")
     args = ap.parse_args()
     if args.batch_size < 1:
         ap.error("--batch-size must be positive")
@@ -177,7 +179,7 @@ def main():
                  for r in load_jsonl(HERE / "out" / f"graded_{args.model}.jsonl")}
         from vllm import LLM, SamplingParams
 
-        llm = LLM(model=judge_path, max_model_len=40960, gpu_memory_utilization=0.92,
+        llm = LLM(model=judge_path, max_model_len=args.max_model_len, gpu_memory_utilization=args.gpu_mem,
                   enable_prefix_caching=True, max_num_batched_tokens=32768, seed=0)
         scorer = SamplingParams(temperature=0.0, max_tokens=1, logprobs=20)
         tok = llm.get_tokenizer()

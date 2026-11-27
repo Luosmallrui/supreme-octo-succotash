@@ -27,7 +27,7 @@ def load(paths):
                 if not line.strip():
                     continue
                 r = json.loads(line)
-                meta.add((r["model"], r["align"]))
+                meta.add((r["model"] if "judge" not in r else f"{r['judge']} 评 {r['model']} 的布局", r["align"]))
                 key = (r["pid"], r["set_id"], r["probe_slot"], r["a"], r["b"])
                 cell = (r["a_first"], r["a_label1"])
                 cond = (r["mask"], r["pos"])
