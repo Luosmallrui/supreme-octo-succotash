@@ -1,0 +1,27 @@
+out/e3_readout/e3_think_qwen3-4b.jsonl: all 3521 v1 think generations present for reuse
+out/e3_readout/e3_think_qwen3-8b.jsonl: all 3514 v1 think generations present for reuse
+[2026-11-26T20:21:46+08:00] START e3_direct_qwen3-4b 
+Verified 3521 requests
+[2026-11-26T20:40:47+08:00] OK e3_direct_qwen3-4b
+[2026-11-26T20:40:48+08:00] START e3_direct_qwen3-8b 
+Verified 3514 requests
+Traceback (most recent call last):
+  File "e3_analyze.py", line 9, in <module>
+    from e2_analyze import cluster_mean
+ModuleNotFoundError: No module named 'e2_analyze'
+[2026-11-26T21:08:12+08:00] FAIL at line 94
+out/e3_readout/e3_think_qwen3-4b.jsonl: all 3521 v1 think generations present for reuse
+out/e3_readout/e3_think_qwen3-8b.jsonl: all 3514 v1 think generations present for reuse
+[2026-11-26T21:56:06+08:00] START e3_direct_qwen3-4b 
+Verified 3521 requests
+[2026-11-26T21:56:08+08:00] OK e3_direct_qwen3-4b
+[2026-11-26T21:56:08+08:00] START e3_direct_qwen3-8b 
+Verified 3514 requests
+[2026-11-26T21:56:09+08:00] OK e3_direct_qwen3-8b
+[2026-11-26T21:56:09+08:00] START e3_think_qwen3-4b --reuse out/e3_readout/e3_think_qwen3-4b.jsonl
+Verified 3521 requests
+[2026-11-26T22:15:06+08:00] OK e3_think_qwen3-4b
+[2026-11-26T22:15:07+08:00] START e3_think_qwen3-8b --reuse out/e3_readout/e3_think_qwen3-8b.jsonl
+Verified 3514 requests
+[2026-11-26T22:42:00+08:00] OK e3_think_qwen3-8b
+[2026-11-26T22:42:00+08:00] QUEUE12_DONE
