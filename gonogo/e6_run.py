@@ -8,6 +8,10 @@ d_ab = (logit p_ab - logit p_ba) / 2 (see e6_analyze.py).
 
   python e6_run.py --model qwen3-8b --out out/e6_duels/e6_qwen3-8b.jsonl
   python e6_run.py --model qwen3-8b --dry_run        # build prompts only (no vLLM, no tokenizer)
+
+--all-candidates  every candidate is its own unit (no grouping by answer): all N(N-1) ordered pairs of candidates,
+                  for the count-free regime and for simulating sparse duel schedules offline. --n restricts to one N.
+--judge           a local model path that selects instead of --model (whose sets and candidates are used).
 """
 import argparse
 import itertools
@@ -15,9 +19,10 @@ import json
 import os
 import sys
 import time
+from pathlib import Path
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from common import MODELS, PREFILL, build_chat, build_user_content, dump_jsonl, load_jsonl  # noqa: E402
+from common import MODELS, PREFILL, build_chat, build_user_content, dump_jsonl, load_jsonl, vllm_prompt  # noqa: E402
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 
@@ -30,17 +35,22 @@ def representatives(s):
     return rep
 
 
-def duel_calls(sets, problems, cands):
+def duel_calls(sets, problems, cands, all_candidates=False):
     calls = []
     for s in sets:
-        rep = representatives(s)
-        for a, b in itertools.permutations(sorted(rep), 2):
-            ka, kb = rep[a], rep[b]
+        if all_candidates:   # unit = candidate; key_a/key_b stay the candidates' answers
+            pairs = [(s["key"][str(ka)], s["key"][str(kb)], ka, kb)
+                     for ka, kb in itertools.permutations(sorted(int(k) for k in s["key"]), 2)]
+        else:
+            rep = representatives(s)
+            pairs = [(a, b, rep[a], rep[b]) for a, b in itertools.permutations(sorted(rep), 2)]
+        for a, b, ka, kb in pairs:
             content, _ = build_user_content(problems[s["pid"]], [cands[s["pid"], ka], cands[s["pid"], kb]], "A")
-            calls.append(dict(set_id=s["set_id"], pid=s["pid"], source=s["source"], N=s["N"], n_answers=len(rep),
+            calls.append(dict(set_id=s["set_id"], pid=s["pid"], source=s["source"], N=s["N"], n_answers=len(set(s["key"].values())),
                               request_id=f"{s['set_id']}/{ka}-{kb}", key_a=a, key_b=b, k_a=ka, k_b=kb,
                               cor_a=bool(s["cor"][str(ka)]), cor_b=bool(s["cor"][str(kb)]),
                               n_a=sum(v == a for v in s["key"].values()), n_b=sum(v == b for v in s["key"].values()),
+                              unit="candidate" if all_candidates else "answer",
                               content=content))
     return calls
 
@@ -53,11 +63,16 @@ def main():
     ap.add_argument("--limit", type=int, default=0, help="smoke test: first K calls only")
     ap.add_argument("--chunk", type=int, default=16)
     ap.add_argument("--dry_run", action="store_true")
+    ap.add_argument("--all-candidates", action="store_true", help="duel every pair of candidates, not of answers")
+    ap.add_argument("--n", type=int, help="only sets with this N")
+    ap.add_argument("--judge", help="local model path that selects (default: the --model weights)")
     args = ap.parse_args()
     sets = load_jsonl(args.sets or os.path.join(HERE, f"out/e1_sets_{args.model}.jsonl"))
     problems = {p["pid"]: p["problem"] for p in json.load(open(os.path.join(HERE, "data/problems.json"), encoding="utf-8"))}
     cands = {(r["pid"], r["k"]): r["text"] for r in load_jsonl(os.path.join(HERE, f"out/graded_{args.model}.jsonl"))}
-    calls = duel_calls(sets, problems, cands)
+    if args.n:
+        sets = [s for s in sets if s["N"] == args.n]
+    calls = duel_calls(sets, problems, cands, args.all_candidates)
     if args.limit:
         calls = calls[:args.limit]
     print(f"{len(calls)} duel calls over {len(sets)} sets; ~{sum(len(c['content']) for c in calls) / 4e6:.1f}M prompt "
@@ -71,17 +86,19 @@ def main():
 
     from vllm import LLM
     from label_readout import score
-    llm = LLM(model=MODELS[args.model], max_model_len=40960, gpu_memory_utilization=0.92,
+    llm = LLM(model=args.judge or MODELS[args.model], max_model_len=40960, gpu_memory_utilization=0.92,
               enable_prefix_caching=True, max_num_batched_tokens=32768, seed=0)
     tok = llm.get_tokenizer()
     t0 = time.time()
-    prefixes = [build_chat(tok, c["content"], enable_thinking=False, prefill=PREFILL["A"]) for c in calls]
+    prefixes = [vllm_prompt(tok, build_chat(tok, c["content"], enable_thinking=False, prefill=PREFILL["A"])) for c in calls]
     res = score(llm, prefixes, [2] * len(calls), args.chunk,
                 log=lambda m: print(f"{m} {time.time() - t0:.0f}s", flush=True))
     rows = []
     for c, (p, mass, n_prompt) in zip(calls, res):
         row = {k: v for k, v in c.items() if k != "content"}
         row.update(model=args.model, mode="direct", p=[round(x, 6) for x in p], p_mass=round(mass, 4), n_prompt=n_prompt)
+        if args.judge:
+            row["judge"] = Path(args.judge).name.lower()
         rows.append(row)
     os.makedirs(os.path.dirname(out_path), exist_ok=True)
     dump_jsonl(rows, out_path)

@@ -173,6 +173,26 @@ git pull --rebase origin main
 git push origin main
 ```
 
+## Queue 17: count-free duel matrices (route-2 check)
+
+Full order-balanced duel matrices over individual candidates (no grouping by answer) on the 130 E1 sets with N = 8, 7,280 two-candidate prompts per model (`e6_run.py --all-candidates --n 8`). Sparse duel schedules are simulated offline from these matrices. The queue waits for queue 16 and for GPU 0; about 15–25 minutes per model.
+
+```bash
+cd ~/supreme-octo-succotash && git pull --ff-only origin main
+cd gonogo
+tmux new-session -d -s attention_q17 'bash run_queue17.sh >>logs/queue17.log 2>&1'
+```
+
+It reports `QUEUE17_DONE`. Then commit:
+
+```bash
+cd ~/supreme-octo-succotash
+git add gonogo/out/e6_duels/e6_allcand_N8_*.jsonl gonogo/logs/queue17.log gonogo/logs/e6_allcand_*.log
+git commit -m 'Add count-free duel matrices (queue 17)'
+git pull --rebase origin main
+git push origin main
+```
+
 ## Sync new results
 
 In the GPU Git working copy, review, commit, and push the completed outputs. Raw results can take several minutes to push.
