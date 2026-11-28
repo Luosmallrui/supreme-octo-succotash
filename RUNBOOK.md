@@ -193,6 +193,27 @@ git pull --rebase origin main
 git push origin main
 ```
 
+## Queue 18: Llama-3.1-8B duels for the pre-registered confirmation
+
+Llama-3.1-8B-Instruct judges Qwen3-8B's natural sets through order-balanced duels: 3,962 answer duels (as E6) and 7,280 all-candidate duels on the N = 8 sets (as queue 17). These data confirm the selection rules on a second family, so **do not analyse them** until the analysis plan `gonogo/out/e6_duels/prereg_llama.md` is committed. About 30–60 minutes on GPU 0. Set `LLAMA` to the local model directory used for the Llama E4 run.
+
+```bash
+cd ~/supreme-octo-succotash && git pull --ff-only origin main
+cd gonogo
+LLAMA=/path/to/Llama-3.1-8B-Instruct tmux new-session -d -s attention_q18 'bash run_queue18.sh >>logs/queue18.log 2>&1'
+```
+
+It reports `QUEUE18_DONE`. Then commit:
+
+```bash
+cd ~/supreme-octo-succotash
+git add gonogo/out/e6_duels/e6_llama-3.1-8b_on_qwen3-8b.jsonl gonogo/out/e6_duels/e6_allcand_N8_llama-3.1-8b_on_qwen3-8b.jsonl \
+    gonogo/logs/queue18.log gonogo/logs/e6_llama-*.log
+git commit -m 'Add Llama-3.1-8B duels (queue 18)'
+git pull --rebase origin main
+git push origin main
+```
+
 ## Sync new results
 
 In the GPU Git working copy, review, commit, and push the completed outputs. Raw results can take several minutes to push.
