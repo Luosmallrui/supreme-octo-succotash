@@ -1,0 +1,22 @@
+`torch_dtype` is deprecated! Use `dtype` instead!
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00, 135.62it/s]
+selftest prompt math500-N8-math500-246-s0/one_correct_pair/10: 2616 tokens, block lengths [304, 246, 413, 327, 299, 277, 299, 284]
+[1] explicit causal mask vs stock forward: max |dp| = 0.00e+00 (digit mass 0.999)
+[2] causal   seq    reversed order: max |dp| over labels = 0.601
+[2] isolated seq    reversed order: max |dp| over labels = 0.300
+[2] causal   shared reversed order: max |dp| over labels = 0.230
+[2] isolated shared reversed order: max |dp| over labels = 0.039  (must be ~0)
+[2] bidir    seq    reversed order: max |dp| over labels = 0.242
+[2] bidir    shared reversed order: max |dp| over labels = 0.004  (must be ~0)
+[3] mask pattern sanity (isolated, bidir, causal): ok
+`torch_dtype` is deprecated! Use `dtype` instead!
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:05<00:15,  5.13s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:12<00:12,  6.26s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:19<00:06,  6.55s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:19<00:00,  4.26s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:19<00:00,  4.95s/it]
+selftest prompt math500-N8-math500-246-s0/one_correct_pair/10: 2616 tokens, block lengths [304, 246, 413, 327, 299, 277, 299, 284]
+[1] explicit causal mask vs stock forward: max |dp| = 0.00e+00 (digit mass 0.999)
+[2] causal   seq    reversed order: max |dp| over labels = 0.605
+[2] isolated seq    reversed order: max |dp| over labels = 0.309
+[2] causal   shared reversed order: max |dp| over labels = 0.216
+[2] isolated shared reversed order: max |dp| over labels = 0.000  (must be ~0)
+[2] bidir    seq    reversed order: max |dp| over labels = 0.224
+[2] bidir    shared reversed order: max |dp| over labels = 0.000  (must be ~0)
+[3] mask pattern sanity (isolated, bidir, causal): ok

@@ -1,0 +1,41 @@
+`torch_dtype` is deprecated! Use `dtype` instead!
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:05<00:15,  5.11s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:12<00:12,  6.31s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:19<00:06,  6.57s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:19<00:00,  4.24s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:19<00:00,  4.95s/it]
+llama-3.1-8b-instruct on qwen3-8b layouts: 944 x 6 conditions, 0 already saved
+1/944 prompts, 61s
+26/944 prompts, 1381s
+51/944 prompts, 2830s
+76/944 prompts, 4448s
+101/944 prompts, 6249s
+126/944 prompts, 7720s
+151/944 prompts, 9543s
+176/944 prompts, 11044s
+201/944 prompts, 12829s
+226/944 prompts, 14481s
+251/944 prompts, 15951s
+276/944 prompts, 17784s
+301/944 prompts, 19624s
+326/944 prompts, 21399s
+351/944 prompts, 22938s
+376/944 prompts, 24657s
+401/944 prompts, 26449s
+426/944 prompts, 28400s
+451/944 prompts, 29936s
+476/944 prompts, 31449s
+501/944 prompts, 32821s
+526/944 prompts, 34356s
+551/944 prompts, 35987s
+576/944 prompts, 37512s
+601/944 prompts, 38974s
+626/944 prompts, 40630s
+651/944 prompts, 42133s
+676/944 prompts, 43709s
+701/944 prompts, 45129s
+726/944 prompts, 46772s
+751/944 prompts, 48283s
+776/944 prompts, 49648s
+801/944 prompts, 51284s
+826/944 prompts, 52852s
+851/944 prompts, 54530s
+876/944 prompts, 56579s
+901/944 prompts, 58404s
+926/944 prompts, 60134s

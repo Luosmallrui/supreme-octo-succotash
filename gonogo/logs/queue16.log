@@ -1,0 +1,10 @@
+[2026-11-28T00:57:28+08:00] SELFTEST E4 llama-3.1-8b-instruct
+[2026-11-28T00:58:20+08:00] FAIL at line 98
+[2026-11-28T01:37:32+08:00] SELFTEST E4 llama-3.1-8b-instruct
+[2026-11-28T01:38:48+08:00] START E4 llama-3.1-8b-instruct
+Verified 944 layouts x 6 conditions
+Traceback (most recent call last):
+  File "e4_analyze.py", line 9, in <module>
+    from e2_analyze import cluster_mean
+ModuleNotFoundError: No module named 'e2_analyze'
+[2026-11-28T18:41:14+08:00] FAIL at line 114
