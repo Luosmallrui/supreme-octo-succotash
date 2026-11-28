@@ -95,10 +95,12 @@ def champion(ks, pref, rng):
     return champ
 
 
-def evaluate(model, data, matrix_path):
+def evaluate(model, data, matrix_path, calls_path=None):
+    """model: whose candidates and sets; calls_path: listwise calls of the same judge as the matrix
+    (default <data>/e1_direct_<model>.jsonl, i.e. the model judging itself)."""
     M = load_matrix(matrix_path)
     sets = {s["set_id"]: s for s in B.load(data / f"e1_sets_{model}.jsonl") if s["set_id"] in M}
-    calls = B.load_calls(data / f"e1_direct_{model}.jsonl")
+    calls = B.load_calls(calls_path or data / f"e1_direct_{model}.jsonl")
     S = [s for s in sets.values() if sum(r["order_name"].startswith("r") for r in calls[s["set_id"]]) == 3]
     fold = B.fold_of(S)
     h_all = {}   # set_id -> mean first-slot advantage over its pairs

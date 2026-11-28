@@ -7,6 +7,12 @@ mode think:  thinking-mode generation, then the distribution is read at the chos
 
 P(index = k) for k = 1..N: first-token logprobs give P(first digit d); for N >= 10 a second pass on
 prefix+d gives P(next digit | d), so P(10d+x) = P(d) P(x|d) and P(d alone) = P(d) (1 - sum_x P(x|d)).
+Tokenizers that encode every label 1..N as one token (Llama 3: "12" is a single token) are read in one pass from
+the label tokens themselves (readout="label tokens"); the digit-by-digit reading would split "12" in a way the model
+never sees.
+
+--judge PATH   another local model selects among --model's candidates (direct mode only); its prompts use its own
+               chat template (for Llama-3.1 including the default system turn), with a doubled BOS removed.
 """
 import argparse
 import json
@@ -17,7 +23,8 @@ import sys
 import time
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from common import MODELS, PREFILL, build_chat, build_user_content, dump_jsonl, last_boxed, load_jsonl, parse_index  # noqa: E402
+from common import (MODELS, PREFILL, build_chat, build_user_content, dump_jsonl, last_boxed, load_jsonl,  # noqa: E402
+                    parse_index, vllm_prompt)
 
 ap = argparse.ArgumentParser()
 ap.add_argument("--model", default="qwen3-8b")
@@ -31,7 +38,10 @@ ap.add_argument("--limit", type=int, default=0, help="smoke test: keep only the 
 ap.add_argument("--gen_from", default="", help="think mode: reuse generations saved in this .gen.jsonl (skip generation)")
 ap.add_argument("--chunk", type=int, default=8, help="calls per scoring chunk (second-digit pass reuses the prefix cache)")
 ap.add_argument("--out", required=True)
+ap.add_argument("--judge", default="", help="local model path that selects instead of --model (direct mode only)")
 args = ap.parse_args()
+if args.judge and args.mode != "direct":
+    ap.error("--judge is for --mode direct")
 
 here = os.path.dirname(os.path.abspath(__file__))
 PROBS = {p["pid"]: p for p in json.load(open(os.path.join(here, "data/problems.json")))}
@@ -48,6 +58,21 @@ def digit_probs(lp):
     return out
 
 
+def label_token_probs(lp, n):
+    """vLLM logprob dict -> list of P(label k), k = 1..n, for tokenizers with one token per label."""
+    p = [0.0] * n
+    for v in lp.values():
+        t = (v.decoded_token or "").strip()
+        if t.isascii() and t.isdigit() and not t.startswith("0") and 1 <= int(t) <= n:
+            p[int(t) - 1] += math.exp(v.logprob)
+    return p
+
+
+def single_token_labels(tok, n):
+    """True if every label 1..n is encoded as one token on its own."""
+    return all(len(tok.encode(str(k), add_special_tokens=False)) == 1 for k in range(1, n + 1))
+
+
 if __name__ == "__main__":
     from vllm import LLM, SamplingParams
 
@@ -55,9 +80,12 @@ if __name__ == "__main__":
     if args.filter:
         sets = [s for s in sets if eval(args.filter, {}, {"s": s})]
     cands = {(r["pid"], r["k"]): r["text"] for r in load_jsonl(os.path.join(here, f"out/graded_{args.model}.jsonl"))}
-    llm = LLM(model=MODELS[args.model], max_model_len=40960, gpu_memory_utilization=0.92,
-              enable_prefix_caching=True, max_num_batched_tokens=32768, seed=0)
+    llm = LLM(model=args.judge or MODELS[args.model], max_model_len=40960, gpu_memory_utilization=0.92,
+              enable_prefix_caching=True, max_num_batched_tokens=32768, seed=0, max_logprobs=64)
     tok = llm.get_tokenizer()
+    judge = os.path.basename(os.path.normpath(args.judge)).lower() if args.judge else None
+    one_pass = single_token_labels(tok, max(s["N"] for s in sets))
+    print(f"label readout: {'one pass over label tokens' if one_pass else 'digit by digit'}", flush=True)
 
     calls = []
     for s in sets:
@@ -65,8 +93,8 @@ if __name__ == "__main__":
             if args.orders != "all" and not any(name.startswith(p) for p in args.orders.split(",")):
                 continue
             content, _ = build_user_content(PROBS[s["pid"]]["problem"], [cands[(s["pid"], k)] for k in order], "A")
-            prompt = build_chat(tok, content, enable_thinking=(args.mode == "think"),
-                                prefill="" if args.mode == "think" else PREFILL["A"])
+            prompt = vllm_prompt(tok, build_chat(tok, content, enable_thinking=(args.mode == "think"),
+                                                prefill="" if args.mode == "think" else PREFILL["A"]))
             calls.append(dict(s=s, name=name, order=order, prompt=prompt))
     if args.limit:
         calls = calls[: args.limit]
@@ -118,15 +146,19 @@ if __name__ == "__main__":
 
     # ---- decision distribution over indices ----
     # scoring in small chunks: the second-digit prompts (prefix + d) then hit the prefix cache of the first pass
-    sp1 = SamplingParams(temperature=0.0, max_tokens=1, logprobs=20)
-    p1, p2, n_prompt = {}, {}, {}
+    n_max = max(c["s"]["N"] for c in calls)
+    sp1 = SamplingParams(temperature=0.0, max_tokens=1, logprobs=min(64, max(20, n_max + 8)) if one_pass else 20)
+    p1, p2, plab, n_prompt = {}, {}, {}, {}
     for c0 in range(0, len(calls), args.chunk):
         idx = list(range(c0, min(c0 + args.chunk, len(calls))))
         o1 = llm.generate([calls[i]["prefix"] for i in idx], sp1, use_tqdm=False)
         for i, o in zip(idx, o1):
-            p1[i] = digit_probs(o.outputs[0].logprobs[0])
+            if one_pass:
+                plab[i] = label_token_probs(o.outputs[0].logprobs[0], calls[i]["s"]["N"])
+            else:
+                p1[i] = digit_probs(o.outputs[0].logprobs[0])
             n_prompt[i] = len(o.prompt_token_ids)
-        second = [(i, d) for i in idx for d in range(1, calls[i]["s"]["N"] // 10 + 1)]
+        second = [] if one_pass else [(i, d) for i in idx for d in range(1, calls[i]["s"]["N"] // 10 + 1)]
         if second:
             o2 = llm.generate([calls[i]["prefix"] + str(d) for i, d in second], sp1, use_tqdm=False)
             for (i, d), o in zip(second, o2):
@@ -138,17 +170,20 @@ if __name__ == "__main__":
     rows = []
     for i, c in enumerate(calls):
         s, N = c["s"], c["s"]["N"]
-        first = p1[i]
-        p = [0.0] * N
-        for d in range(1, 10):
-            pd = first.get(str(d), 0.0)
-            if d > N or pd == 0:
-                continue
-            nxt = p2.get((i, d), {})
-            for x in range(10):
-                if 10 * d + x <= N:
-                    p[10 * d + x - 1] += pd * nxt.get(str(x), 0.0)
-            p[d - 1] += pd * (1 - sum(nxt.values()))
+        if one_pass:
+            p = plab[i]
+        else:
+            first = p1[i]
+            p = [0.0] * N
+            for d in range(1, 10):
+                pd = first.get(str(d), 0.0)
+                if d > N or pd == 0:
+                    continue
+                nxt = p2.get((i, d), {})
+                for x in range(10):
+                    if 10 * d + x <= N:
+                        p[10 * d + x - 1] += pd * nxt.get(str(x), 0.0)
+                p[d - 1] += pd * (1 - sum(nxt.values()))
         mass = sum(p)
         choice_p = max(range(N), key=lambda k: p[k]) + 1 if mass > 0 else None
         choice = c["choice_gen"] if (c["choice_gen"] is not None and not c["forced"]) else choice_p
@@ -160,6 +195,8 @@ if __name__ == "__main__":
                    n_prompt=n_prompt[i])
         if args.mode == "think":
             row["gen"] = c["gen"]
+        if judge:   # new fields only for other judges, so Qwen3 rows keep their format
+            row.update(judge=judge, readout="label tokens" if one_pass else "digits")
         rows.append(row)
     dump_jsonl(rows, args.out)
     import collections

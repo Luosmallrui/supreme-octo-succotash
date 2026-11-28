@@ -214,6 +214,27 @@ git pull --rebase origin main
 git push origin main
 ```
 
+## Queue 19: Llama-3.1-8B listwise selection on the natural sets
+
+The listwise half of the same confirmation: Llama-3.1-8B-Instruct selects on Qwen3-8B's 443 natural sets (E1 design, direct; 6,224 calls: three random orderings, the majority-first ordering and the cyclic shifts). `e1_run.py --judge` reads the labels from single label tokens, since Llama 3 encodes 1–32 as one token each. A 16-call smoke test on N ≥ 16 sets runs first and must read label tokens with at least 0.9 mean probability mass. The queue waits for queue 18 and GPU 0; about 1.5–3 hours. As for queue 18, do not analyse the output yourself; the analysis is `confirm_rules.py` as registered in `gonogo/out/e6_duels/prereg_llama.md`.
+
+```bash
+cd ~/supreme-octo-succotash && git pull --ff-only origin main
+cd gonogo
+LLAMA=/path/to/Llama-3.1-8B-Instruct tmux new-session -d -s attention_q19 'bash run_queue19.sh >>logs/queue19.log 2>&1'
+```
+
+It reports `QUEUE19_DONE`. Then commit:
+
+```bash
+cd ~/supreme-octo-succotash
+git add gonogo/out/e1_direct_llama-3.1-8b_on_qwen3-8b.jsonl gonogo/out/e1_smoke_llama-3.1-8b.jsonl \
+    gonogo/logs/queue19.log gonogo/logs/e1_llama-3.1-8b.log
+git commit -m 'Add Llama-3.1-8B listwise natural-set calls (queue 19)'
+git pull --rebase origin main
+git push origin main
+```
+
 ## Sync new results
 
 In the GPU Git working copy, review, commit, and push the completed outputs. Raw results can take several minutes to push.

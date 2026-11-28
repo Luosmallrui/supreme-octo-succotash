@@ -221,7 +221,12 @@ def main():
     args = ap.parse_args()
     sets = {s["set_id"]: s for s in load(args.sets or args.data / f"e1_sets_{args.model}.jsonl")}
     calls = load_calls(args.calls or args.data / f"e1_{args.mode}_{args.model}.jsonl")
+    per_set, params, rows = listwise_per_set(sets, calls)
+    report(args, per_set, params, rows)
 
+
+def listwise_per_set(sets, calls):
+    """Cross-fitted accuracy of every listwise method on every set: (per_set, params, rows)."""
     per_set = {}          # set_id -> {method: accuracy}
     params = collections.defaultdict(list)
     rows = []
@@ -276,7 +281,10 @@ def main():
                 per_set[s["set_id"]] = dict(res, pid=s["pid"], group=(g, N))
         here = [per_set[s["set_id"]] for s in S]
         rows.append((g, N, len(S), {m: 100 * np.mean([x[m] for x in here]) for m, _ in METHODS if all(m in x for x in here)}))
+    return per_set, params, rows
 
+
+def report(args, per_set, params, rows):
     rng = np.random.default_rng(0)
 
     def pooled(a, b):
