@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Route-2 check (count-free duels): full order-balanced duel matrices over individual candidates, no grouping by
-# answer, on the 130 E1 sets with N = 8 (100 MATH500 + 30 comp), 56 ordered pairs per set = 7,280 two-candidate
-# prompts per model. Sparse duel schedules are then simulated offline from these matrices.
+# answer, on the E1 sets with N = 8 (130 for 8B, 129 for 4B), 56 ordered pairs per set.
+# Sparse duel schedules are then simulated offline from these matrices.
 # Waits for queue 16 (tmux attention_q16) and for GPU 0. Expected time: ~15-25 min per model.
 set -euo pipefail
 cd "$(dirname "$0")"
@@ -26,16 +26,26 @@ for model in qwen3-8b qwen3-4b; do
         sleep 60
     done
     data="$out/e6_allcand_N8_$model.jsonl"
-    echo "[$(date -Is)] START all-candidate duels $model"
-    CUDA_VISIBLE_DEVICES=0 "$PY" e6_run.py --model "$model" --all-candidates --n 8 --out "$data.tmp" \
-        >>"logs/e6_allcand_$model.log" 2>&1
-    "$PY" - "$data.tmp" <<'PY'
+    if [[ -s "$data" ]]; then
+        echo "[$(date -Is)] REUSE completed all-candidate duels $model"
+        cp "$data" "$data.tmp"
+    elif [[ -s "$data.tmp" ]]; then
+        echo "[$(date -Is)] VERIFY existing all-candidate duels $model"
+    else
+        echo "[$(date -Is)] START all-candidate duels $model"
+        CUDA_VISIBLE_DEVICES=0 "$PY" e6_run.py --model "$model" --all-candidates --n 8 --out "$data.tmp" \
+            >>"logs/e6_allcand_$model.log" 2>&1
+    fi
+    "$PY" - "$data.tmp" "$model" <<'PY'
 import json, sys
 from collections import Counter
-rows = [json.loads(l) for l in open(sys.argv[1]) if l.strip()]
+data, model = sys.argv[1:]
+rows = [json.loads(l) for l in open(data) if l.strip()]
 ids = Counter(r["request_id"] for r in rows)
 sets = Counter(r["set_id"] for r in rows)
-if max(ids.values()) != 1 or any(v != 56 for v in sets.values()) or len(sets) != 130:
+want = {json.loads(l)["set_id"] for l in open(f"out/e1_sets_{model}.jsonl")
+        if l.strip() and json.loads(l)["N"] == 8}
+if not rows or max(ids.values()) != 1 or any(v != 56 for v in sets.values()) or set(sets) != want:
     raise SystemExit(f"incomplete: {len(rows)} rows, {len(sets)} sets")
 low = sum(r["p_mass"] < 0.5 for r in rows)
 print(f"Verified {len(rows)} duels over {len(sets)} sets ({low} with digit mass < 0.5)")
