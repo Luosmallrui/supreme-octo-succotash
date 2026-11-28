@@ -42,6 +42,7 @@ Outputs are read by the existing analyses:
 import argparse
 import concurrent.futures as cf
 import datetime
+import hashlib
 import json
 import math
 import os
@@ -72,6 +73,10 @@ TOKEN_LABEL = re.compile(r"\s*(\d+)\s*\}?\s*")
 PREFILL_LABEL = re.compile(r"\s*(?:\$?\\boxed\{|\{)?\s*(\d+)(?!\d|\s*,\s*\d)")
 STATED = re.compile(r"\W*(?:(?:the\s+)?(?:best|correct)\s+(?:solution|one)\s+is\s+)?(?:solution\s*)?#?(\d+)\**"
                     r"(?:\s*$|\s*[.)]?\s*$|\s+(?:is|was)\b|\s*[.,]\s)", re.I)
+# A reply that opens with several labels ("{6, 3, 8", "1, Solution 7, ...", "1 and Solution 4") names no single
+# choice. Before 2026-11-28 STATED accepted such lists through its "k, " branch (82 Mistral replies); --redo-lists
+# re-runs saved rows that match.
+LABEL_LIST = re.compile(r"\W*(?:solution\s*)?#?\d+\s*(?:,|and\b|or\b|&)\s*(?:solution\s*)?#?\d", re.I)
 FOLLOW_UP = ("Reply with only your final answer to the question above in the form \\boxed{{k}}, "
              "where k is an integer from 1 to {n}.")
 DEFAULTS = {"direct": dict(effort="none", max_tokens=64, logprobs=True),
@@ -268,7 +273,8 @@ def ask(args, client, prompt, n, prefix=None):
     With prefix, the assistant turn is pre-filled (DeepSeek beta prefix completion) and the label is read at
     the first generated token, as in the local pre-filled runs."""
     t0 = time.time()
-    messages = [{"role": "user", "content": prompt}]
+    system = [{"role": "system", "content": args.system}] if getattr(args, "system", "") else []
+    messages = system + [{"role": "user", "content": prompt}]
     beta = prefix is not None and args.prefill_style == "beta"
     if prefix is not None:   # DeepSeek: beta endpoint + "prefix" flag; OpenRouter: a plain last assistant message
         messages.append(dict({"role": "assistant", "content": prefix}, **({"prefix": True} if beta else {})))
@@ -295,6 +301,8 @@ def ask(args, client, prompt, n, prefix=None):
             m = STATED.match(text)
             choice_gen = int(m.group(1)) if m and 1 <= int(m.group(1)) <= n else None
         p, mass = label_distribution(lp, text, n) if args.logprobs else (None, None)
+    if args.lenient and LABEL_LIST.match(text):
+        choice_gen = None
     usage = [js.get("usage") or {}]
     forced_text = None
     if p is not None:
@@ -304,10 +312,10 @@ def ask(args, client, prompt, n, prefix=None):
     if choice is None and (args.mode == "think" or args.follow_up):
         follow = FOLLOW_UP.format(n=n)
         if text.strip():
-            messages = [{"role": "user", "content": prompt}, {"role": "assistant", "content": text},
-                        {"role": "user", "content": follow}]
+            messages = system + [{"role": "user", "content": prompt}, {"role": "assistant", "content": text},
+                                 {"role": "user", "content": follow}]
         else:
-            messages = [{"role": "user", "content": prompt + "\n\n" + follow}]
+            messages = system + [{"role": "user", "content": prompt + "\n\n" + follow}]
         fj = client.post(request_body(args, messages, args.forced_effort, args.forced_max_tokens, False))
         if "error" in fj:  # saved as an error row, so the call is retried on the next start
             out["error"] = out["forced_error"] = fj["error"]
@@ -359,8 +367,11 @@ def make_row(args, settings, meta, got):
                 correct=bool(choice is not None and s["cor"][str(order[choice - 1])]), **common)
 
 
-def load_done(path, settings):
-    """Request IDs already saved without error; repairs a torn final line; refuses mixed settings."""
+def load_done(path, settings, redo_lists=False):
+    """Request IDs already saved without error; repairs a torn final line; refuses mixed settings.
+
+    redo_lists: rows whose reply opens with a list of labels but were read as a choice (the parser before
+    LABEL_LIST) count as not done, so they run again; the analyses keep the last row per request."""
     done = set()
     if not path.exists():
         return done
@@ -381,7 +392,12 @@ def load_done(path, settings):
         if r.get("api_settings") != settings:
             sys.exit(f"{path} holds rows made with other API settings: {r.get('api_settings')}")
         if "error" not in r:
-            done.add(r["request_id"])
+            stale = (redo_lists and not r.get("forced") and r.get("choice_gen") is not None
+                     and LABEL_LIST.match(r.get("content") or ""))
+            if stale:
+                done.discard(r["request_id"])
+            else:
+                done.add(r["request_id"])
     return done
 
 
@@ -453,6 +469,10 @@ def main():
                     help="direct, no logprobs: also accept a reply that states its choice first ('Solution 8 is correct')")
     ap.add_argument("--follow-up", action="store_true",
                     help="direct mode: one follow-up turn asking only for \\boxed{k} when no label was read (forced=True)")
+    ap.add_argument("--redo-lists", action="store_true",
+                    help="re-run saved rows whose reply opens with a list of labels but was read as a choice")
+    ap.add_argument("--system-file", type=Path, help="text file sent as a system message before every prompt "
+                    "(e.g. a model card's recommended system prompt)")
     ap.add_argument("--extra-body", default="", help="JSON merged into every request body, e.g. '{\"enable_thinking\": false}'")
     args = ap.parse_args()
     if args.prefill and args.mode != "direct":
@@ -488,13 +508,16 @@ def main():
         settings["max_tokens_param"] = args.max_tokens_param
     if args.provider:
         settings["provider"] = args.provider
+    args.system = args.system_file.read_text(encoding="utf-8").strip() if args.system_file else ""
+    if args.system:
+        settings["system_sha256"] = hashlib.sha256(args.system.encode()).hexdigest()[:16]
 
     probs = {p["pid"]: p["problem"] for p in json.loads((HERE / "data/problems.json").read_text(encoding="utf-8"))}
     cands = {(r["pid"], r["k"]): r["text"] for r in load_jsonl(args.cands)}
     calls = build_calls(args, probs, cands)
     if len({c[0] for c in calls}) != len(calls):
         sys.exit("duplicate request IDs in the selected calls")
-    done = load_done(args.out, settings)
+    done = load_done(args.out, settings, args.redo_lists)
     for path in args.done_from:
         if path.resolve() == args.out.resolve():
             sys.exit("--done-from must name a file other than --out")

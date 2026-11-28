@@ -65,3 +65,9 @@ python e2_analyze.py --input out/e2_position_label/api/e2_llama-3.1-8b_direct.js
 ```
 
 其他模型只需换 `--model` 和 `--tag`；Qwen3-32B 另加 `--extra-body '{"reasoning": {"enabled": false}}'`。对比表的命令见 `e2_compare.py` 的说明，输入为 `评审:模式:文件`。
+
+## 更正（2026-11-28）：列表式回复
+
+旧解析器的 `STATED` 规则会把以 "k, " 开头的回复当作选择，所以以多个编号开头的列表（如 "{6, 3, 8, 2, 1, "、"1, Solution 7, Solution 8"）被读成选了第一个编号，没有触发追问。受影响的是 Mistral 的 83 行（其中 1 行是 lookup）和 Qwen3-32B 的 1 行，其他评审为 0 行。`api_select.py` 新增 `LABEL_LIST`，这类回复不再算选择；用 `--redo-lists` 重跑了这些调用（Mistral 21 次追问，1 次仍无编号）。分析时每个请求取最后一行。
+
+Mistral 修正后：准确率 80.2%（原 80.6%）；位置效应 +52.3 [+44.6, +60.0] / +59.0 [+50.9, +67.5]（原 +53.5 / +59.9）；编号 1 效应 +7.7 [+2.3, +13.5] / +15.6 [+9.0, +22.2]（原 +6.5 / +17.5）。Qwen3-32B 的数字不变。上表中 Mistral 一行为旧值，以 `compare_e2_judges.md` 为准。
