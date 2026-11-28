@@ -1,0 +1,10 @@
+[2026-11-28T21:53:15+08:00] START E7 qwen3-8b on qwen3-8b
+Verified 1030 E7 queries
+[2026-11-28T22:09:45+08:00] OK E7 qwen3-8b on qwen3-8b
+[2026-11-28T22:09:45+08:00] START E7 qwen3-4b on qwen3-4b
+Verified 1029 E7 queries
+[2026-11-28T22:20:58+08:00] OK E7 qwen3-4b on qwen3-4b
+wrote out/e7_label_answer/report_e7.md
+wrote /data/home/202412012250/supreme-octo-succotash/gonogo/out/e4_mask_position/report_e4_checks.md
+wrote /data/home/202412012250/supreme-octo-succotash/gonogo/out/e3v2_readout/report_e3_checks.md
+[2026-11-28T22:21:03+08:00] QUEUE16_DONE
